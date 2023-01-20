@@ -1,0 +1,269 @@
+/* 
+  Custom CSS reset by Josh W. Comeau
+  source: https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+
+/* 
+  Custom CSS reset end
+*/
+
+/* 
+  Fonts
+*/
+
+@font-face {
+	font-family: 'Work Sans';
+	src: url('fonts/WorkSans-ExtraBoldItalic.woff2') format('woff2');
+	font-weight: bold;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Work Sans';
+	src: url('fonts/WorkSans-BlackItalic.woff2') format('woff2');
+	font-weight: 900;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Work Sans';
+	src: url('fonts/WorkSans-Black.woff2') format('woff2');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Work Sans';
+	src: url('fonts/WorkSans-Italic.woff2') format('woff2');
+	font-weight: normal;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Work Sans';
+	src: url('fonts/WorkSans-ExtraBold.woff2') format('woff2');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Work Sans';
+	src: url('fonts/WorkSans-BoldItalic.woff2') format('woff2');
+	font-weight: bold;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Work Sans';
+	src: url('fonts/WorkSans-ExtraLight.woff2') format('woff2');
+	font-weight: 200;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Work Sans';
+	src: url('fonts/WorkSans-ExtraLightItalic.woff2') format('woff2');
+	font-weight: 200;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Work Sans';
+	src: url('fonts/WorkSans-Bold.woff2') format('woff2');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Work Sans';
+	src: url('fonts/WorkSans-Medium.woff2') format('woff2');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Work Sans';
+	src: url('fonts/WorkSans-LightItalic.woff2') format('woff2');
+	font-weight: 300;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Work Sans';
+	src: url('fonts/WorkSans-Light.woff2') format('woff2');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Work Sans';
+	src: url('fonts/WorkSans-MediumItalic.woff2') format('woff2');
+	font-weight: 500;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Work Sans';
+	src: url('fonts/WorkSans-SemiBold.woff2') format('woff2');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Work Sans';
+	src: url('fonts/WorkSans-ThinItalic.woff2') format('woff2');
+	font-weight: 100;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Work Sans';
+	src: url('fonts/WorkSans-SemiBoldItalic.woff2') format('woff2');
+	font-weight: 600;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Work Sans';
+	src: url('fonts/WorkSans-Thin.woff2') format('woff2');
+	font-weight: 100;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Work Sans';
+	src: url('fonts/WorkSans-Regular.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+:root {
+	--default-font: 'Work Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+	--white: hsl(0, 0%, 100%);
+	--black-coral: hsl(204, 13%, 37%);
+	--eerie-black: hsl(210, 6%, 13%);
+	--orange: hsl(13, 98%, 52%);
+	--blue: hsl(240, 100%, 50%);
+}
+
+body {
+	font-family: var(--default-font);
+	color: var(--eerie-black);
+	font-size: 1.2em;
+	display: flex;
+	flex-direction: column;
+	background-image: url('./images/noise.png');
+}
+
+a {
+	text-decoration: none;
+}
+
+a:visited {
+	color: currentColor;
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+footer {
+	position: sticky;
+	top: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1.1;
+}
+
+.container {
+	padding: 0 24px;
+	margin: 0 auto;
+	max-width: 1080px;
+	height: 100%;
+}
+
+.button {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	color: var(--blue);
+	border: 2px solid currentColor;
+	padding: 4px 16px;
+	border-radius: 4px;
+	transition: color 0.2s;
+}
+
+.button:hover {
+	color: var(--orange);
+}
