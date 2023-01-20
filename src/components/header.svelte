@@ -1,12 +1,12 @@
 <script>
-	import { GitPullRequestIcon, MailIcon } from 'svelte-feather-icons';
+	import { LoaderIcon } from 'svelte-feather-icons';
 </script>
 
 <header class="header">
 	<div class="container">
 		<div class="header__wrapper">
 			<a class="header__logo" href="/">
-				<GitPullRequestIcon size="24" />
+				<LoaderIcon size="24" />
 				<!-- Julia Shikanova -->
 			</a>
 		</div>
@@ -15,7 +15,7 @@
 
 <style>
 	.header {
-		margin: 64px 0 32px;
+		padding: 64px 0 32px;
 	}
 
 	.header__wrapper {
