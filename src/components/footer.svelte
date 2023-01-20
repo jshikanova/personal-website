@@ -29,6 +29,8 @@
 	.footer__wrapper {
 		display: flex;
 		justify-content: space-between;
+		gap: 16px;
+		flex-wrap: wrap;
 	}
 
 	.footer__text {
