@@ -26,6 +26,7 @@
 <div>
 	<input id="theme-toggle" type="checkbox" aria-label="Toggle theme" bind:checked hidden />
 	<button class="icon-button" aria-label="Toggle theme" on:click={() => (checked = !checked)}>
+		<!-- TODO: Fix flickering on FOUC -->
 		{#if checked}
 			<SunIcon />
 		{:else}
