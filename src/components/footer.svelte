@@ -1,5 +1,5 @@
 <footer class="footer">
-	<div class="container">
+	<div class="grid-container">
 		<div class="footer__wrapper">
 			<div class="footer__text">
 				Build with
