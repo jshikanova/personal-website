@@ -210,7 +210,7 @@ h6 {
 	--black-coral: hsl(204, 13%, 37%);
 	--eerie-black: hsl(210, 6%, 13%);
 	--orange: hsl(13, 98%, 52%);
-	--blue: hsl(240, 100%, 50%);
+	--ocean-blue: hsl(240deg 47% 52%);
 
 	--linen: hsl(30, 36%, 90%);
 	--medium-champagne: hsl(45, 77%, 79%);
@@ -220,7 +220,7 @@ h6 {
 	--secondary100: var(--black-coral);
 	--secondary200: var(--eerie-black);
 	--accent100: var(--orange);
-	--accent200: var(--blue);
+	--accent200: var(--ocean-blue);
 }
 
 .dark-mode:root {
@@ -245,10 +245,6 @@ a {
 	text-decoration: none;
 }
 
-a:visited {
-	color: currentColor;
-}
-
 main {
 	flex: 1 0 auto;
 }
@@ -264,7 +260,15 @@ h3,
 h4,
 h5,
 h6 {
-	line-height: 1.1;
+	line-height: 0.9;
+}
+
+h1 {
+	font-size: 4rem;
+}
+
+h2 {
+	font-size: 3rem;
 }
 
 .grid-container {
@@ -281,18 +285,20 @@ h6 {
 }
 
 .button {
-	display: flex;
+	display: inline-flex;
 	gap: 8px;
 	align-items: center;
-	color: var(--accent200);
+	background: var(--accent200);
+	color: var(--primary);
+	font-weight: 600;
 	border: 2px solid currentColor;
-	padding: 4px 16px;
-	border-radius: 4px;
-	transition: color 0.2s;
+	padding: 8px 16px;
+	border-radius: 8px;
+	transition: transform 0.2s ease-in-out;
 }
 
 .button:hover {
-	color: var(--accent100);
+	transform: scale(1.05);
 }
 
 .icon-button {

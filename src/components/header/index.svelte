@@ -1,5 +1,5 @@
 <script>
-	import { LoaderIcon } from 'svelte-feather-icons';
+	import { StarIcon } from 'svelte-feather-icons';
 
 	import ThemeToggle from './theme-toggle.svelte';
 </script>
@@ -8,7 +8,7 @@
 	<div class="grid-container">
 		<div class="header__wrapper">
 			<a class="header__logo" href="/">
-				<LoaderIcon size="24" />
+				<StarIcon />
 			</a>
 			<ThemeToggle />
 		</div>
