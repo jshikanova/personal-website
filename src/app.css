@@ -286,3 +286,15 @@ h6 {
 .button:hover {
 	color: var(--accent100);
 }
+
+.icon-button {
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: var(--secondary200);
+	transition: color 0.2s;
+}
+
+.icon-button:hover {
+	color: var(--accent100);
+}

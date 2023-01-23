@@ -1,10 +1,7 @@
 <script>
 	import { Header, Footer } from '$components';
-	import { handleTheme } from '$lib';
 
 	import '../app.css';
-
-	handleTheme();
 </script>
 
 <svelte:head>

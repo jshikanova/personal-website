@@ -1,5 +1,7 @@
 <script>
 	import { LoaderIcon } from 'svelte-feather-icons';
+
+	import ThemeToggle from './theme-toggle.svelte';
 </script>
 
 <header class="header">
@@ -7,12 +9,8 @@
 		<div class="header__wrapper">
 			<a class="header__logo" href="/">
 				<LoaderIcon size="24" />
-				<!-- Julia Shikanova -->
 			</a>
-			<div>
-				<!-- <label for="theme-toggle">Toggle theme</label> -->
-				<input id="theme-toggle" type="checkbox" aria-label="Toggle theme" />
-			</div>
+			<ThemeToggle />
 		</div>
 	</div>
 </header>
