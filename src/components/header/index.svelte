@@ -5,7 +5,7 @@
 </script>
 
 <header class="header">
-	<div class="container">
+	<div class="grid-container">
 		<div class="header__wrapper">
 			<a class="header__logo" href="/">
 				<LoaderIcon size="24" />
@@ -17,7 +17,12 @@
 
 <style>
 	.header {
-		padding: 64px 0 32px;
+		position: sticky;
+		top: 0;
+		z-index: 1;
+		padding: 32px 0;
+		background: var(--primary);
+		background-image: var(--noise-image);
 	}
 
 	.header__wrapper {

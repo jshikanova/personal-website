@@ -3,7 +3,7 @@
 </script>
 
 <div class="hero">
-	<div class="container">
+	<div class="grid-container">
 		<div class="hero__wrapper">
 			<p class="hero__greetings">
 				Hello!
@@ -24,11 +24,9 @@
 
 <style>
 	.hero {
-		display: flex;
-		flex-direction: column;
+		height: max(75vh, 0px);
+		display: grid;
 		align-items: center;
-		justify-content: center;
-		min-height: 480px;
 	}
 
 	.hero__wrapper {
