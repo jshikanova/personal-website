@@ -1,5 +1,7 @@
 <script>
 	import { LoaderIcon } from 'svelte-feather-icons';
+
+	import ThemeToggle from './theme-toggle.svelte';
 </script>
 
 <header class="header">
@@ -7,8 +9,8 @@
 		<div class="header__wrapper">
 			<a class="header__logo" href="/">
 				<LoaderIcon size="24" />
-				<!-- Julia Shikanova -->
 			</a>
+			<ThemeToggle />
 		</div>
 	</div>
 </header>
@@ -29,7 +31,7 @@
 		align-items: center;
 		gap: 8px;
 		font-weight: 600;
-		color: var(--orange);
+		color: var(--accent100);
 		font-size: 0.8rem;
 	}
 </style>

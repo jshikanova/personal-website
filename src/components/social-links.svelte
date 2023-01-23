@@ -55,10 +55,10 @@
 	}
 
 	.socials__link {
-		color: var(--eerie-black);
+		color: var(--secondary200);
 	}
 
 	.socials__link:hover {
-		color: var(--orange);
+		color: var(--accent100);
 	}
 </style>

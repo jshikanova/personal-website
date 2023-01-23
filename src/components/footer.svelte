@@ -35,10 +35,10 @@
 
 	.footer__text {
 		font-size: 0.9rem;
-		color: var(--black-coral);
+		color: var(--secondary100);
 	}
 
 	.footer__svelte-link {
-		color: var(--orange);
+		color: var(--accent100);
 	}
 </style>
