@@ -1,23 +1,27 @@
 <script>
-	import { MailIcon } from 'svelte-feather-icons';
+	import { MailIcon, TwitterIcon } from 'svelte-feather-icons';
 </script>
 
 <div class="hero">
 	<div class="grid-container">
 		<div class="hero__wrapper">
-			<p class="hero__greetings">
-				Hello!
-				<span class="hero__waving-hand" aria-label="waving hand">👋</span>
-			</p>
-			<h1 class="hero__title">
-				My name is Julie
-				<br />
-				and I am frontend developer
-			</h1>
-			<a class="button" href="mailto:juliashikanova@yandex.ru">
-				Get in touch
-				<MailIcon size="16" />
-			</a>
+			<h1 class="hero__title">Julia Shikanova</h1>
+			<h2 class="hero__subtitle">Frontend developer</h2>
+			<div class="hero__links">
+				<a class="button" href="mailto:juliashikanova@yandex.ru">
+					Get in touch
+					<MailIcon size="16" strokeWidth={3} />
+				</a>
+				<a
+					class="button"
+					href="https://twitter.com/jshikanova"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<TwitterIcon size="16" strokeWidth={3} />
+					@jshikanova
+				</a>
+			</div>
 		</div>
 	</div>
 </div>
@@ -30,23 +34,21 @@
 	}
 
 	.hero__wrapper {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-	}
-
-	.hero__greetings {
-		color: var(--accent100);
-		font-size: 1.8rem;
-		font-weight: 600;
-	}
-
-	.hero__waving-hand {
-		display: inline-block;
-		transform: scaleX(-1);
+		display: grid;
+		gap: 8px;
 	}
 
 	.hero__title {
-		margin-bottom: 48px;
+		color: var(--accent100);
+	}
+
+	.hero__subtitle {
+		margin-bottom: 24px;
+	}
+
+	.hero__links {
+		display: flex;
+		align-items: center;
+		gap: 16px;
 	}
 </style>

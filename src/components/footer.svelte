@@ -15,7 +15,7 @@
 			</div>
 			<div class="footer__text">
 				Made with <span aria-label="sparks">✨</span>
-				by Julia Shikanova
+				by Julia Shikanova <span aria-label="Woman Technologist">👩‍💻</span>
 			</div>
 		</div>
 	</div>

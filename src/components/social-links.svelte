@@ -51,14 +51,12 @@
 	}
 
 	.socials__link {
-		transition: color ease-in-out 0.3s;
-	}
-
-	.socials__link {
 		color: var(--secondary200);
+		transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
 	}
 
 	.socials__link:hover {
 		color: var(--accent100);
+		transform: scale(1.05);
 	}
 </style>
