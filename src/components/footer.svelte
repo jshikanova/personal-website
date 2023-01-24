@@ -2,9 +2,20 @@
 	<div class="grid-container">
 		<div class="footer__wrapper">
 			<div class="footer__text">
-				Build with
+				Designed and
 				<a
-					class="footer__svelte-link"
+					class="link"
+					href="https://github.com/jshikanova/personal-website"
+					title="Github repository"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					coded
+				</a>
+				with <span aria-label="sparks">✨</span>
+				by Julia Shikanova <span aria-label="Woman Technologist">👩‍💻</span>. Built with
+				<a
+					class="link link_accent"
 					href="https://kit.svelte.dev/"
 					title="Svelte Kit"
 					target="_blank"
@@ -13,10 +24,7 @@
 					SvelteKit
 				</a>
 			</div>
-			<div class="footer__text">
-				Made with <span aria-label="sparks">✨</span>
-				by Julia Shikanova <span aria-label="Woman Technologist">👩‍💻</span>
-			</div>
+			<div class="footer__text" />
 		</div>
 	</div>
 </footer>
@@ -28,17 +36,13 @@
 
 	.footer__wrapper {
 		display: flex;
-		justify-content: space-between;
-		gap: 16px;
+		justify-content: flex-end;
+		gap: 8px;
 		flex-wrap: wrap;
 	}
 
 	.footer__text {
-		font-size: 0.9rem;
+		font-size: 0.8rem;
 		color: var(--secondary100);
-	}
-
-	.footer__svelte-link {
-		color: var(--accent100);
 	}
 </style>
