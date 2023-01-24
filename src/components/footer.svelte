@@ -42,7 +42,7 @@
 	}
 
 	.footer__text {
-		font-size: 0.8rem;
+		font-size: 1rem;
 		color: var(--secondary100);
 	}
 </style>
