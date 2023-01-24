@@ -59,70 +59,6 @@ h6 {
 
 @font-face {
 	font-family: Work Sans;
-	src: url('/fonts/WorkSans-ExtraBoldItalic.woff2') format('woff2');
-	font-weight: bold;
-	font-style: italic;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: Work Sans;
-	src: url('/fonts/WorkSans-BlackItalic.woff2') format('woff2');
-	font-weight: 900;
-	font-style: italic;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: Work Sans;
-	src: url('/fonts/WorkSans-Black.woff2') format('woff2');
-	font-weight: 900;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: Work Sans;
-	src: url('/fonts/WorkSans-Italic.woff2') format('woff2');
-	font-weight: normal;
-	font-style: italic;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: Work Sans;
-	src: url('/fonts/WorkSans-ExtraBold.woff2') format('woff2');
-	font-weight: bold;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: Work Sans;
-	src: url('/fonts/WorkSans-BoldItalic.woff2') format('woff2');
-	font-weight: bold;
-	font-style: italic;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: Work Sans;
-	src: url('/fonts/WorkSans-ExtraLight.woff2') format('woff2');
-	font-weight: 200;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: Work Sans;
-	src: url('/fonts/WorkSans-ExtraLightItalic.woff2') format('woff2');
-	font-weight: 200;
-	font-style: italic;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: Work Sans;
 	src: url('/fonts/WorkSans-Bold.woff2') format('woff2');
 	font-weight: bold;
 	font-style: normal;
@@ -139,25 +75,9 @@ h6 {
 
 @font-face {
 	font-family: Work Sans;
-	src: url('/fonts/WorkSans-LightItalic.woff2') format('woff2');
-	font-weight: 300;
-	font-style: italic;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: Work Sans;
 	src: url('/fonts/WorkSans-Light.woff2') format('woff2');
 	font-weight: 300;
 	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: Work Sans;
-	src: url('/fonts/WorkSans-MediumItalic.woff2') format('woff2');
-	font-weight: 500;
-	font-style: italic;
 	font-display: swap;
 }
 
@@ -171,31 +91,47 @@ h6 {
 
 @font-face {
 	font-family: Work Sans;
-	src: url('/fonts/WorkSans-ThinItalic.woff2') format('woff2');
-	font-weight: 100;
-	font-style: italic;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: Work Sans;
-	src: url('/fonts/WorkSans-SemiBoldItalic.woff2') format('woff2');
-	font-weight: 600;
-	font-style: italic;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: Work Sans;
-	src: url('/fonts/WorkSans-Thin.woff2') format('woff2');
-	font-weight: 100;
+	src: url('/fonts/WorkSans-Regular.woff2') format('woff2');
+	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: Work Sans;
-	src: url('/fonts/WorkSans-Regular.woff2') format('woff2');
+	font-family: 'Josefin Sans';
+	src: url('/fonts/JosefinSans-Medium.woff2') format('woff2');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Josefin Sans';
+	src: url('/fonts/JosefinSans-SemiBold.woff2') format('woff2');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Josefin Sans';
+	src: url('/fonts/JosefinSans-Regular.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Josefin Sans';
+	src: url('/fonts/JosefinSans-Bold.woff2') format('woff2');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Varela Round';
+	src: url('/fonts/VarelaRound-Regular.woff2') format('woff2');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
@@ -203,32 +139,45 @@ h6 {
 
 :root {
 	--default-font: Work Sans, Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+	--comic-font: 'Varela Round', sans-serif;
+	--rounded-font: 'Josefin Sans', sans-serif;
 
 	--noise-image: url('/images/noise.png');
+
+	--transition-time: 0.2s;
+	--transition-easing: ease-in-out;
+	--transition-settings: var(--transition-time) var(--transition-easing);
 
 	--platinum: hsl(0, 0%, 92%);
 	--black-coral: hsl(204, 13%, 37%);
 	--eerie-black: hsl(210, 6%, 13%);
 	--orange: hsl(13, 98%, 52%);
+	--orange-light: hsl(13, 98%, 62%);
+	--orange-dark: hsl(13, 98%, 42%);
 	--ocean-blue: hsl(240deg 47% 52%);
+	--ocean-blue-dark: hsl(240deg 47% 42%);
 
 	--linen: hsl(30, 36%, 90%);
 	--medium-champagne: hsl(45, 77%, 79%);
 	--middle-blue: hsl(184, 36%, 63%);
+	--middle-blue-light: hsl(184, 36%, 73%);
 
 	--primary: var(--platinum);
 	--secondary100: var(--black-coral);
 	--secondary200: var(--eerie-black);
 	--accent100: var(--orange);
+	--accent100-hover: var(--orange-dark);
 	--accent200: var(--ocean-blue);
+	--accent200-hover: var(--ocean-blue-dark);
 }
 
 .dark-mode:root {
 	--primary: var(--eerie-black);
 	--secondary100: var(--medium-champagne);
 	--secondary200: var(--linen);
-	--accent100: var(--orange);
+	--accent100-hover: var(--orange-light);
 	--accent200: var(--middle-blue);
+	--accent200-hover: var(--middle-blue-light);
 }
 
 body {
@@ -260,6 +209,7 @@ h3,
 h4,
 h5,
 h6 {
+	font-family: var(--rounded-font);
 	line-height: 0.9;
 }
 
@@ -285,20 +235,23 @@ h2 {
 }
 
 .button {
+	font-family: var(--comic-font);
 	display: inline-flex;
 	gap: 8px;
 	align-items: center;
+	flex-shrink: 0;
 	background: var(--accent200);
 	color: var(--primary);
-	font-weight: 600;
+	font-weight: bold;
 	border: 2px solid currentColor;
 	padding: 8px 16px;
 	border-radius: 8px;
-	transition: transform 0.2s ease-in-out;
+	transition: transform var(--transition-settings), background var(--transition-settings);
 }
 
 .button:hover {
 	transform: scale(1.05);
+	background: var(--accent200-hover);
 }
 
 .icon-button {
@@ -312,4 +265,44 @@ h2 {
 
 .icon-button:hover {
 	color: var(--accent100);
+}
+
+/* 
+  Hover underline animation by 30 seconds of code
+  source: https://www.30secondsofcode.org/css/s/hover-underline-animation 
+*/
+.link {
+	position: relative;
+	color: var(--accent200);
+	transition: color var(--transition-settings);
+}
+
+.link::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	transform: scaleX(0);
+	height: 2px;
+	bottom: -2px;
+	left: 0;
+	background-color: currentColor;
+	transform-origin: bottom right;
+	transition: transform 0.25s ease-out;
+}
+
+.link:hover::after {
+	transform: scaleX(1);
+	transform-origin: bottom left;
+}
+
+.link:hover {
+	color: var(--accent200-hover);
+}
+
+.link_accent {
+	color: var(--accent100);
+}
+
+.link_accent:hover {
+	color: var(--accent100-hover);
 }
