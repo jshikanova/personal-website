@@ -2,6 +2,9 @@
 	<div class="grid-container">
 		<div class="footer__wrapper">
 			<div class="footer__text">
+				<a class="link" href="/resume">Resume</a>
+			</div>
+			<div class="footer__text">
 				Designed and
 				<a
 					class="link"
@@ -24,7 +27,6 @@
 					SvelteKit
 				</a>
 			</div>
-			<div class="footer__text" />
 		</div>
 	</div>
 </footer>
@@ -36,8 +38,8 @@
 
 	.footer__wrapper {
 		display: flex;
-		justify-content: flex-end;
-		gap: 8px;
+		justify-content: space-between;
+		gap: 24px;
 		flex-wrap: wrap;
 	}
 

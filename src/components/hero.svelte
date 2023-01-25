@@ -8,7 +8,12 @@
 			<h1 class="hero__title">Julia Shikanova</h1>
 			<h2 class="hero__subtitle">Frontend developer</h2>
 			<div class="hero__links">
-				<a class="button" href="mailto:juliashikanova@yandex.ru">
+				<a
+					class="button"
+					href="mailto:juliashikanova@yandex.ru"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
 					Get in touch
 					<MailIcon size="16" strokeWidth={3} />
 				</a>
@@ -28,7 +33,7 @@
 
 <style>
 	.hero {
-		height: max(75vh, 0px);
+		height: max(72vh, 0px);
 		display: grid;
 		align-items: center;
 	}
