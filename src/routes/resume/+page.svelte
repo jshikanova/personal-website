@@ -23,7 +23,11 @@
 		<hr />
 		<section class="resume__section">
 			<h2>Summary</h2>
-			<p>Frontend developer with 3.5 years of experience.</p>
+			<p>
+				Developer with 3 years of experience in React and Typescript. Eager and motivated to learn
+				and improve. Aimed to write clean code, create accessible user interfaces with best
+				performance possible.
+			</p>
 		</section>
 		<hr />
 		<section class="resume__section">
