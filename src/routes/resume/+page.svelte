@@ -51,7 +51,7 @@
 								{title}
 							</a>
 						</h3>
-						<p>Stack: {stack}</p>
+						<p><b>Stack:</b> {stack}</p>
 					</li>{/each}
 			</ul>
 		</section>
