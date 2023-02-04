@@ -21,8 +21,6 @@
 		top: 0;
 		z-index: 1;
 		padding: 32px 0;
-		background: var(--primary);
-		background-image: var(--noise-image);
 	}
 
 	.header__wrapper {

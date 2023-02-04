@@ -253,6 +253,11 @@ hr {
 	grid-column: 2;
 }
 
+/* 
+  Inspired by CodeDrops
+  source: https://tympanus.net/codrops2022/
+  my CodePen: https://codepen.io/jshikanova/pen/bGjzOOX 
+*/
 .button {
 	font-family: var(--comic-font);
 	display: inline-flex;
@@ -262,10 +267,16 @@ hr {
 	background: var(--accent200);
 	color: var(--primary);
 	font-weight: bold;
-	border: 2px solid currentColor;
+	box-shadow: 4px 4px 0 var(--accent100), inset 4px 4px 0 var(--accent200-hover);
+	border: 4px solid;
 	padding: 8px 16px;
-	border-radius: 8px;
+	border-radius: 24px;
 	transition: transform var(--transition-settings), background var(--transition-settings);
+}
+
+.dark-mode .button {
+	background: var(--accent200);
+	box-shadow: 4px 4px 0 var(--accent100), inset 4px 4px 0 var(--accent200-hover);
 }
 
 .button:hover {
