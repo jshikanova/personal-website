@@ -142,12 +142,11 @@ h6 {
 	--comic-font: 'Varela Round', sans-serif;
 	--rounded-font: 'Josefin Sans', sans-serif;
 
-	--noise-image: url('/images/noise.png');
-
 	--transition-time: 0.2s;
 	--transition-easing: ease-in-out;
 	--transition-settings: var(--transition-time) var(--transition-easing);
 
+	--white: hsl(0, 0%, 100%);
 	--platinum: hsl(0, 0%, 92%);
 	--black-coral: hsl(204, 13%, 37%);
 	--eerie-black: hsl(210, 6%, 13%);
@@ -162,7 +161,7 @@ h6 {
 	--middle-blue: hsl(184, 36%, 63%);
 	--middle-blue-light: hsl(184, 36%, 73%);
 
-	--primary: var(--platinum);
+	--primary: var(--white);
 	--secondary100: var(--black-coral);
 	--secondary200: var(--eerie-black);
 	--accent100: var(--orange);
@@ -181,13 +180,10 @@ h6 {
 }
 
 body {
-	display: flex;
-	flex-direction: column;
 	font-family: var(--default-font);
 	color: var(--secondary200);
 	font-size: 1.2em;
 	background: var(--primary);
-	background-image: var(--noise-image);
 }
 
 a {
@@ -195,12 +191,7 @@ a {
 }
 
 main {
-	flex: 1 0 auto;
-}
-
-footer {
-	position: sticky;
-	top: 100vh;
+	padding: 80px 0 32px;
 }
 
 h1,
@@ -267,16 +258,14 @@ hr {
 	background: var(--accent200);
 	color: var(--primary);
 	font-weight: bold;
-	box-shadow: 4px 4px 0 var(--accent100), inset 4px 4px 0 var(--accent200-hover);
 	border: 4px solid;
 	padding: 8px 16px;
-	border-radius: 24px;
+	border-radius: 8px;
 	transition: transform var(--transition-settings), background var(--transition-settings);
 }
 
 .dark-mode .button {
 	background: var(--accent200);
-	box-shadow: 4px 4px 0 var(--accent100), inset 4px 4px 0 var(--accent200-hover);
 }
 
 .button:hover {

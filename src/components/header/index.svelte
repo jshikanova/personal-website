@@ -1,30 +1,28 @@
 <script>
-	import { StarIcon } from 'svelte-feather-icons';
+	import { SquareIcon } from 'svelte-feather-icons';
 
 	import ThemeToggle from './theme-toggle.svelte';
 </script>
 
 <header class="header">
-	<div class="grid-container">
-		<div class="header__wrapper">
-			<a class="header__logo" href="/">
-				<StarIcon />
-			</a>
-			<ThemeToggle />
-		</div>
-	</div>
+	<a class="header__logo" href="/">
+		<SquareIcon />
+	</a>
+	<ThemeToggle />
 </header>
 
 <style>
 	.header {
+		grid-row-end: span 2;
+		grid-column: 2;
+		width: 80px;
+		height: 100vh;
 		position: sticky;
 		top: 0;
 		z-index: 1;
-		padding: 32px 0;
-	}
-
-	.header__wrapper {
+		padding: 32px 0 64px;
 		display: flex;
+		flex-direction: column;
 		align-items: center;
 		justify-content: space-between;
 	}
