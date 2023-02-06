@@ -34,6 +34,7 @@
 <style>
 	.footer {
 		padding: 32px 0 64px 0;
+		grid-column: 1 / -1;
 	}
 
 	.footer__wrapper {

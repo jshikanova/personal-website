@@ -22,10 +22,6 @@
 		min-height: 100vh;
 		display: grid;
 		grid-template-columns: 1fr auto;
-		grid-template-rows: 1fr auto;
-	}
-
-	main {
-		grid-row: 1;
+		grid-template-rows: auto 1fr auto;
 	}
 </style>
