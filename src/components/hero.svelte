@@ -33,9 +33,9 @@
 
 <style>
 	.hero {
-		height: max(72vh, 0px);
 		display: grid;
 		align-items: center;
+		height: 100%;
 	}
 
 	.hero__wrapper {

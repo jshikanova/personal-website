@@ -24,7 +24,7 @@ export const projects = [
 	},
 	{
 		title: 'StreetArtNews',
-		url: 'https://halo.shakuro.com/',
+		url: 'https://streetartnews.net/',
 		stack: 'Typescript, ParcelJS, SCSS'
 	},
 	{

@@ -17,6 +17,7 @@
 
 <style>
 	.header {
+		grid-column: 1 / -1;
 		position: sticky;
 		top: 0;
 		z-index: 1;
@@ -24,8 +25,8 @@
 	}
 
 	.header__wrapper {
-		display: flex;
-		align-items: center;
+		display: grid;
+		grid-template-columns: repeat(2, auto);
 		justify-content: space-between;
 	}
 
