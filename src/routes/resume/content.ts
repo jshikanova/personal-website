@@ -98,7 +98,7 @@ export const contacts = [
 	},
 	{
 		title: 'Telegram',
-		url: 'https://t.me/jsikanova',
+		url: 'https://t.me/jshikanova',
 		Icon: MessageSquareIcon
 	}
 ];
