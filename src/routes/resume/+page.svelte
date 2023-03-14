@@ -145,7 +145,6 @@
 	}
 
 	.resume__name {
-		font-family: var(--rounded-font);
 		font-size: 2.2rem;
 		font-weight: bold;
 		line-height: 0.9;
