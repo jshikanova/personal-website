@@ -1,15 +1,11 @@
 <script>
-	import { StarIcon } from 'svelte-feather-icons';
-
 	import ThemeToggle from './theme-toggle.svelte';
 </script>
 
 <header class="header">
 	<div class="grid-container">
 		<div class="header__wrapper">
-			<a class="header__logo" href="/">
-				<StarIcon />
-			</a>
+			<a class="header__logo" href="/">JS</a>
 			<ThemeToggle />
 		</div>
 	</div>
@@ -31,11 +27,13 @@
 	}
 
 	.header__logo {
-		display: flex;
-		align-items: center;
-		gap: 8px;
+		width: 36px;
+		height: 36px;
+		display: grid;
+		place-items: center;
 		font-weight: 600;
-		color: var(--accent100);
-		font-size: 0.8rem;
+		color: var(--primary);
+		font-size: 1.8rem;
+		background: var(--accent100);
 	}
 </style>
