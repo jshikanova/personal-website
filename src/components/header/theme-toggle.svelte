@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { fly } from 'svelte/transition';
+
 	import { SunIcon, MoonIcon } from 'svelte-feather-icons';
 
 	import { browser } from '$app/environment';
@@ -27,8 +29,23 @@
 <button class="icon-button" aria-label="Toggle theme" on:click={() => (checked = !checked)}>
 	<!-- TODO: Fix flickering on FOUC -->
 	{#if checked}
-		<SunIcon />
+		<div class="icon icon__sun" transition:fly={{ duration: 600, y: 24 }}>
+			<SunIcon />
+		</div>
 	{:else}
-		<MoonIcon />
+		<div class="icon icon__moon" transition:fly={{ duration: 600, y: -24 }}>
+			<MoonIcon />
+		</div>
 	{/if}
 </button>
+
+<style>
+	.icon-button {
+		position: relative;
+		height: 24px;
+		width: 24px;
+	}
+	.icon {
+		position: absolute;
+	}
+</style>
