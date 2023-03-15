@@ -58,89 +58,56 @@ h6 {
 */
 
 @font-face {
-	font-family: Work Sans;
-	src: url('/fonts/WorkSans-Bold.woff2') format('woff2');
-	font-weight: bold;
+	font-family: Golos Text;
+	src: url('/fonts/GolosText-Black.woff2') format('woff2');
+	font-weight: 900;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: Work Sans;
-	src: url('/fonts/WorkSans-Medium.woff2') format('woff2');
-	font-weight: 500;
+	font-family: Golos Text;
+	src: url('/fonts/GolosText-ExtraBold.woff2') format('woff2');
+	font-weight: 800;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: Work Sans;
-	src: url('/fonts/WorkSans-Light.woff2') format('woff2');
-	font-weight: 300;
+	font-family: Golos Text;
+	src: url('/fonts/GolosText-Bold.woff2') format('woff2');
+	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: Work Sans;
-	src: url('/fonts/WorkSans-SemiBold.woff2') format('woff2');
+	font-family: Golos Text;
+	src: url('/fonts/GolosText-SemiBold.woff2') format('woff2');
 	font-weight: 600;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: Work Sans;
-	src: url('/fonts/WorkSans-Regular.woff2') format('woff2');
-	font-weight: normal;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'Josefin Sans';
-	src: url('/fonts/JosefinSans-Medium.woff2') format('woff2');
+	font-family: Golos Text;
+	src: url('/fonts/GolosText-Medium.woff2') format('woff2');
 	font-weight: 500;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: 'Josefin Sans';
-	src: url('/fonts/JosefinSans-SemiBold.woff2') format('woff2');
-	font-weight: 600;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'Josefin Sans';
-	src: url('/fonts/JosefinSans-Regular.woff2') format('woff2');
-	font-weight: normal;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'Josefin Sans';
-	src: url('/fonts/JosefinSans-Bold.woff2') format('woff2');
-	font-weight: bold;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'Varela Round';
-	src: url('/fonts/VarelaRound-Regular.woff2') format('woff2');
-	font-weight: normal;
+	font-family: Golos Text;
+	src: url('/fonts/GolosText-Regular.woff2') format('woff2');
+	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
 }
 
 :root {
-	--default-font: Work Sans, Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
-	--comic-font: 'Varela Round', sans-serif;
-	--rounded-font: 'Josefin Sans', sans-serif;
+	--default-font: Golos Text, sans-serif;
+	/* --default-font: Work Sans, Segoe UI, Tahoma, Geneva, Verdana, sans-serif; */
 
 	--transition-time: 0.2s;
 	--transition-easing: ease-in-out;
@@ -150,6 +117,7 @@ h6 {
 	--platinum: hsl(0, 0%, 92%);
 	--black-coral: hsl(204, 13%, 37%);
 	--eerie-black: hsl(210, 6%, 13%);
+	--black: hsl(210, 6%, 10%);
 	--orange: hsl(13, 98%, 52%);
 	--orange-light: hsl(13, 98%, 62%);
 	--orange-dark: hsl(13, 98%, 42%);
@@ -171,7 +139,7 @@ h6 {
 }
 
 .dark-mode:root {
-	--primary: var(--eerie-black);
+	--primary: var(--black);
 	--secondary100: var(--medium-champagne);
 	--secondary200: var(--linen);
 	--accent100-hover: var(--orange-light);
@@ -200,16 +168,15 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: var(--rounded-font);
 	line-height: 1;
 }
 
 h1 {
-	font-size: 4rem;
+	font-size: 5rem;
 }
 
 h2 {
-	font-size: 3rem;
+	font-size: 4rem;
 }
 h3 {
 	font-size: 1.5rem;
@@ -235,7 +202,7 @@ hr {
 	--gap: 24px;
 
 	display: grid;
-	grid-template-columns: 1fr min(65ch, calc(100% - var(--gap) * 2)) 1fr;
+	grid-template-columns: 1fr min(80ch, calc(100% - var(--gap) * 2)) 1fr;
 	column-gap: var(--gap);
 	row-gap: 32px;
 }
@@ -250,14 +217,13 @@ hr {
   my CodePen: https://codepen.io/jshikanova/pen/bGjzOOX 
 */
 .button {
-	font-family: var(--comic-font);
 	display: inline-flex;
 	gap: 8px;
 	align-items: center;
 	flex-shrink: 0;
 	background: var(--accent200);
 	color: var(--primary);
-	font-weight: bold;
+	font-weight: 500;
 	border: 4px solid;
 	padding: 8px 16px;
 	border-radius: 8px;
@@ -294,6 +260,7 @@ hr {
 	position: relative;
 	color: var(--accent200);
 	transition: color var(--transition-settings);
+	line-height: 1;
 }
 
 .link::after {
