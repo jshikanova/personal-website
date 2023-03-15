@@ -17,7 +17,8 @@
 		position: sticky;
 		top: 0;
 		z-index: 1;
-		padding: 32px 0;
+		padding: 24px 0;
+		backdrop-filter: blur(4px) grayscale(1);
 	}
 
 	.header__wrapper {
@@ -27,13 +28,13 @@
 	}
 
 	.header__logo {
-		width: 36px;
-		height: 36px;
-		display: grid;
-		place-items: center;
+		display: inline-flex;
 		font-weight: 600;
 		color: var(--primary);
-		font-size: 1.8rem;
-		background: var(--accent100);
+		font-size: 1rem;
+		width: 24px;
+		height: 24px;
+		padding: 5px 0 0 3px;
+		background: var(--secondary200);
 	}
 </style>
