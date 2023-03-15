@@ -58,79 +58,55 @@ h6 {
 */
 
 @font-face {
-	font-family: League Spartan;
-	src: url('/fonts/LeagueSpartan-Black.woff2') format('woff2');
+	font-family: Golos Text;
+	src: url('/fonts/GolosText-Black.woff2') format('woff2');
 	font-weight: 900;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: League Spartan;
-	src: url('/fonts/LeagueSpartan-ExtraBold.woff2') format('woff2');
+	font-family: Golos Text;
+	src: url('/fonts/GolosText-ExtraBold.woff2') format('woff2');
 	font-weight: 800;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: League Spartan;
-	src: url('/fonts/LeagueSpartan-Bold.woff2') format('woff2');
+	font-family: Golos Text;
+	src: url('/fonts/GolosText-Bold.woff2') format('woff2');
 	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: League Spartan;
-	src: url('/fonts/LeagueSpartan-SemiBold.woff2') format('woff2');
+	font-family: Golos Text;
+	src: url('/fonts/GolosText-SemiBold.woff2') format('woff2');
 	font-weight: 600;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: League Spartan;
-	src: url('/fonts/LeagueSpartan-Medium.woff2') format('woff2');
+	font-family: Golos Text;
+	src: url('/fonts/GolosText-Medium.woff2') format('woff2');
 	font-weight: 500;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: League Spartan;
-	src: url('/fonts/LeagueSpartan-Regular.woff2') format('woff2');
+	font-family: Golos Text;
+	src: url('/fonts/GolosText-Regular.woff2') format('woff2');
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
 }
 
-@font-face {
-	font-family: League Spartan;
-	src: url('/fonts/LeagueSpartan-Light.woff2') format('woff2');
-	font-weight: 300;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: League Spartan;
-	src: url('/fonts/LeagueSpartan-ExtraLight.woff2') format('woff2');
-	font-weight: 200;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: League Spartan;
-	src: url('/fonts/LeagueSpartan-Thin.woff2') format('woff2');
-	font-weight: 100;
-	font-style: normal;
-	font-display: swap;
-}
-
 :root {
-	--default-font: League Spartan, sans-serif;
+	--default-font: Golos Text, sans-serif;
 	/* --default-font: Work Sans, Segoe UI, Tahoma, Geneva, Verdana, sans-serif; */
 
 	--transition-time: 0.2s;
