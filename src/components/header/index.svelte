@@ -18,7 +18,7 @@
 		top: 0;
 		z-index: 1;
 		padding: 24px 0;
-		backdrop-filter: blur(4px) grayscale(1);
+		backdrop-filter: blur(3px);
 	}
 
 	.header__wrapper {
@@ -31,10 +31,10 @@
 		display: inline-flex;
 		font-weight: 600;
 		color: var(--primary);
-		font-size: 1rem;
+		font-size: 0.8rem;
 		width: 24px;
 		height: 24px;
-		padding: 5px 0 0 3px;
+		padding: 7px 0 0 3px;
 		background: var(--secondary200);
 	}
 </style>
