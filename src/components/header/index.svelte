@@ -15,16 +15,23 @@
 	.header {
 		grid-column: 1 / -1;
 		position: sticky;
-		top: 0;
+		top: 16px;
 		z-index: 1;
-		padding: 24px 0;
-		backdrop-filter: blur(3px);
 	}
 
 	.header__wrapper {
 		display: grid;
 		grid-template-columns: repeat(2, auto);
 		justify-content: space-between;
+		padding: 12px 20px;
+		margin: 0 -16px;
+		border-radius: 24px;
+		backdrop-filter: blur(4px);
+		border: 1px solid hsla(0, 0%, 0%, 0.15);
+	}
+
+	:global(.dark-mode .header__wrapper) {
+		border: 1px solid hsla(0, 0%, 100%, 0.15);
 	}
 
 	.header__logo {
