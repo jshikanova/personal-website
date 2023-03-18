@@ -6,6 +6,23 @@
 	<div class="grid-container">
 		<div class="header__wrapper">
 			<a class="header__logo" href="/">JS</a>
+			<nav class="header__nav">
+				<ul class="header__nav-list">
+					<li class="header__nav-item">
+						<a class="link header__nav-link" href="/resume">Resume</a>
+					</li>
+					<li class="header__nav-item">
+						<a
+							class="link header__nav-link"
+							href="mailto:juliashikanova@yandex.ru"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Get in touch
+						</a>
+					</li>
+				</ul>
+			</nav>
 			<ThemeToggle />
 		</div>
 	</div>
@@ -21,8 +38,9 @@
 
 	.header__wrapper {
 		display: grid;
-		grid-template-columns: repeat(2, auto);
+		grid-template-columns: repeat(3, auto);
 		justify-content: space-between;
+		align-items: center;
 		padding: 12px 20px;
 		margin: 0 -16px;
 		border-radius: 24px;
@@ -43,5 +61,23 @@
 		height: 24px;
 		padding: 7px 0 0 3px;
 		background: var(--secondary200);
+	}
+
+	.header__nav-list {
+		padding-left: 0;
+		list-style-type: none;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 32px;
+	}
+
+	.header__nav-item {
+		display: inline-flex;
+		padding-bottom: 0;
+	}
+
+	.header__nav-link {
+		color: var(--secondary200);
+		font-size: 0.9rem;
 	}
 </style>

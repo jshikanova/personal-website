@@ -1,7 +1,7 @@
 <footer class="footer">
 	<div class="grid-container">
 		<div class="footer__wrapper">
-			<nav class="footer__nav">
+			<!-- <nav class="footer__nav">
 				<ul class="footer__nav-list">
 					<li class="footer__nav-item"><a class="link" href="/resume">Resume</a></li>
 					<li>
@@ -15,7 +15,7 @@
 						</a>
 					</li>
 				</ul>
-			</nav>
+			</nav> -->
 			<div>
 				Designed and
 				<a
@@ -52,12 +52,13 @@
 	.footer__wrapper {
 		display: flex;
 		flex-direction: column;
-		align-items: flex-end;
-		gap: 16px;
-		font-size: 1rem;
+		/* align-items: flex-end; */
+		align-items: center;
+		/* gap: 16px; */
+		font-size: 0.9rem;
 	}
 
-	.footer__nav-list {
+	/* .footer__nav-list {
 		padding-left: 0;
 		list-style-type: none;
 		display: flex;
@@ -67,5 +68,5 @@
 
 	.footer__nav-item {
 		padding-bottom: 0;
-	}
+	} */
 </style>
