@@ -1,32 +1,28 @@
 <script>
-	import { MailIcon, TwitterIcon } from 'svelte-feather-icons';
+	import Socials from './socials.svelte';
 </script>
 
 <div class="hero">
 	<div class="grid-container">
 		<div class="hero__wrapper">
-			<h1 class="hero__title">Julia Shikanova</h1>
-			<h2 class="hero__subtitle">Frontend developer</h2>
-			<div class="hero__links">
-				<a
-					class="button"
-					href="mailto:juliashikanova@yandex.ru"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Get in touch
-					<MailIcon size="16" strokeWidth={3} />
-				</a>
-				<a
-					class="button"
-					href="https://twitter.com/jshikanova"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<TwitterIcon size="16" strokeWidth={3} />
-					@jshikanova
-				</a>
+			<div class="hero__profile">
+				<img
+					class="hero__image"
+					src="/images/Julia Shikanova.jpeg"
+					alt="Julia Shikanova"
+					width="96"
+					height="96"
+				/>
+				<div>
+					<h1 class="hero__title">Julia Shikanova</h1>
+					<h2 class="hero__subtitle">Frontend developer</h2>
+				</div>
 			</div>
+			<p class="hero__intro">
+				Welcome to my little corner of the Internet! It's dedicated to my ongoing journey to become
+				a better developer and problem solver.
+			</p>
+			<Socials />
 		</div>
 	</div>
 </div>
@@ -39,22 +35,34 @@
 	}
 
 	.hero__wrapper {
-		display: grid;
-		gap: 8px;
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+	}
+
+	.hero__profile {
+		display: flex;
+		gap: 32px;
+		align-items: center;
+	}
+
+	.hero__image {
+		border-radius: 50%;
 	}
 
 	.hero__title {
 		color: var(--accent100);
+		font-size: 2rem;
+		margin-bottom: 8px;
 	}
 
 	.hero__subtitle {
-		margin-bottom: 24px;
+		color: var(--secondary100);
+		font-weight: 400;
+		font-size: 1.4rem;
 	}
 
-	.hero__links {
-		display: flex;
-		align-items: center;
-		gap: 16px;
-		flex-wrap: wrap;
+	.hero__intro {
+		max-width: 540px;
 	}
 </style>
