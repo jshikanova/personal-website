@@ -61,7 +61,13 @@
 				{/each}
 			</div>
 			<div class="contributions__footer">
-				<p class="contributions__subtitle">Current streak: {streak}</p>
+				<p class="contributions__subtitle">
+					{#if streak > 0}
+						Current streak: {streak} days
+					{:else}
+						Not on streak
+					{/if}
+				</p>
 				<div class="contributions__colors">
 					<span class="contributions__caption">Less</span>
 					{#each Object.values(alternativeColors) as color}
