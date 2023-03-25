@@ -32,7 +32,7 @@
 	.header {
 		grid-column: 1 / -1;
 		position: sticky;
-		top: 16px;
+		top: var(--header-offset-top);
 		z-index: 1;
 	}
 

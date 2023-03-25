@@ -31,7 +31,6 @@
 	.hero {
 		display: grid;
 		align-items: center;
-		height: 100%;
 	}
 
 	.hero__wrapper {

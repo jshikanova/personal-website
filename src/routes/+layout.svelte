@@ -24,4 +24,10 @@
 		grid-template-columns: 1fr auto;
 		grid-template-rows: auto 1fr auto;
 	}
+
+	main {
+		display: flex;
+		flex-direction: column;
+		gap: 64px;
+	}
 </style>
