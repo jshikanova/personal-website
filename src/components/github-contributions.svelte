@@ -1,9 +1,15 @@
 <script lang="ts">
+	import { GithubIcon } from 'svelte-feather-icons';
+
 	import type { ContributionsResponse } from '../routes/proxy+page.server';
 
 	export let contributions: ContributionsResponse['data']['user']['contributionsCollection']['contributionCalendar'];
 
-	console.log(contributions);
+	const streak = contributions.weeks
+		.map((week) => week.contributionDays.map(({ contributionCount }) => contributionCount))
+		.flat()
+		.reverse()
+		.findIndex((count) => count === 0);
 
 	//  TODO: Remove any
 	const alternativeColors = {
@@ -20,28 +26,49 @@
 <div class="contributions">
 	<div class="grid-container">
 		<div class="contributions__wrapper">
-			<p class="contributions__subtitle">
-				{contributions.totalContributions} contributions in the last year
-			</p>
+			<div class="contributions__header">
+				<p class="contributions__subtitle">
+					{contributions.totalContributions} contributions in the last year
+				</p>
+				<a
+					class="contributions__link"
+					href="https://github.com/jshikanova"
+					target="_blank"
+					rel="noopener noreferrer"
+					title="Github"
+				>
+					<GithubIcon size="16" class="contributions__icon" />
+				</a>
+			</div>
 			<div class="contributions__list contributions__list_scroll">
 				{#each contributions.weeks as week}
 					<div class="contributions__week">
-						{#each week.contributionDays as { contributionCount, color }}
+						{#each week.contributionDays as { contributionCount, color, date }}
 							<div
 								style="background-color: {alternativeColors[color]}"
 								class="contributions__day contributions__day_{contributionCount}"
-								title="Contributions count: {contributionCount}"
+								title={`${
+									contributionCount === 0 ? 'No' : contributionCount
+								} contributions on ${new Date(date).toLocaleDateString('en-us', {
+									weekday: 'long',
+									year: 'numeric',
+									month: 'long',
+									day: 'numeric'
+								})}`}
 							/>
 						{/each}
 					</div>
 				{/each}
 			</div>
-			<div class="contributions__colors">
-				<span class="contributions__caption">Less</span>
-				{#each Object.values(alternativeColors) as color}
-					<div class="contributions__day" style="background-color: {color}" />
-				{/each}
-				<span class="contributions__caption">More</span>
+			<div class="contributions__footer">
+				<p class="contributions__subtitle">Current streak: {streak}</p>
+				<div class="contributions__colors">
+					<span class="contributions__caption">Less</span>
+					{#each Object.values(alternativeColors) as color}
+						<div class="contributions__day" style="background-color: {color}" />
+					{/each}
+					<span class="contributions__caption">More</span>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -58,8 +85,30 @@
 		gap: 16px;
 	}
 
+	.contributions__header {
+		display: grid;
+		grid-auto-flow: column;
+		gap: 24px;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.contributions__link {
+		padding: 3px;
+		border-radius: 4px;
+		color: var(--accent200);
+		transition: transform var(--transition-settings), background var(--transition-settings),
+			box-shadow var(--transition-settings);
+	}
+
+	.contributions__link:hover {
+		transform: scale(1.1);
+		background: var(--primary);
+		box-shadow: 0 4px 16px -2px var(--accent200);
+	}
+
 	.contributions__subtitle {
-		font-size: 0.9rem;
+		font-size: 0.8rem;
 		color: var(--accent200);
 	}
 
@@ -90,9 +139,14 @@
 		background: rgba(240, 240, 240, 0.1);
 	}
 
+	.contributions__footer {
+		display: grid;
+		grid-auto-flow: column;
+		justify-content: space-between;
+	}
+
 	.contributions__colors {
 		display: grid;
-		justify-content: flex-end;
 		grid-template-columns: min-content repeat(5, var(--size)) min-content;
 		gap: var(--gap);
 	}
