@@ -63,7 +63,7 @@
 			<div class="contributions__footer">
 				<p class="contributions__subtitle">
 					{#if streak > 0}
-						Current streak: {streak} days
+						Current streak: {streak} {streak === 1 ? 'day' : 'days'}
 					{:else}
 						Not on streak
 					{/if}
