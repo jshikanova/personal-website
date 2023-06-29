@@ -82,8 +82,9 @@
 	/* .contributions {} */
 
 	.contributions__wrapper {
-		--size: 11.664px;
+		--weeks: 53;
 		--gap: 3px;
+		--size: calc(100% / var(--weeks) - var(--gap));
 
 		display: grid;
 		gap: 16px;
@@ -104,9 +105,10 @@
 
 	.contributions__list {
 		display: grid;
-		grid-template-columns: repeat(53, var(--size));
+		grid-template-columns: repeat(var(--weeks), var(--size));
 		gap: var(--gap);
 		align-items: flex-start;
+		justify-content: center;
 	}
 
 	.contributions__list_scroll {
@@ -115,7 +117,7 @@
 
 	.contributions__week {
 		display: grid;
-		grid-template-rows: repeat(7, var(--size));
+		grid-template-rows: repeat(7, auto);
 		gap: var(--gap);
 	}
 

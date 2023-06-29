@@ -207,7 +207,7 @@ h6 {
 body {
 	font-family: var(--default-font);
 	color: var(--secondary200);
-	font-size: 1.2em;
+	font-size: 1.2rem;
 	background: var(--primary);
 }
 
