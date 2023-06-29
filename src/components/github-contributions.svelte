@@ -84,7 +84,7 @@
 	.contributions__wrapper {
 		--weeks: 53;
 		--gap: 3px;
-		--size: calc(100% / var(--weeks) - var(--gap));
+		--size: 13px;
 
 		display: grid;
 		gap: 16px;
@@ -117,7 +117,7 @@
 
 	.contributions__week {
 		display: grid;
-		grid-template-rows: repeat(7, auto);
+		grid-template-rows: repeat(7, var(--size));
 		gap: var(--gap);
 	}
 
