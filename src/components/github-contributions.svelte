@@ -46,8 +46,10 @@
 								style="background-color: {alternativeColors[color]}"
 								class="contributions__day contributions__day_{contributionCount}"
 								title={`${
-									contributionCount === 0 ? 'No' : contributionCount
-								} contributions on ${new Date(date).toLocaleDateString('en-us', {
+									contributionCount === 1
+										? '1 contribution'
+										: `${contributionCount === 0 ? 'No' : contributionCount} contributions`
+								} on ${new Date(date).toLocaleDateString('en-us', {
 									weekday: 'long',
 									year: 'numeric',
 									month: 'long',
@@ -82,8 +84,9 @@
 	/* .contributions {} */
 
 	.contributions__wrapper {
-		--size: 11.664px;
+		--weeks: 53;
 		--gap: 3px;
+		--size: 13px;
 
 		display: grid;
 		gap: 16px;
@@ -104,9 +107,10 @@
 
 	.contributions__list {
 		display: grid;
-		grid-template-columns: repeat(53, var(--size));
+		grid-template-columns: repeat(var(--weeks), var(--size));
 		gap: var(--gap);
 		align-items: flex-start;
+		justify-content: center;
 	}
 
 	.contributions__list_scroll {
