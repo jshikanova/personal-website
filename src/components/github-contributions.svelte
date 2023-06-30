@@ -46,8 +46,10 @@
 								style="background-color: {alternativeColors[color]}"
 								class="contributions__day contributions__day_{contributionCount}"
 								title={`${
-									contributionCount === 0 ? 'No' : contributionCount
-								} contributions on ${new Date(date).toLocaleDateString('en-us', {
+									contributionCount === 1
+										? '1 contribution'
+										: `${contributionCount === 0 ? 'No' : contributionCount} contributions`
+								} on ${new Date(date).toLocaleDateString('en-us', {
 									weekday: 'long',
 									year: 'numeric',
 									month: 'long',
