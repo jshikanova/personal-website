@@ -44,8 +44,15 @@
 		padding: 12px 20px;
 		margin: 0 -16px;
 		border-radius: 24px;
-		backdrop-filter: blur(4px);
 		border: 1px solid hsla(0, 0%, 0%, 0.15);
+		background-color: var(--primary);
+	}
+
+	@supports (backdrop-filter: blur(4px)) {
+		.header__wrapper {
+			background-color: transparent;
+			backdrop-filter: blur(4px);
+		}
 	}
 
 	:global(.dark-mode .header__wrapper) {
