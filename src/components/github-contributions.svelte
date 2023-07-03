@@ -37,7 +37,7 @@
 					title="Github profile"
 				>
 					<div class="contributions__icon">
-						<GithubIcon size="16" />
+						<GithubIcon size="12" />
 					</div>
 				</a>
 			</div>
@@ -108,21 +108,18 @@
 		color: var(--accent200);
 	}
 
-	/* TODO: Make Icon component */
 	.contributions__icon {
 		flex-shrink: 0;
-		background: var(--accent200);
-		color: var(--primary);
-		padding: 4px;
+		color: var(--accent200);
+		border: 1px solid var(--accent200);
+		padding: 2px;
 		border-radius: 4px;
-		transition: transform var(--transition-settings), background var(--transition-settings),
-			box-shadow var(--transition-settings);
+		transition: background var(--transition-settings), color var(--transition-settings);
 	}
 
 	.contributions__link:hover .contributions__icon {
-		transform: scale(1.1);
 		background: var(--accent200-hover);
-		box-shadow: 0 4px 16px -2px var(--accent200);
+		color: var(--primary);
 	}
 
 	.contributions__list {
