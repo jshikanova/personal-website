@@ -29,13 +29,13 @@
 					{contributions.totalContributions} contributions in the last year
 				</p>
 				<a
-					class="link contributions__subtitle"
+					class="contributions__subtitle link"
 					href="https://github.com/jshikanova"
 					target="_blank"
 					rel="noopener noreferrer"
-					title="Github"
+					title="Github profile"
 				>
-					Current repo
+					Github
 				</a>
 			</div>
 			<div class="contributions__list contributions__list_scroll">
