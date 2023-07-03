@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { GithubIcon } from 'svelte-feather-icons';
 	import type { ContributionsResponse } from '../routes/proxy+page.server';
 
 	export let contributions: ContributionsResponse['data']['user']['contributionsCollection']['contributionCalendar'];
@@ -30,15 +29,13 @@
 					{contributions.totalContributions} contributions in the last year
 				</p>
 				<a
-					class="contributions__link"
+					class="contributions__subtitle link"
 					href="https://github.com/jshikanova"
 					target="_blank"
 					rel="noopener noreferrer"
 					title="Github profile"
 				>
-					<div class="contributions__icon">
-						<GithubIcon size="12" />
-					</div>
+					Github
 				</a>
 			</div>
 			<div class="contributions__list contributions__list_scroll">
@@ -106,20 +103,6 @@
 	.contributions__subtitle {
 		font-size: 0.8rem;
 		color: var(--accent200);
-	}
-
-	.contributions__icon {
-		flex-shrink: 0;
-		color: var(--accent200);
-		border: 1px solid var(--accent200);
-		padding: 2px;
-		border-radius: 4px;
-		transition: background var(--transition-settings), color var(--transition-settings);
-	}
-
-	.contributions__link:hover .contributions__icon {
-		background: var(--accent200-hover);
-		color: var(--primary);
 	}
 
 	.contributions__list {
