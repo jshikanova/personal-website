@@ -1,6 +1,6 @@
 <script>
 	import {
-		TwitterIcon,
+		// TwitterIcon,
 		// GithubIcon,
 		CodepenIcon,
 		LinkedinIcon
@@ -8,11 +8,11 @@
 	} from 'svelte-feather-icons';
 
 	const socialLinks = [
-		{
-			name: 'Twitter',
-			Icon: TwitterIcon,
-			link: 'https://twitter.com/jshikanova'
-		},
+		// {
+		// 	name: 'Twitter',
+		// 	Icon: TwitterIcon,
+		// 	link: 'https://twitter.com/jshikanova'
+		// },
 		// {
 		// 	name: 'Github',
 		// 	Icon: GithubIcon,
