@@ -1,7 +1,7 @@
 <script>
 	import {
 		// TwitterIcon,
-		// GithubIcon,
+		GithubIcon,
 		CodepenIcon,
 		LinkedinIcon
 		// CodesandboxIcon
@@ -13,11 +13,11 @@
 		// 	Icon: TwitterIcon,
 		// 	link: 'https://twitter.com/jshikanova'
 		// },
-		// {
-		// 	name: 'Github',
-		// 	Icon: GithubIcon,
-		// 	link: 'https://github.com/jshikanova'
-		// },
+		{
+			name: 'Github',
+			Icon: GithubIcon,
+			link: 'https://github.com/jshikanova'
+		},
 		{
 			name: 'Codepen',
 			Icon: CodepenIcon,
