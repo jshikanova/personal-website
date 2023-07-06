@@ -34,6 +34,7 @@
 		position: sticky;
 		top: var(--header-offset-top);
 		z-index: 1;
+    overflow: hidden;
 	}
 
 	.header__wrapper {
