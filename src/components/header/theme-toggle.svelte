@@ -29,11 +29,11 @@
 <button class="icon-button" aria-label="Toggle theme" on:click={() => (checked = !checked)}>
 	<!-- TODO: Fix flickering on FOUC -->
 	{#if checked}
-		<div class="icon icon__sun" transition:fly={{ duration: 1500, y: 24 }}>
+		<div class="icon icon__sun" transition:fly={{ duration: 600, y: 24 }}>
 			<SunIcon />
 		</div>
 	{:else}
-		<div class="icon icon__moon" transition:fly={{ duration: 1500, y: -24 }}>
+		<div class="icon icon__moon" transition:fly={{ duration: 600, y: -24 }}>
 			<MoonIcon />
 		</div>
 	{/if}
