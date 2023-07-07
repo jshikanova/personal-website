@@ -1,39 +1,79 @@
 <script lang="ts">
-	import { fly } from 'svelte/transition';
-
 	import { SunIcon, MoonIcon } from 'svelte-feather-icons';
 
 	import { browser } from '$app/environment';
 
 	const darkModeClass = 'dark-mode';
 	let checked: boolean = browser ? localStorage.getItem('theme') === 'dark' : false;
+	let isStartViewTransition = false;
 
 	$: {
-		if (browser) {
-			const root = document.documentElement;
-
-			if (checked) {
-				localStorage.setItem('theme', 'dark');
-				root.classList.add(darkModeClass);
-				root.style.colorScheme = 'dark';
-			} else {
-				localStorage.setItem('theme', 'light');
-				root.classList.remove(darkModeClass);
-				root.style.colorScheme = 'light';
-			}
-		}
+		if (browser)
+			isStartViewTransition =
+				// @ts-expect-error experimental API
+				document.startViewTransition &&
+				!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 	}
+
+	const setMode = (theme: 'dark' | 'light') => {
+		const root = document.documentElement;
+
+		localStorage.setItem('theme', theme);
+		theme === 'dark' ? root.classList.add(darkModeClass) : root.classList.remove(darkModeClass);
+		root.style.colorScheme = 'dark';
+	};
+
+	/**
+	 * Credit to [@antfu](https://github.com/antfu)
+	 * @see https://github.com/antfu/antfu.me/blob/main/src/logics/index.ts
+	 */
+	const toggleTheme = (e: MouseEvent) => {
+		if (!isStartViewTransition) {
+			checked = !checked;
+
+			setMode(checked ? 'dark' : 'light');
+
+			return;
+		}
+
+		const x = e.clientX;
+		const y = e.clientY;
+
+		const endRadius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+
+		// @ts-expect-error: Transition API
+		const transition = document.startViewTransition(async () => {
+			checked = !checked;
+
+			setMode(checked ? 'dark' : 'light');
+		});
+
+		transition.ready.then(() => {
+			const clipPath = [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`];
+			document.documentElement.animate(
+				{
+					clipPath: checked ? [...clipPath].reverse() : clipPath
+				},
+				{
+					duration: 800,
+					easing: 'ease-in-out',
+					pseudoElement: checked ? '::view-transition-old(root)' : '::view-transition-new(root)'
+				}
+			);
+		});
+	};
 </script>
 
 <input id="theme-toggle" type="checkbox" aria-label="Toggle theme" bind:checked hidden />
-<button class="icon-button" aria-label="Toggle theme" on:click={() => (checked = !checked)}>
+<button class="icon-button" aria-label="Toggle theme" on:click={toggleTheme}>
 	<!-- TODO: Fix flickering on FOUC -->
+	<!-- TODO: Add transition on icon change -->
 	{#if checked}
-		<div class="icon icon__sun" transition:fly={{ duration: 600, y: 24 }}>
+		<div class="icon icon__sun">
 			<SunIcon />
 		</div>
 	{:else}
-		<div class="icon icon__moon" transition:fly={{ duration: 600, y: -24 }}>
+		<div class="icon icon__moon">
 			<MoonIcon />
 		</div>
 	{/if}
