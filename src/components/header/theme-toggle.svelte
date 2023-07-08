@@ -2,6 +2,7 @@
 	import { SunIcon, MoonIcon } from 'svelte-feather-icons';
 
 	import { browser } from '$app/environment';
+	import { blur, scale } from 'svelte/transition';
 
 	const darkModeClass = 'dark-mode';
 	let checked: boolean = browser ? localStorage.getItem('theme') === 'dark' : false;
@@ -67,13 +68,12 @@
 <input id="theme-toggle" type="checkbox" aria-label="Toggle theme" bind:checked hidden />
 <button class="icon-button" aria-label="Toggle theme" on:click={toggleTheme}>
 	<!-- TODO: Fix flickering on FOUC -->
-	<!-- TODO: Add transition on icon change -->
 	{#if checked}
-		<div class="icon icon__sun">
+		<div class="icon icon__sun" transition:scale={{ duration: isStartViewTransition ? 0 : 600 }}>
 			<SunIcon />
 		</div>
 	{:else}
-		<div class="icon icon__moon">
+		<div class="icon icon__moon" transition:scale={{ duration: isStartViewTransition ? 0 : 600 }}>
 			<MoonIcon />
 		</div>
 	{/if}
