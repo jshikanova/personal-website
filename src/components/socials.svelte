@@ -2,8 +2,8 @@
 	import {
 		// TwitterIcon,
 		GithubIcon,
-		CodepenIcon,
-		LinkedinIcon
+		CodepenIcon
+		// LinkedinIcon
 		// CodesandboxIcon
 	} from 'svelte-feather-icons';
 
@@ -22,17 +22,17 @@
 			name: 'Codepen',
 			Icon: CodepenIcon,
 			link: 'https://codepen.io/jshikanova'
-		},
+		}
 		// {
 		// 	name: 'Codesandbox',
 		// 	Icon: CodesandboxIcon,
 		// 	link: 'https://codesandbox.io/u/jshikanova'
 		// },
-		{
-			name: 'LinkedIn',
-			Icon: LinkedinIcon,
-			link: 'https://www.linkedin.com/in/julia-shikanova-a22914201/'
-		}
+		// {
+		// 	name: 'LinkedIn',
+		// 	Icon: LinkedinIcon,
+		// 	link: 'https://www.linkedin.com/in/julia-shikanova-a22914201/'
+		// }
 	];
 </script>
 
