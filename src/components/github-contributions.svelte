@@ -3,11 +3,18 @@
 
 	export let contributions: ContributionsResponse['data']['user']['contributionsCollection']['contributionCalendar'];
 
-	const streak = contributions.weeks
-		.map((week) => week.contributionDays.map(({ contributionCount }) => contributionCount))
-		.flat()
-		.reverse()
-		.findIndex((count) => count === 0);
+	const calcStreak = () => {
+		const contributionsCounter: Array<number> = contributions.weeks
+			.map((week) => week.contributionDays.map(({ contributionCount }) => contributionCount))
+			.flat()
+			.reverse();
+
+		if (contributionsCounter[0] === 0) contributionsCounter.shift();
+
+		return contributionsCounter.findIndex((count) => count === 0);
+	};
+
+	const streak = calcStreak();
 
 	//  TODO: Remove any
 	const alternativeColors = {
