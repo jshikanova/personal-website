@@ -1,18 +1,7 @@
 <script>
-	import {
-		// TwitterIcon,
-		GithubIcon,
-		CodepenIcon
-		// LinkedinIcon
-		// CodesandboxIcon
-	} from 'svelte-feather-icons';
+	import { GithubIcon, CodepenIcon, LinkIcon } from 'svelte-feather-icons';
 
 	const socialLinks = [
-		// {
-		// 	name: 'Twitter',
-		// 	Icon: TwitterIcon,
-		// 	link: 'https://twitter.com/jshikanova'
-		// },
 		{
 			name: 'Github',
 			Icon: GithubIcon,
@@ -22,17 +11,12 @@
 			name: 'Codepen',
 			Icon: CodepenIcon,
 			link: 'https://codepen.io/jshikanova'
+		},
+		{
+			name: 'Mastodon',
+			Icon: LinkIcon,
+			link: 'https://fosstodon.org/@jshikanova'
 		}
-		// {
-		// 	name: 'Codesandbox',
-		// 	Icon: CodesandboxIcon,
-		// 	link: 'https://codesandbox.io/u/jshikanova'
-		// },
-		// {
-		// 	name: 'LinkedIn',
-		// 	Icon: LinkedinIcon,
-		// 	link: 'https://www.linkedin.com/in/julia-shikanova-a22914201/'
-		// }
 	];
 </script>
 
