@@ -61,7 +61,9 @@
 		color: var(--primary);
 		padding: 4px;
 		border-radius: 4px;
-		transition: transform var(--transition-settings), background var(--transition-settings),
+		transition:
+			transform var(--transition-settings),
+			background var(--transition-settings),
 			box-shadow var(--transition-settings);
 	}
 
