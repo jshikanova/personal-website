@@ -32,7 +32,7 @@
 	<div class="grid-container">
 		<div class="contributions__wrapper">
 			<div class="contributions__header">
-				<p class="contributions__subtitle">
+				<p class="contributions__subtitle contributions__subtitle_bold">
 					{contributions.totalContributions} contributions in the last year
 				</p>
 				<a
@@ -70,7 +70,7 @@
 			<div class="contributions__footer">
 				<p class="contributions__subtitle">
 					{#if streak > 0}
-						Current streak: {streak} {streak === 1 ? 'day' : 'days'}
+						<b>Current streak:</b> {streak} {streak === 1 ? 'day' : 'days'}
 					{:else}
 						Not on streak
 					{/if}
@@ -110,6 +110,10 @@
 	.contributions__subtitle {
 		font-size: 0.8rem;
 		color: var(--accent200);
+	}
+
+	.contributions__subtitle_bold {
+		font-weight: bold;
 	}
 
 	.contributions__list {

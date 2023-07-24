@@ -1,21 +1,6 @@
 <footer class="footer">
 	<div class="grid-container">
 		<div class="footer__wrapper">
-			<!-- <nav class="footer__nav">
-				<ul class="footer__nav-list">
-					<li class="footer__nav-item"><a class="link" href="/resume">Resume</a></li>
-					<li>
-						<a
-							class="link"
-							href="mailto:juliashikanova@yandex.ru"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							Get in touch
-						</a>
-					</li>
-				</ul>
-			</nav> -->
 			<div>
 				Designed and
 				<a
@@ -52,21 +37,7 @@
 	.footer__wrapper {
 		display: flex;
 		flex-direction: column;
-		/* align-items: flex-end; */
 		align-items: center;
-		/* gap: 16px; */
 		font-size: 0.9rem;
 	}
-
-	/* .footer__nav-list {
-		padding-left: 0;
-		list-style-type: none;
-		display: flex;
-		flex-wrap: wrap;
-		gap: 24px;
-	}
-
-	.footer__nav-item {
-		padding-bottom: 0;
-	} */
 </style>
