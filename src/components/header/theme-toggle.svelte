@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { SunIcon, MoonIcon } from 'svelte-feather-icons';
+	// import { SunIcon, MoonIcon } from 'svelte-feather-icons';
 
 	import { browser } from '$app/environment';
-	import { blur, scale } from 'svelte/transition';
+	// import { blur, scale } from 'svelte/transition';
 
 	const darkModeClass = 'dark-mode';
 	let checked: boolean = browser ? localStorage.getItem('theme') === 'dark' : false;
@@ -56,8 +56,8 @@
 					clipPath: checked ? [...clipPath].reverse() : clipPath
 				},
 				{
-					duration: 800,
-					easing: 'ease-in-out',
+					duration: 1000,
+					easing: 'cubic-bezier(0.83, 0, 0.17, 1)',
 					pseudoElement: checked ? '::view-transition-old(root)' : '::view-transition-new(root)'
 				}
 			);
@@ -66,9 +66,9 @@
 </script>
 
 <input id="theme-toggle" type="checkbox" aria-label="Toggle theme" bind:checked hidden />
-<button class="icon-button" aria-label="Toggle theme" on:click={toggleTheme}>
-	<!-- TODO: Fix flickering on FOUC -->
-	{#if checked}
+<!-- <button class="icon-button" aria-label="Toggle theme" on:click={toggleTheme}> -->
+<!-- TODO: Fix flickering on FOUC -->
+<!-- {#if checked}
 		<div class="icon icon__sun" transition:scale={{ duration: isStartViewTransition ? 0 : 600 }}>
 			<SunIcon />
 		</div>
@@ -77,16 +77,46 @@
 			<MoonIcon />
 		</div>
 	{/if}
-</button>
+</button> -->
 
-<style>
-	.icon-button {
+<button
+	class:toggle-button__checked={checked}
+	class="toggle-button"
+	type="button"
+	on:click={toggleTheme}
+></button>
+
+<style lang="postcss">
+	.toggle-button {
 		position: relative;
+		display: flex;
+		align-items: center;
 		height: 24px;
-		width: 24px;
+		width: 48px;
+		border-radius: 12px;
+		background: var(--accent200);
+		border: none;
+		z-index: 200;
 	}
-	.icon {
+
+	.toggle-button::before {
+		view-transition-name: toggle-button;
 		position: absolute;
-		top: 0;
+		left: 4px;
+		right: 0;
+		content: '';
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+		background: var(--accent100);
+		transition:
+			transform,
+			background 1s ease-in-out;
+		transform: translateX(0px);
+	}
+
+	.toggle-button__checked::before {
+		transform: translateX(24px);
+		background: var(--secondary100);
 	}
 </style>
