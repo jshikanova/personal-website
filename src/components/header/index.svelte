@@ -28,13 +28,13 @@
 	</div>
 </header>
 
-<style>
+<style lang="postcss">
 	.header {
 		grid-column: 1 / -1;
 		position: sticky;
 		top: var(--header-offset-top);
 		z-index: 1;
-    overflow: hidden;
+		overflow: hidden;
 	}
 
 	.header__wrapper {
@@ -56,7 +56,7 @@
 		}
 	}
 
-	:global(.dark-mode .header__wrapper) {
+	:global([data-mode='dark']) .header__wrapper {
 		border: 1px solid hsla(0, 0%, 100%, 0.15);
 	}
 

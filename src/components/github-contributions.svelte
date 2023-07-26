@@ -140,7 +140,7 @@
 		background: rgba(240, 240, 240, 0.9);
 	}
 
-	:global(.dark-mode .contributions__day) {
+	:global([data-mode='dark']) .contributions__day {
 		background: rgba(240, 240, 240, 0.1);
 	}
 

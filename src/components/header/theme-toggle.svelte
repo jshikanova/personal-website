@@ -20,8 +20,10 @@
 		const root = document.documentElement;
 
 		localStorage.setItem('theme', theme);
-		theme === 'dark' ? root.classList.add(darkModeClass) : root.classList.remove(darkModeClass);
-		root.style.colorScheme = 'dark';
+		theme === 'dark'
+			? root.setAttribute('data-mode', 'dark')
+			: root.setAttribute('data-mode', 'light');
+		root.style.colorScheme = theme;
 	};
 
 	/**
