@@ -9,7 +9,6 @@
   <link rel="icon" href="%sveltekit.assets%/favicon.png" />
   <script>
     // fix: FOUC for theme mode
-    const darkModeClass = 'dark-mode';
     const theme = localStorage.getItem('theme');
     const root = document.documentElement;
     let checked = false;
@@ -18,8 +17,10 @@
       checked = mode === 'dark';
       localStorage.setItem('theme', mode);
       root.style.colorScheme = mode;
-      mode === 'dark' ? root.classList.add(darkModeClass) : root.classList.remove(darkModeClass);
-    }
+      mode === 'dark'
+        ? root.setAttribute('data-mode', 'dark')
+        : root.setAttribute('data-mode', 'light');
+    };
 
     switch (theme) {
       case 'dark':
@@ -32,11 +33,6 @@
         setMode(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         break;
     }
-
-    window.addEventListener(
-      'DOMContentLoaded',
-      () => (document.getElementById('theme-toggle').checked = checked)
-    );
   </script>
   %sveltekit.head%
 </head>

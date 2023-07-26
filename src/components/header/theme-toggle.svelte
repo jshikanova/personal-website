@@ -1,10 +1,6 @@
 <script lang="ts">
-	import { SunIcon, MoonIcon } from 'svelte-feather-icons';
-
 	import { browser } from '$app/environment';
-	import { blur, scale } from 'svelte/transition';
 
-	const darkModeClass = 'dark-mode';
 	let checked: boolean = browser ? localStorage.getItem('theme') === 'dark' : false;
 	let isStartViewTransition = false;
 
@@ -20,8 +16,10 @@
 		const root = document.documentElement;
 
 		localStorage.setItem('theme', theme);
-		theme === 'dark' ? root.classList.add(darkModeClass) : root.classList.remove(darkModeClass);
-		root.style.colorScheme = 'dark';
+		theme === 'dark'
+			? root.setAttribute('data-mode', 'dark')
+			: root.setAttribute('data-mode', 'light');
+		root.style.colorScheme = theme;
 	};
 
 	/**
@@ -57,7 +55,7 @@
 				},
 				{
 					duration: 800,
-					easing: 'ease-in-out',
+					easing: 'cubic-bezier(0.83, 0, 0.17, 1)',
 					pseudoElement: checked ? '::view-transition-old(root)' : '::view-transition-new(root)'
 				}
 			);
@@ -65,28 +63,53 @@
 	};
 </script>
 
-<input id="theme-toggle" type="checkbox" aria-label="Toggle theme" bind:checked hidden />
-<button class="icon-button" aria-label="Toggle theme" on:click={toggleTheme}>
-	<!-- TODO: Fix flickering on FOUC -->
-	{#if checked}
-		<div class="icon icon__sun" transition:scale={{ duration: isStartViewTransition ? 0 : 600 }}>
-			<SunIcon />
-		</div>
-	{:else}
-		<div class="icon icon__moon" transition:scale={{ duration: isStartViewTransition ? 0 : 600 }}>
-			<MoonIcon />
-		</div>
-	{/if}
-</button>
+<button
+	class="toggle-button"
+	type="button"
+	on:click={toggleTheme}
+	aria-label={`Switch to ${checked ? 'light' : 'dark'} theme`}
+	title={`Switch to ${checked ? 'light' : 'dark'} theme`}
+></button>
 
-<style>
-	.icon-button {
+<style lang="postcss">
+	.toggle-button {
+		/* view-transition-name to prevent applying global clip-path animation  */
+		view-transition-name: toggle-button;
+		cursor: pointer;
 		position: relative;
+		display: flex;
+		align-items: center;
 		height: 24px;
-		width: 24px;
+		width: 48px;
+		border-radius: 12px;
+		background: var(--ocean-blue-dark);
+		border: none;
+		transition: background 0.8s ease-in-out;
 	}
-	.icon {
+
+	.toggle-button::before {
+		/* view-transition-name to prevent applying global clip-path animation  */
+		view-transition-name: toggle-button-switch;
 		position: absolute;
-		top: 0;
+		left: 4px;
+		right: 0;
+		content: '';
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+		background: var(--orange);
+		transition:
+			background,
+			transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+		transform: translateX(24px);
+	}
+
+	:global([data-mode='dark']) .toggle-button {
+		background: var(--middle-blue-light);
+	}
+
+	:global([data-mode='dark']) .toggle-button::before {
+		background: var(--medium-champagne);
+		transform: translateX(0);
 	}
 </style>
