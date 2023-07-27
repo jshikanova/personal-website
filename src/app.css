@@ -131,7 +131,7 @@ h6 {
 	--middle-blue: hsl(184, 36%, 63%);
 	--middle-blue-light: hsl(184, 36%, 73%);
 
-	--white09: rgba(240, 240, 240, 0.9);
+	--white90: rgba(240, 240, 240, 0.9);
 	--white01: rgba(240, 240, 240, 0.1);
 	--periwinkle: #b6b3e6;
 	--tropical-indigo: #7e78d2;
@@ -139,7 +139,7 @@ h6 {
 	--iris: #5f46c3;
 	--rebecca-purple: #4e37a9;
 
-	--github100: var(--white09);
+	--github100: var(--white90);
 	--github200: var(--periwinkle);
 	--github300: var(--tropical-indigo);
 	--github400: var(--slate-blue);
