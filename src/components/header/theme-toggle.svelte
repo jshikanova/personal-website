@@ -82,8 +82,8 @@
 		height: 24px;
 		width: 48px;
 		border-radius: 12px;
-		background: var(--ocean-blue-dark);
 		border: none;
+		background: var(--platinum);
 		transition: background 0.8s ease-in-out;
 	}
 
@@ -105,7 +105,7 @@
 	}
 
 	:global([data-mode='dark']) .toggle-button {
-		background: var(--middle-blue-light);
+		background: var(--black-coral);
 	}
 
 	:global([data-mode='dark']) .toggle-button::before {
