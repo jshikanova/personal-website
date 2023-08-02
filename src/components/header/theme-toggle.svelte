@@ -82,9 +82,9 @@
 		height: 24px;
 		width: 48px;
 		border-radius: 12px;
-		border: none;
-		background: var(--platinum);
-		transition: background 0.8s ease-in-out;
+		background: transparent;
+		border: 1px solid hsla(0, 0%, 0%, 0.15);
+		transition: border 0.8s;
 	}
 
 	.toggle-button::before {
@@ -97,7 +97,7 @@
 		width: 16px;
 		height: 16px;
 		border-radius: 50%;
-		background: var(--orange);
+		background: var(--secondary100);
 		transition:
 			background,
 			transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -105,11 +105,10 @@
 	}
 
 	:global([data-mode='dark']) .toggle-button {
-		background: var(--black-coral);
+		border: 1px solid hsla(0, 0%, 100%, 0.15);
 	}
 
 	:global([data-mode='dark']) .toggle-button::before {
-		background: var(--medium-champagne);
 		transform: translateX(0);
 	}
 </style>
