@@ -73,8 +73,6 @@
 
 <style lang="postcss">
 	.toggle-button {
-		/* view-transition-name to prevent applying global clip-path animation  */
-		view-transition-name: toggle-button;
 		cursor: pointer;
 		position: relative;
 		display: flex;
@@ -84,7 +82,6 @@
 		border-radius: 12px;
 		background: transparent;
 		border: 1px solid hsla(0, 0%, 0%, 0.15);
-		transition: border 0.8s;
 	}
 
 	.toggle-button::before {
