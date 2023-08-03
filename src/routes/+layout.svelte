@@ -1,5 +1,5 @@
 <script>
-	import { Header, Footer } from '$components';
+	import { Header, Footer } from '$lib/components';
 
 	import '../app.css';
 </script>
@@ -11,9 +11,11 @@
 
 <div class="page">
 	<Header />
+
 	<main>
 		<slot />
 	</main>
+
 	<Footer />
 </div>
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ContributionsResponse } from '../routes/proxy+page.server';
+	import type { ContributionsResponse } from '../../routes/proxy+page.server';
 
 	export let contributions: ContributionsResponse['data']['user']['contributionsCollection']['contributionCalendar'];
 
