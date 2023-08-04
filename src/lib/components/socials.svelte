@@ -39,7 +39,7 @@
 		padding-left: 0;
 		display: flex;
 		flex-wrap: wrap;
-		gap: 32px;
+		gap: 16px;
 	}
 
 	.socials__item {
