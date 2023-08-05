@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { SunIcon, MoonIcon } from 'svelte-feather-icons';
+
 	import { browser } from '$app/environment';
 
 	let checked: boolean = browser ? localStorage.getItem('theme') === 'dark' : false;
@@ -63,30 +65,68 @@
 	};
 </script>
 
-<button
-	class="toggle-button"
-	type="button"
-	on:click={toggleTheme}
-	aria-label={`Switch to ${checked ? 'light' : 'dark'} theme`}
-	title={`Switch to ${checked ? 'light' : 'dark'} theme`}
-></button>
+<div class="toggle-button-wrapper">
+	<button
+		class="toggle-button"
+		type="button"
+		on:click={toggleTheme}
+		aria-label={`Switch to ${checked ? 'light' : 'dark'} theme`}
+		title={`Switch to ${checked ? 'light' : 'dark'} theme`}
+	>
+		<div class="toggle-button__icon toggle-button__icon_moon">
+			<MoonIcon size="10" />
+		</div>
+		<div class="toggle-button__icon toggle-button__icon_sun">
+			<SunIcon size="10" />
+		</div>
+	</button>
+</div>
 
 <style lang="postcss">
+	.toggle-button-wrapper {
+		border: 1px solid var(--border);
+		border-radius: 16px;
+	}
 	.toggle-button {
+		/* view-transition-name to prevent applying global clip-path animation  */
+		view-transition-name: toggle-button;
+		padding: 2px 7px;
 		cursor: pointer;
 		position: relative;
 		display: flex;
+		justify-content: space-between;
 		align-items: center;
-		height: 24px;
+		height: 22px;
 		width: 48px;
-		border-radius: 12px;
+
 		background: transparent;
-		border: 1px solid hsla(0, 0%, 0%, 0.15);
+		border: none;
+	}
+
+	.toggle-button__icon {
+		z-index: 10;
+		position: relative;
+
+		transition: color 0.2s ease-in-out;
+	}
+
+	:global([data-mode='dark']) .toggle-button__icon {
+		color: black;
+	}
+
+	.toggle-button__icon_moon,
+	:global([data-mode='dark']) .toggle-button__icon_sun {
+		color: var(--black-coral);
+	}
+
+	.toggle-button__icon_sun,
+	:global([data-mode='dark']) .toggle-button__icon_moon {
+		color: var(--white);
 	}
 
 	.toggle-button::before {
-		/* view-transition-name to prevent applying global clip-path animation  */
-		view-transition-name: toggle-button-switch;
+		--easing: cubic-bezier(0.215, 0.61, 0.355, 1);
+
 		position: absolute;
 		left: 4px;
 		right: 0;
@@ -94,15 +134,11 @@
 		width: 16px;
 		height: 16px;
 		border-radius: 50%;
-		background: var(--secondary100);
+		background: var(--accent100);
 		transition:
 			background,
-			transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+			transform 0.8s var(--easing);
 		transform: translateX(24px);
-	}
-
-	:global([data-mode='dark']) .toggle-button {
-		border: 1px solid hsla(0, 0%, 100%, 0.15);
 	}
 
 	:global([data-mode='dark']) .toggle-button::before {
