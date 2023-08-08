@@ -5,7 +5,9 @@
 <header class="header">
 	<div class="grid-container">
 		<div class="header__wrapper">
-			<a class="header__logo" href="/">JS</a>
+			<a class="logo" href="/" title="JS logo / Go to Home page">
+				<span class="logo__text">JS</span>
+			</a>
 			<nav class="header__nav">
 				<ul class="header__nav-list">
 					<li class="header__nav-item">
@@ -55,15 +57,29 @@
 		}
 	}
 
-	.header__logo {
+	.logo {
 		display: inline-flex;
+		justify-content: flex-start;
+		align-items: flex-end;
 		font-weight: 600;
+		line-height: 0.71;
 		color: var(--primary);
 		font-size: 0.8rem;
+		letter-spacing: -0.5px;
 		width: 24px;
 		height: 24px;
-		padding: 7px 0 0 3px;
+		padding: 3px;
 		background: var(--secondary200);
+	}
+
+	.logo__text {
+		display: inline-flex;
+		transform-origin: bottom left;
+		transition: transform 0.5s ease-in-out;
+	}
+
+	.logo:hover .logo__text {
+		transform: scale(1.2) translateY(-3px);
 	}
 
 	.header__nav-list {
