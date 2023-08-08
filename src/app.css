@@ -155,7 +155,7 @@ h6 {
 	--accent200-hover: var(--ocean-blue-dark);
 	/* black-coral */
 	--border: hsla(204, 13%, 37%, 0.2);
-	--border-hover: hsla(204, 13%, 37%, 0.4);
+	--border-hover: hsla(204, 13%, 37%, 0.6);
 }
 
 [data-mode='dark']:root {
@@ -169,7 +169,7 @@ h6 {
 	--accent200-hover: var(--middle-blue-light);
 	/* black-coral */
 	--border: hsla(204, 13%, 37%, 0.6);
-	--border-hover: hsla(204, 13%, 37%, 0.8);
+	--border-hover: var(--black-coral);
 }
 
 /* 
