@@ -86,7 +86,13 @@
 	.toggle-button-wrapper {
 		border: 1px solid var(--border);
 		border-radius: 16px;
+		transition: border-color 0.3s ease-in-out;
 	}
+
+	.toggle-button-wrapper:hover {
+		border-color: var(--border-hover);
+	}
+
 	.toggle-button {
 		/* view-transition-name to prevent applying global clip-path animation  */
 		view-transition-name: toggle-button;
