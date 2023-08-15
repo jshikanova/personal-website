@@ -32,7 +32,7 @@
 	<div class="grid-container">
 		<div class="contributions__wrapper">
 			<div class="contributions__header">
-				<p class="contributions__subtitle contributions__subtitle_bold">
+				<p class="contributions__subtitle">
 					{contributions.totalContributions} contributions in the last year
 				</p>
 				<a
@@ -96,7 +96,7 @@
 		--size: 13px;
 
 		display: grid;
-		gap: 16px;
+		gap: 8px;
 	}
 
 	.contributions__header {
@@ -110,10 +110,6 @@
 	.contributions__subtitle {
 		font-size: 0.8rem;
 		color: var(--accent200);
-	}
-
-	.contributions__subtitle_bold {
-		font-weight: bold;
 	}
 
 	.contributions__list {
@@ -148,6 +144,7 @@
 		display: grid;
 		grid-auto-flow: column;
 		justify-content: space-between;
+		align-items: center;
 	}
 
 	.contributions__colors {
