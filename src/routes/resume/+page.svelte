@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { ExternalLinkIcon } from 'svelte-feather-icons';
 	import { contacts, education, experience, projects, publications, skills } from './content';
 </script>
 
@@ -51,8 +52,9 @@
 				{#each projects as { title, url, stack }}
 					<li>
 						<h3 class="resume__subtitle">
-							<a class="link" href={url}>
+							<a class="link resume__link" href={url} target="_blank" rel="noopener noreferrer">
 								{title}
+								<ExternalLinkIcon size="12" />
 							</a>
 						</h3>
 						<p><b>Stack:</b> {stack}</p>
@@ -174,6 +176,10 @@
 
 	.resume__subtitle {
 		margin-bottom: 8px;
+	}
+
+	.resume__link {
+		gap: 4px;
 	}
 
 	.resume__contact {
