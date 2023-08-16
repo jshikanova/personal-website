@@ -344,6 +344,7 @@ hr {
 */
 .link {
 	position: relative;
+	display: inline-flex;
 	color: var(--accent200);
 	transition: color var(--transition-settings);
 	line-height: 1.2;
