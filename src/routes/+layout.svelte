@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { Header, Footer } from '$lib/components';
 
 	import '../app.css';

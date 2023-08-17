@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { GithubIcon, CodepenIcon, LinkIcon } from 'svelte-feather-icons';
 
 	const socialLinks = [

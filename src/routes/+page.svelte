@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { Hero, GithubContributions } from '$lib/components';
 
 	export let data;
