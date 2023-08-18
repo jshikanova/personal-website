@@ -1,5 +1,7 @@
 <script lang="ts">
 	import ThemeToggle from './theme-toggle.svelte';
+
+	export let activeRoute: string;
 </script>
 
 <header class="header">
@@ -11,7 +13,13 @@
 			<nav class="header__nav">
 				<ul class="header__nav-list">
 					<li class="header__nav-item">
-						<a class="link header__nav-link" href="/resume">Resume</a>
+						<a
+							class="link header__nav-link"
+							href="/resume"
+							class:header__nav-link_active={activeRoute === '/resume'}
+						>
+							Resume
+						</a>
 					</li>
 					<li class="header__nav-item">
 						<a
@@ -98,5 +106,11 @@
 	.header__nav-link {
 		color: var(--secondary200);
 		font-size: 0.9rem;
+	}
+
+	.header__nav-link_active {
+		color: var(--accent100);
+		pointer-events: none;
+		cursor: default;
 	}
 </style>

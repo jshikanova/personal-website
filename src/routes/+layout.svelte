@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import { Header, Footer } from '$lib/components';
 
 	import '../app.css';
@@ -10,7 +11,7 @@
 </svelte:head>
 
 <div class="page">
-	<Header />
+	<Header activeRoute={$page.url.pathname} />
 
 	<main>
 		<slot />
