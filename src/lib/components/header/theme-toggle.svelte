@@ -86,11 +86,15 @@
 	.toggle-button-wrapper {
 		border: 1px solid var(--border);
 		border-radius: 16px;
-		transition: border-color 0.3s ease-in-out;
+		transition:
+			border-color,
+			box-shadow 0.3s ease-in-out;
 	}
 
 	.toggle-button-wrapper:hover {
 		border-color: var(--border-hover);
+		overflow: hidden;
+		box-shadow: var(--glow50) var(--accent200-hover);
 	}
 
 	.toggle-button {
@@ -104,7 +108,6 @@
 		align-items: center;
 		height: 22px;
 		width: 48px;
-
 		background: transparent;
 		border: none;
 	}
