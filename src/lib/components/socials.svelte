@@ -70,6 +70,6 @@
 	.socials__link:hover .socials__icon {
 		transform: scale(1.1);
 		background: var(--accent200-hover);
-		box-shadow: 0 4px 16px -2px var(--accent200);
+		box-shadow: var(--glow100) var(--accent200);
 	}
 </style>

@@ -115,6 +115,10 @@ h6 {
 	--transition-easing: ease-in-out;
 	--transition-settings: var(--transition-time) var(--transition-easing);
 
+	--glow50: 0 2px 8px -1px;
+	--glow100: 0 4px 16px -2px;
+	--glow200: 0 8px 32px -4px;
+
 	--white: hsl(0, 0%, 100%);
 	--platinum: hsl(0, 0%, 92%);
 	--black-coral: hsl(204, 13%, 37%);
