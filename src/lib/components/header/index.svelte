@@ -106,6 +106,11 @@
 	.header__nav-link {
 		color: var(--secondary200);
 		font-size: 0.9rem;
+		transition: color var(--transition-settings);
+	}
+
+	.header__nav-link:hover {
+		color: var(--accent100);
 	}
 
 	.header__nav-link_active {
