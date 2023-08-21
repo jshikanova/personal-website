@@ -31,6 +31,6 @@
 	main {
 		display: flex;
 		flex-direction: column;
-		gap: 64px;
+		gap: 32px;
 	}
 </style>

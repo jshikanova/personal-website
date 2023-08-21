@@ -31,6 +31,7 @@
 <div class="contributions">
 	<div class="grid-container">
 		<div class="contributions__wrapper">
+			<!-- <h2>Github contributions</h2> -->
 			<div class="contributions__header">
 				<p class="contributions__subtitle">
 					{contributions.totalContributions} contributions in the last year
