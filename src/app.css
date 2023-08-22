@@ -388,30 +388,3 @@ hr {
 .link_accent:hover {
 	color: var(--accent100-hover);
 }
-
-.link_icon {
-	display: flex;
-	align-items: center;
-	gap: 8px;
-	font-size: 0.9rem;
-	font-weight: 500;
-	color: var(--secondary200);
-}
-
-.icon {
-	flex-shrink: 0;
-	background: var(--accent200);
-	color: var(--primary);
-	padding: 4px;
-	border-radius: 4px;
-	transition:
-		transform var(--transition-settings),
-		background var(--transition-settings),
-		box-shadow var(--transition-settings);
-}
-
-.link_icon:hover .icon {
-	transform: scale(1.05);
-	background: var(--accent200-hover);
-	box-shadow: var(--glow100) var(--accent200);
-}
