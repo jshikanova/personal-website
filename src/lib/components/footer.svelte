@@ -24,6 +24,9 @@
 					SvelteKit
 				</a>
 			</div>
+			<div>
+				<slot />
+			</div>
 		</div>
 	</div>
 </footer>
@@ -39,5 +42,6 @@
 		flex-direction: column;
 		align-items: center;
 		font-size: 0.9rem;
+		gap: 24px;
 	}
 </style>

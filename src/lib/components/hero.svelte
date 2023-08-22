@@ -1,5 +1,5 @@
-<script lang="ts">
-	import Socials from './socials.svelte';
+<script>
+	import { MailIcon } from 'svelte-feather-icons';
 </script>
 
 <div class="hero">
@@ -22,7 +22,15 @@
 				Welcome to my little corner of the Internet! It's dedicated to my ongoing journey to become
 				a better developer and problem solver.
 			</p>
-			<Socials />
+			<a
+				class="button"
+				href="mailto:juliashikanova@yandex.ru"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				Contact
+				<MailIcon size="16" />
+			</a>
 		</div>
 	</div>
 </div>
@@ -36,7 +44,7 @@
 	.hero__wrapper {
 		display: flex;
 		flex-direction: column;
-		gap: 40px;
+		gap: 24px;
 	}
 
 	.hero__profile {

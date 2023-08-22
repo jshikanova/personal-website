@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { Header, Footer } from '$lib/components';
+	import { Header, Footer, Socials } from '$lib/components';
 
 	import '../app.css';
 </script>
@@ -17,7 +17,9 @@
 		<slot />
 	</main>
 
-	<Footer />
+	<Footer>
+		<Socials />
+	</Footer>
 </div>
 
 <style>
