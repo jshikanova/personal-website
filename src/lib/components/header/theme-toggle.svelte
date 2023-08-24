@@ -41,11 +41,14 @@
 	 * @see https://github.com/antfu/antfu.me/blob/main/src/logics/index.ts
 	 */
 	const toggleTheme = (selectedTheme: Theme, e?: MouseEvent) => {
-		let scheme: Scheme = getSystemTheme(selectedTheme);
+		if (selectedTheme === theme) return;
 
+		let scheme: Scheme = getSystemTheme(selectedTheme);
+		const prevScheme: Scheme = getSystemTheme(theme);
 		theme = selectedTheme;
 
 		if (
+			scheme === prevScheme ||
 			window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
 			// @ts-expect-error experimental API
 			!document.startViewTransition
