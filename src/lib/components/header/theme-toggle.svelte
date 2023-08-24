@@ -91,8 +91,9 @@
 </script>
 
 <div class="toggle-button-wrapper">
-	{#each toggleButtons as { theme: buttonTheme, Icon }}
+	{#each toggleButtons as { theme: buttonTheme, Icon }, index}
 		<button
+			data-index={index + 1}
 			class="toggle-button"
 			class:toggle-button_active={theme === buttonTheme}
 			title={`Switch to ${buttonTheme} theme`}
@@ -108,18 +109,49 @@
 		view-transition-name: toggle-button;
 		display: flex;
 		gap: 4px;
+		position: relative;
+	}
+
+	.toggle-button-wrapper:has(> .toggle-button_active[data-index='1'])::before {
+		transform: translateX(0);
+	}
+
+	.toggle-button-wrapper:has(> .toggle-button_active[data-index='2'])::before {
+		transform: translateX(28px);
+	}
+
+	.toggle-button-wrapper:has(> .toggle-button_active[data-index='3'])::before {
+		transform: translateX(56px);
+	}
+
+	.toggle-button-wrapper::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 24px;
+		height: 24px;
+		background: var(--accent200);
+		border-radius: 4px;
+		z-index: 5;
+		transition: transform ease-in-out 0.5s;
+		will-change: translate;
 	}
 
 	.toggle-button {
+		width: 24px;
+		height: 24px;
 		background-color: transparent;
 		z-index: 10;
 		position: relative;
 		color: var(--black-coral);
 		border: 1px solid var(--border);
 		border-radius: 4px;
-		padding: 3px;
+		padding: 4px;
 		cursor: pointer;
-		transition: 0.2s ease-in-out;
+		transition:
+			color 0.5s ease-in-out,
+			box-shadow 0.5s ease-in-out;
 	}
 
 	:global([data-scheme='dark']) .toggle-button {
@@ -128,8 +160,13 @@
 
 	.toggle-button_active,
 	:global([data-scheme='dark']) .toggle-button_active {
-		background: var(--accent100);
 		color: var(--white);
+		pointer-events: none;
+		cursor: default;
+	}
+
+	:global([data-scheme='dark']) .toggle-button_active {
+		color: var(--eerie-black);
 	}
 
 	.toggle-button:hover {
