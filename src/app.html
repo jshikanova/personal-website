@@ -18,8 +18,8 @@
       localStorage.setItem('theme', mode);
       root.style.colorScheme = mode;
       mode === 'dark'
-        ? root.setAttribute('data-mode', 'dark')
-        : root.setAttribute('data-mode', 'light');
+        ? root.setAttribute('data-scheme', 'dark')
+        : root.setAttribute('data-scheme', 'light');
     };
 
     switch (theme) {
@@ -30,7 +30,7 @@
         setMode('light');
         break;
       default:
-        setMode(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        setMode('system');
         break;
     }
   </script>

@@ -115,7 +115,7 @@ h6 {
 	--transition-easing: ease-in-out;
 	--transition-settings: var(--transition-time) var(--transition-easing);
 
-	--glow50: 0 2px 8px -1px;
+	--glow50: 0 1px 4px -1px;
 	--glow100: 0 4px 16px -2px;
 	--glow200: 0 8px 32px -4px;
 
@@ -162,7 +162,7 @@ h6 {
 	--border-hover: hsla(204, 13%, 37%, 0.6);
 }
 
-[data-mode='dark']:root {
+[data-scheme='dark']:root {
 	--github100: var(--white01);
 
 	--primary: var(--black);
@@ -223,11 +223,11 @@ h6 {
 	z-index: 9999;
 }
 
-[data-mode='dark']::view-transition-old(root) {
+[data-scheme='dark']::view-transition-old(root) {
 	z-index: 9999;
 }
 
-[data-mode='dark']::view-transition-new(root) {
+[data-scheme='dark']::view-transition-new(root) {
 	z-index: 1;
 }
 
@@ -323,7 +323,7 @@ hr {
 		box-shadow var(--transition-settings);
 }
 
-[data-mode='dark'] .button {
+[data-scheme='dark'] .button {
 	background: var(--accent200);
 }
 

@@ -3,6 +3,7 @@
 // and what to do when importing types
 declare global {
 	namespace App {
+		type Icon = SvelteComponentTyped<{ size?: string; strokeWidth?: number; class?: string }>;
 		// interface Error {}
 		// interface Locals {}
 		// interface PageData {}
