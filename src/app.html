@@ -11,28 +11,17 @@
     // fix: FOUC for theme mode
     const theme = localStorage.getItem('theme');
     const root = document.documentElement;
-    let checked = false;
 
     const setMode = (mode) => {
-      checked = mode === 'dark';
       localStorage.setItem('theme', mode);
       root.style.colorScheme = mode;
-      mode === 'dark'
-        ? root.setAttribute('data-scheme', 'dark')
-        : root.setAttribute('data-scheme', 'light');
+      root.setAttribute('data-theme', mode);
+
+      root.setAttribute('data-theme', mode)
+      root.setAttribute('data-scheme', mode === 'system' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : mode)
     };
 
-    switch (theme) {
-      case 'dark':
-        setMode('dark');
-        break;
-      case 'light':
-        setMode('light');
-        break;
-      default:
-        setMode('system');
-        break;
-    }
+    setMode(theme);
   </script>
   %sveltekit.head%
 </head>
