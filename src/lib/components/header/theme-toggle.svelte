@@ -19,7 +19,7 @@
 
 	let theme = getTheme();
 
-	const getSystemTheme = (theme: Theme): Scheme => {
+	const getScheme = (theme: Theme): Scheme => {
 		if (theme !== 'system') {
 			return theme;
 		}
@@ -28,10 +28,11 @@
 	};
 
 	const setTheme = (theme: Theme) => {
-		const currentTheme = theme !== 'system' ? theme : getSystemTheme(theme);
+		const currentTheme = theme !== 'system' ? theme : getScheme(theme);
 		const root = document.documentElement;
 
 		localStorage.setItem('theme', theme);
+		root.setAttribute('data-theme', theme);
 		root.setAttribute('data-scheme', currentTheme);
 		root.style.colorScheme = currentTheme;
 	};
@@ -41,10 +42,8 @@
 	 * @see https://github.com/antfu/antfu.me/blob/main/src/logics/index.ts
 	 */
 	const toggleTheme = (selectedTheme: Theme, e?: MouseEvent) => {
-		if (selectedTheme === theme) return;
-
-		let scheme: Scheme = getSystemTheme(selectedTheme);
-		const prevScheme: Scheme = getSystemTheme(theme);
+		let scheme: Scheme = getScheme(selectedTheme);
+		const prevScheme: Scheme = getScheme(theme);
 		theme = selectedTheme;
 
 		if (
@@ -91,13 +90,12 @@
 </script>
 
 <div class="toggle-button-wrapper">
-	{#each toggleButtons as { theme: buttonTheme, Icon }, index}
+	{#each toggleButtons as { theme, Icon }}
 		<button
-			data-index={index + 1}
 			class="toggle-button"
-			class:toggle-button_active={theme === buttonTheme}
-			title={`Switch to ${buttonTheme} theme`}
-			on:click={(e) => toggleTheme(buttonTheme, e)}
+			title={`Switch to ${theme} theme`}
+			on:click={(e) => toggleTheme(theme, e)}
+			data-theme={theme}
 		>
 			<Icon size="14" />
 		</button>
@@ -112,16 +110,16 @@
 		position: relative;
 	}
 
-	.toggle-button-wrapper:has(> .toggle-button_active[data-index='1'])::before {
-		transform: translateX(0);
+	:global([data-theme='dark']) .toggle-button-wrapper {
+		--index: 0;
 	}
 
-	.toggle-button-wrapper:has(> .toggle-button_active[data-index='2'])::before {
-		transform: translateX(28px);
+	:global([data-theme='light']) .toggle-button-wrapper {
+		--index: 1;
 	}
 
-	.toggle-button-wrapper:has(> .toggle-button_active[data-index='3'])::before {
-		transform: translateX(56px);
+	:global([data-theme='system']) .toggle-button-wrapper {
+		--index: 2;
 	}
 
 	.toggle-button-wrapper::before {
@@ -134,8 +132,9 @@
 		background: var(--accent200);
 		border-radius: 4px;
 		z-index: 5;
-		transition: transform ease-in-out 0.5s;
 		will-change: translate;
+		transition: transform ease-in-out 0.5s;
+		transform: translateX(calc(var(--index) * (24px + 4px)));
 	}
 
 	.toggle-button {
@@ -150,23 +149,29 @@
 		padding: 4px;
 		cursor: pointer;
 		transition:
-			color 0.5s ease-in-out,
-			box-shadow 0.5s ease-in-out;
+			color,
+			box-shadow,
+			border-color 0.5s ease-in-out;
 	}
 
 	:global([data-scheme='dark']) .toggle-button {
 		color: var(--black-coral);
 	}
 
-	.toggle-button_active,
-	:global([data-scheme='dark']) .toggle-button_active {
-		color: var(--white);
+	:global([data-theme='dark']) .toggle-button[data-theme='dark'],
+	:global([data-theme='light']) .toggle-button[data-theme='light'],
+	:global([data-theme='system']) .toggle-button[data-theme='system'] {
 		pointer-events: none;
 		cursor: default;
 	}
 
-	:global([data-scheme='dark']) .toggle-button_active {
+	:global([data-theme='dark']) .toggle-button[data-theme='dark'],
+	:global([data-theme='system'][data-scheme='dark']) .toggle-button[data-theme='system'] {
 		color: var(--eerie-black);
+	}
+	:global([data-theme='light']) .toggle-button[data-theme='light'],
+	:global([data-theme='system'][data-scheme='light']) .toggle-button[data-theme='system'] {
+		color: var(--white);
 	}
 
 	.toggle-button:hover {
