@@ -4,6 +4,11 @@
 declare global {
 	namespace App {
 		type Icon = SvelteComponentTyped<{ size?: string; strokeWidth?: number; class?: string }>;
+		type Theme = 'light' | 'dark' | 'system';
+		type Scheme = Exclude<Theme, 'system'>;
+		type Settings = {
+			theme: Theme;
+		};
 		// interface Error {}
 		// interface Locals {}
 		// interface PageData {}
