@@ -235,6 +235,10 @@ h6 {
   Theme transition end
 */
 
+html {
+	scrollbar-gutter: stable;
+}
+
 body {
 	font-family: var(--default-font);
 	color: var(--secondary200);
