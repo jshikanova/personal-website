@@ -1,11 +1,9 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
+	import { getSettingsParam, setSettingsParam } from '$lib/helpers';
 	import { SunIcon, MoonIcon, MonitorIcon } from 'svelte-feather-icons';
-
-	type Theme = 'system' | 'dark' | 'light';
-	type Scheme = Exclude<Theme, 'system'>;
 	type ToggleButton = {
-		theme: Theme;
+		theme: App.Theme;
 		Icon: App.Icon;
 	};
 
@@ -15,11 +13,11 @@
 		{ theme: 'system', Icon: MonitorIcon }
 	];
 
-	const getTheme = () => (browser ? (localStorage?.getItem('theme') as Theme) : 'system');
+	const getTheme = () => getSettingsParam('theme') || 'system';
 
 	let theme = getTheme();
 
-	const getScheme = (theme: Theme): Scheme => {
+	const getScheme = (theme: App.Theme): App.Scheme => {
 		if (theme !== 'system') {
 			return theme;
 		}
@@ -27,11 +25,11 @@
 		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 	};
 
-	const setTheme = (theme: Theme) => {
+	const setTheme = (theme: App.Theme) => {
 		const currentTheme = theme !== 'system' ? theme : getScheme(theme);
 		const root = document.documentElement;
 
-		localStorage.setItem('theme', theme);
+		setSettingsParam('theme', theme);
 		root.setAttribute('data-theme', theme);
 		root.setAttribute('data-scheme', currentTheme);
 		root.style.colorScheme = currentTheme;
@@ -41,9 +39,9 @@
 	 * Credit to [@antfu](https://github.com/antfu)
 	 * @see https://github.com/antfu/antfu.me/blob/main/src/logics/index.ts
 	 */
-	const toggleTheme = (selectedTheme: Theme, e?: MouseEvent) => {
-		let scheme: Scheme = getScheme(selectedTheme);
-		const prevScheme: Scheme = getScheme(theme);
+	const toggleTheme = (selectedTheme: App.Theme, e?: MouseEvent) => {
+		let scheme: App.Scheme = getScheme(selectedTheme);
+		const prevScheme: App.Scheme = getScheme(theme);
 		theme = selectedTheme;
 
 		if (

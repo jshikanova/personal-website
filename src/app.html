@@ -8,12 +8,41 @@
   <meta name="viewport" content="width=device-width" />
   <link rel="icon" href="%sveltekit.assets%/favicon.png" />
   <script>
-    // fix: FOUC for theme mode
-    const theme = localStorage.getItem('theme');
+    const settingsKey = 'settings';
+
+    /**
+     * Get single settings param stored in localStorage
+     */
+    const getSettingsParam = (key) => {
+      if (typeof window !== "undefined") {
+        const storageSettings = localStorage.getItem('settings');
+        const prevSettings = storageSettings ? JSON.parse(storageSettings) : null;
+
+        if (prevSettings) {
+          return prevSettings[key];
+        }
+      }
+
+      return null;
+    };
+    /**
+   * Update single settings param stored in localStorage
+   */
+    const setSettingsParam = (key, value) => {
+      if (typeof window !== "undefined") {
+        const prevSettings = JSON.parse(localStorage.getItem(settingsKey) || '{}');
+
+        localStorage.setItem(settingsKey, JSON.stringify({ ...prevSettings, [key]: value }));
+      }
+    };
+
+
+    // const theme = localStorage.getItem('theme');
+    const theme = getSettingsParam('theme') || 'system';
     const root = document.documentElement;
 
     const setMode = (mode) => {
-      localStorage.setItem('theme', mode);
+      setSettingsParam('theme', mode);
       root.style.colorScheme = mode;
       root.setAttribute('data-theme', mode);
 
