@@ -8,8 +8,10 @@
   <meta name="viewport" content="width=device-width" />
   <link rel="icon" href="%sveltekit.assets%/favicon.png" />
   <script>
-    // fix: FOUC for theme mode
-    const theme = localStorage.getItem('theme');
+    const themes = ['system', 'light', 'dark'];
+    let theme = localStorage.getItem('theme');
+    theme = themes.includes(theme) ? theme : themes[0];
+
     const root = document.documentElement;
 
     const setMode = (mode) => {
