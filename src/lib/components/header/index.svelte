@@ -49,7 +49,7 @@
 
 	.header__wrapper {
 		display: grid;
-		grid-template-columns: repeat(3, auto);
+		grid-template-columns: minmax(80px, auto) auto minmax(80px, auto);
 		justify-content: space-between;
 		align-items: center;
 		padding: 12px 20px;
