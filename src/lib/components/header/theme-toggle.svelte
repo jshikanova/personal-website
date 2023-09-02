@@ -102,6 +102,34 @@
 	{/each}
 </div>
 
+<svelte:head>
+	<script>
+		const themes = ['system', 'light', 'dark'];
+		let theme = localStorage.getItem('theme');
+		theme = themes.includes(theme) ? theme : themes[0];
+
+		const root = document.documentElement;
+
+		const setTheme = (mode) => {
+			localStorage.setItem('theme', mode);
+			root.style.colorScheme = mode;
+			root.setAttribute('data-theme', mode);
+
+			root.setAttribute('data-theme', mode);
+			root.setAttribute(
+				'data-scheme',
+				mode === 'system'
+					? window.matchMedia('(prefers-color-scheme: dark)').matches
+						? 'dark'
+						: 'light'
+					: mode
+			);
+		};
+
+		setTheme(theme);
+	</script>
+</svelte:head>
+
 <style lang="postcss">
 	.toggle-button-wrapper {
 		view-transition-name: toggle-button;
