@@ -4,7 +4,7 @@
 	const socialLinks = [
 		{
 			name: 'Github',
-			Icon: ZapIcon,
+			Icon: GithubIcon,
 			link: 'https://github.com/jshikanova'
 		},
 		{
@@ -14,7 +14,7 @@
 		},
 		{
 			name: 'StackBlitz',
-			Icon: CodepenIcon,
+			Icon: ZapIcon,
 			link: 'https://stackblitz.com/@jshikanova'
 		},
 		{
