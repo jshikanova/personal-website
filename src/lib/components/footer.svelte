@@ -2,6 +2,9 @@
 	<div class="grid-container">
 		<div class="footer__wrapper">
 			<div>
+				<slot />
+			</div>
+			<div>
 				Designed and
 				<a
 					class="link"
@@ -23,9 +26,6 @@
 				>
 					SvelteKit
 				</a>
-			</div>
-			<div>
-				<slot />
 			</div>
 		</div>
 	</div>

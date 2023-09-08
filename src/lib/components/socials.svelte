@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { GithubIcon, CodepenIcon, LinkIcon } from 'svelte-feather-icons';
+	import { GithubIcon, CodepenIcon, LinkIcon, MailIcon, ZapIcon } from 'svelte-feather-icons';
 
 	const socialLinks = [
 		{
 			name: 'Github',
-			Icon: GithubIcon,
+			Icon: ZapIcon,
 			link: 'https://github.com/jshikanova'
 		},
 		{
@@ -13,9 +13,19 @@
 			link: 'https://codepen.io/jshikanova'
 		},
 		{
+			name: 'StackBlitz',
+			Icon: CodepenIcon,
+			link: 'https://stackblitz.com/@jshikanova'
+		},
+		{
 			name: 'Mastodon',
 			Icon: LinkIcon,
 			link: 'https://fosstodon.org/@jshikanova'
+		},
+		{
+			name: 'Send Email',
+			Icon: MailIcon,
+			link: 'mailto:juliashikanova@yandex.ru'
 		}
 	];
 </script>
