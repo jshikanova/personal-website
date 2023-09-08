@@ -40,6 +40,8 @@
 
 <style lang="postcss">
 	.header {
+		--icon-size: clamp(24px, 2vw, 30px);
+
 		grid-column: 1 / -1;
 		position: sticky;
 		top: var(--header-offset-top);
@@ -48,14 +50,18 @@
 	}
 
 	.header__wrapper {
+		--px: clamp(20px, 1.428vw, 30px);
+		--py: clamp(12px, 0.857vw, 18px);
+
 		display: grid;
 		grid-template-columns: minmax(80px, auto) auto minmax(80px, auto);
 		justify-content: space-between;
 		align-items: center;
-		padding: 12px 20px;
-		margin: 0 -16px;
-		border-radius: 24px;
+		padding: var(--py) var(--px);
+		/* margin: 0 calc(var(--column-gap) * -1); */
+		border-radius: clamp(24px, 1.8vw, 32px);
 		border: 1px solid var(--border);
+		font-size: var(--sm-font-size);
 	}
 
 	@supports (backdrop-filter: blur(4px)) {
@@ -66,17 +72,19 @@
 	}
 
 	.logo {
+		--p: calc(var(--icon-size) / 8);
+
 		display: inline-flex;
 		justify-content: flex-start;
 		align-items: flex-end;
 		font-weight: 600;
 		line-height: 0.71;
 		color: var(--primary);
-		font-size: 0.8rem;
+		font-size: var(--xs-font-size);
 		letter-spacing: -0.5px;
-		width: 24px;
-		height: 24px;
-		padding: 3px;
+		width: var(--icon-size);
+		height: var(--icon-size);
+		padding: var(--p);
 		background: var(--secondary200);
 	}
 
@@ -87,7 +95,7 @@
 	}
 
 	.logo:hover .logo__text {
-		transform: scale(1.2) translateY(-3px);
+		transform: scale(1.15) translateY(calc(var(--p) * -1));
 	}
 
 	.header__nav-list {
@@ -105,7 +113,6 @@
 
 	.header__nav-link {
 		color: var(--secondary200);
-		font-size: 0.9rem;
 		transition: color var(--transition-settings);
 	}
 

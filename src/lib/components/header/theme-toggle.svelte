@@ -97,7 +97,7 @@
 			on:click={(e) => toggleTheme(theme, e)}
 			data-theme={theme}
 		>
-			<Icon size="14" />
+			<Icon size="18" />
 		</button>
 	{/each}
 </div>
@@ -132,9 +132,11 @@
 
 <style lang="postcss">
 	.toggle-button-wrapper {
+		--gap: 6px;
+
 		view-transition-name: toggle-button;
 		display: flex;
-		gap: 4px;
+		gap: var(--gap);
 		position: relative;
 	}
 
@@ -155,31 +157,33 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: 24px;
-		height: 24px;
+		width: var(--icon-size);
+		height: var(--icon-size);
 		background: var(--accent200);
 		border-radius: 4px;
 		z-index: 5;
 		will-change: translate;
 		transition: transform ease-in-out 0.5s;
-		transform: translateX(calc(var(--index) * (24px + 4px)));
+		transform: translateX(calc(var(--index) * (var(--icon-size) + var(--gap))));
 	}
 
 	.toggle-button {
-		width: 24px;
-		height: 24px;
+		width: var(--icon-size);
+		height: var(--icon-size);
 		background-color: transparent;
 		z-index: 10;
 		position: relative;
 		color: var(--black-coral);
 		border: 1px solid var(--border);
 		border-radius: 4px;
-		padding: 4px;
 		cursor: pointer;
 		transition:
 			color,
 			box-shadow,
 			border-color 0.5s ease-in-out;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	:global([data-scheme='dark']) .toggle-button {
