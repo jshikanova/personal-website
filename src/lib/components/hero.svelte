@@ -19,8 +19,10 @@
 				</div>
 			</div>
 			<p class="hero__intro">
-				Welcome to my little corner of the Internet! It's dedicated to my ongoing journey to become
-				a better developer and problem solver.
+				<span>Welcome to my little corner of the Internet!</span>
+				<span>
+					It's dedicated to my ongoing journey to become a better developer and problem solver.</span
+				>
 			</p>
 			<a
 				class="button"
@@ -44,32 +46,35 @@
 	.hero__wrapper {
 		display: flex;
 		flex-direction: column;
-		gap: 24px;
+		gap: var(--spacing-6);
 	}
 
 	.hero__profile {
 		display: flex;
-		gap: 32px;
+		gap: var(--spacing-7);
 		align-items: center;
 	}
 
 	.hero__image {
+		--size: var(--spacing-13);
+		width: var(--size);
+		height: var(--size);
 		border-radius: 50%;
 	}
 
 	.hero__title {
 		color: var(--accent100);
-		font-size: 2rem;
+		font-size: var(--lg-font-size);
 		margin-bottom: 8px;
 	}
 
 	.hero__subtitle {
 		color: var(--secondary100);
 		font-weight: 400;
-		font-size: 1.4rem;
+		font-size: var(--md-font-size);
 	}
 
 	.hero__intro {
-		max-width: 540px;
+		max-width: calc(var(--sm-font-size) * 28);
 	}
 </style>
