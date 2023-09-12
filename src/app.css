@@ -262,8 +262,7 @@ html {
 body {
 	font-family: var(--default-font);
 	color: var(--secondary200);
-	font-size: 1rem;
-	font-size: var(--sm-font-size);
+	font-size: var(--sm-font-size, 1rem);
 	background: var(--primary);
 }
 
@@ -310,6 +309,11 @@ hr {
 	border-color: var(--secondary100);
 	border-top-width: 1px;
 	opacity: 0.2;
+}
+
+img {
+	max-width: 100%;
+	display: block;
 }
 
 .container {
