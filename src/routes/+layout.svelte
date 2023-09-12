@@ -35,6 +35,7 @@
 	main {
 		display: flex;
 		flex-direction: column;
-		gap: 64px;
+		justify-content: center;
+		row-gap: var(--row-gap);
 	}
 </style>
