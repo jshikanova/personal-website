@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { Header, Footer, Socials } from '$lib/components';
-	import FluidFonts from '$lib/components/fluid-fonts.svelte';
+	import { Header, Footer, Socials, FluidCSSUnits } from '$lib/components';
 
 	import '../app.css';
 </script>
@@ -11,7 +10,7 @@
 	<meta name="description" content="Frontend developer" />
 </svelte:head>
 
-<FluidFonts />
+<FluidCSSUnits />
 
 <div class="page">
 	<Header activeRoute={$page.url.pathname} />

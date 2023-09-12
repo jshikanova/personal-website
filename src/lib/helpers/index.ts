@@ -1,1 +1,1 @@
-export * from './create-fluid-font';
+export * from './create-fluid-css-unit';
