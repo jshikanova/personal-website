@@ -1,6 +1,12 @@
 <footer class="footer">
-	<div class="grid-container">
+	<div class="container">
 		<div class="footer__wrapper">
+			<nav class="footer__nav">
+				<a class="link" href="/resume">Resume</a>
+			</nav>
+			<div>
+				<slot />
+			</div>
 			<div>
 				Designed and
 				<a
@@ -24,24 +30,33 @@
 					SvelteKit
 				</a>
 			</div>
-			<div>
-				<slot />
-			</div>
 		</div>
 	</div>
 </footer>
 
 <style>
 	.footer {
-		padding: 32px 0 48px 0;
+		padding: var(--spacing-7) 0 var(--spacing-9) 0;
 		grid-column: 1 / -1;
 	}
 
 	.footer__wrapper {
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		font-size: 0.9rem;
-		gap: 24px;
+
+		gap: var(--spacing-6);
+		font-size: var(--xs-font-size);
+	}
+
+	@media (--screen-xs) {
+		.footer__wrapper {
+			align-items: center;
+		}
+	}
+
+	@media (--screen-xs) {
+		.footer__nav {
+			display: none;
+		}
 	}
 </style>

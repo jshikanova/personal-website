@@ -1,14 +1,16 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { Header, Footer, Socials } from '$lib/components';
+	import { Header, Footer, Socials, FluidCSSUnits } from '$lib/components';
 
 	import '../app.css';
 </script>
 
 <svelte:head>
 	<title>Julia Shikanova | Portfolio</title>
-	<meta name="description" content="Frontend developer" />
+	<meta name="description" content="Julia Shikanova - Frontend developer" />
 </svelte:head>
+
+<FluidCSSUnits />
 
 <div class="page">
 	<Header activeRoute={$page.url.pathname} />
@@ -33,6 +35,9 @@
 	main {
 		display: flex;
 		flex-direction: column;
-		gap: 64px;
+		justify-content: center;
+		row-gap: var(--row-gap);
+		padding: var(--spacing-12) 0 var(--spacing-8);
+		margin-top: var(--spacing-5);
 	}
 </style>
