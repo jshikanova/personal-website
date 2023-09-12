@@ -33,15 +33,15 @@
 
 <style>
 	.footer {
-		padding: 32px 0 48px 0;
+		padding: var(--spacing-7) 0 var(--spacing-9) 0;
 		grid-column: 1 / -1;
+		font-size: var(--xs-font-size);
 	}
 
 	.footer__wrapper {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		font-size: 0.9rem;
-		gap: 24px;
+		gap: var(--spacing-6);
 	}
 </style>
