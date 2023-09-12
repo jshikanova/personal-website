@@ -40,28 +40,24 @@
 
 <style lang="postcss">
 	.header {
-		--icon-size: clamp(24px, 2vw, 30px);
+		--icon-size: var(--spacing-6);
 
 		grid-column: 1 / -1;
 		position: sticky;
-		top: var(--header-offset-top);
+		top: var(--spacing-5);
 		z-index: 1;
 		overflow: hidden;
 	}
 
 	.header__wrapper {
-		--px: clamp(20px, 1.428vw, 30px);
-		--py: clamp(12px, 0.857vw, 18px);
-
 		display: grid;
 		grid-template-columns: minmax(80px, auto) auto minmax(80px, auto);
 		justify-content: space-between;
 		align-items: center;
-		padding: var(--py) var(--px);
-		/* margin: 0 calc(var(--column-gap) * -1); */
-		border-radius: clamp(24px, 1.8vw, 32px);
+		padding: var(--spacing-5) var(--spacing-7);
+		/* margin: 0 calc(var(--spacing-7) * -1); */
+		border-radius: var(--spacing-7);
 		border: 1px solid var(--border);
-		font-size: var(--sm-font-size);
 	}
 
 	@supports (backdrop-filter: blur(4px)) {
@@ -113,7 +109,7 @@
 
 	.header__nav-link {
 		color: var(--secondary200);
-		transition: color var(--transition-settings);
+		transition: color ease-in-out 0.3s;
 	}
 
 	.header__nav-link:hover {
