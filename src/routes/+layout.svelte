@@ -7,7 +7,7 @@
 
 <svelte:head>
 	<title>Julia Shikanova | Portfolio</title>
-	<meta name="description" content="Frontend developer" />
+	<meta name="description" content="Julia Shikanova - Frontend developer" />
 </svelte:head>
 
 <FluidCSSUnits />
