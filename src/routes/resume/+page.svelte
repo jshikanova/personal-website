@@ -4,7 +4,7 @@
 </script>
 
 <div class="resume">
-	<div class="grid-container">
+	<div class="container">
 		<h1>Resume</h1>
 		<section class="resume__section">
 			<div class="resume__header">

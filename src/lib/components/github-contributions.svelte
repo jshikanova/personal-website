@@ -29,7 +29,7 @@
 </script>
 
 <div class="contributions">
-	<div class="grid-container">
+	<div class="container">
 		<div class="contributions__wrapper">
 			<div class="contributions__header">
 				<p class="contributions__subtitle">

@@ -3,7 +3,7 @@
 </script>
 
 <div class="hero">
-	<div class="grid-container">
+	<div class="container">
 		<div class="hero__wrapper">
 			<div class="hero__profile">
 				<img

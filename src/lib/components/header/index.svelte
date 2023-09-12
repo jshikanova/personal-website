@@ -5,7 +5,7 @@
 </script>
 
 <header class="header">
-	<div class="grid-container">
+	<div class="container">
 		<div class="header__wrapper">
 			<a class="logo" href="/" title="JS logo / Go to Home page">
 				<span class="logo__text">JS</span>

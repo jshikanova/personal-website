@@ -1,5 +1,5 @@
 <footer class="footer">
-	<div class="grid-container">
+	<div class="container">
 		<div class="footer__wrapper">
 			<div>
 				<slot />
