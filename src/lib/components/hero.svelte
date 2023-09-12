@@ -31,7 +31,7 @@
 				rel="noopener noreferrer"
 			>
 				Contact
-				<MailIcon size="16" />
+				<MailIcon class="mail-icon" />
 			</a>
 		</div>
 	</div>
@@ -76,5 +76,12 @@
 
 	.hero__intro {
 		max-width: calc(var(--sm-font-size) * 28);
+	}
+
+	:global(.mail-icon) {
+		--size: var(--spacing-5);
+
+		width: var(--size);
+		height: var(--size);
 	}
 </style>

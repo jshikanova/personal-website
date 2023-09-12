@@ -337,13 +337,9 @@ img {
 	background: var(--accent200);
 	color: var(--primary);
 	font-weight: 600;
-	font-size: 1rem;
-	padding: 8px 16px;
+	padding: var(--spacing-3) var(--spacing-6);
 	border-radius: 8px;
-	transition:
-		transform var(--transition-settings),
-		background var(--transition-settings),
-		box-shadow var(--transition-settings);
+	transition: 0.2s ease-in-out;
 }
 
 [data-scheme='dark'] .button {
