@@ -3,7 +3,7 @@
 </script>
 
 <div class="hero">
-	<div class="grid-container">
+	<div class="container">
 		<div class="hero__wrapper">
 			<div class="hero__profile">
 				<img
@@ -19,8 +19,10 @@
 				</div>
 			</div>
 			<p class="hero__intro">
-				Welcome to my little corner of the Internet! It's dedicated to my ongoing journey to become
-				a better developer and problem solver.
+				<span>Welcome to my little corner of the Internet!</span>
+				<span>
+					It's dedicated to my ongoing journey to become a better developer and problem solver.</span
+				>
 			</p>
 			<a
 				class="button"
@@ -29,7 +31,7 @@
 				rel="noopener noreferrer"
 			>
 				Contact
-				<MailIcon size="16" />
+				<MailIcon class="mail-icon" />
 			</a>
 		</div>
 	</div>
@@ -44,32 +46,43 @@
 	.hero__wrapper {
 		display: flex;
 		flex-direction: column;
-		gap: 24px;
+		gap: var(--spacing-6);
 	}
 
 	.hero__profile {
 		display: flex;
-		gap: 32px;
+		gap: var(--spacing-7);
 		align-items: center;
+		flex-wrap: wrap;
 	}
 
 	.hero__image {
+		--size: var(--spacing-13);
+		width: var(--size);
+		height: var(--size);
 		border-radius: 50%;
 	}
 
 	.hero__title {
 		color: var(--accent100);
-		font-size: 2rem;
+		font-size: var(--xl-font-size);
 		margin-bottom: 8px;
 	}
 
 	.hero__subtitle {
 		color: var(--secondary100);
 		font-weight: 400;
-		font-size: 1.4rem;
+		font-size: var(--lg-font-size);
 	}
 
 	.hero__intro {
-		max-width: 540px;
+		max-width: calc(var(--md-font-size) * 28);
+	}
+
+	:global(.mail-icon) {
+		--size: var(--spacing-5);
+
+		width: var(--size);
+		height: var(--size);
 	}
 </style>

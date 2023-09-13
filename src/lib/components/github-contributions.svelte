@@ -29,7 +29,7 @@
 </script>
 
 <div class="contributions">
-	<div class="grid-container">
+	<div class="container">
 		<div class="contributions__wrapper">
 			<div class="contributions__header">
 				<p class="contributions__subtitle">
@@ -92,23 +92,23 @@
 
 	.contributions__wrapper {
 		--weeks: 53;
-		--gap: 3px;
-		--size: 13px;
+		--gap: 0.25rem;
+		--size: clamp(0.875rem, calc(100cqi / 53 - var(--gap)), 2rem);
 
 		display: grid;
-		gap: 8px;
+		gap: var(--spacing-4);
+		font-size: var(--sm-font-size);
 	}
 
 	.contributions__header {
 		display: grid;
 		grid-auto-flow: column;
-		gap: 24px;
+		gap: var(--spacing-6);
 		justify-content: space-between;
 		align-items: center;
 	}
 
 	.contributions__subtitle {
-		font-size: 0.8rem;
 		color: var(--accent200);
 	}
 
@@ -154,7 +154,6 @@
 	}
 
 	.contributions__caption {
-		font-size: 0.7rem;
 		line-height: 1;
 		color: var(--secondary100);
 	}

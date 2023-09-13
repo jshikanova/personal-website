@@ -5,7 +5,7 @@
 </script>
 
 <header class="header">
-	<div class="grid-container">
+	<div class="container">
 		<div class="header__wrapper">
 			<a class="logo" href="/" title="JS logo / Go to Home page">
 				<span class="logo__text">JS</span>
@@ -40,22 +40,33 @@
 
 <style lang="postcss">
 	.header {
+		--icon-size: var(--spacing-6);
+
 		grid-column: 1 / -1;
 		position: sticky;
-		top: var(--header-offset-top);
+		top: var(--spacing-5);
 		z-index: 1;
 		overflow: hidden;
 	}
 
 	.header__wrapper {
+		--column: minmax(80px, auto);
+		font-size: var(--sm-font-size);
 		display: grid;
-		grid-template-columns: minmax(80px, auto) auto minmax(80px, auto);
+
+		grid-template-columns: repeat(2, var(--column));
 		justify-content: space-between;
 		align-items: center;
-		padding: 12px 20px;
-		margin: 0 -16px;
-		border-radius: 24px;
+		padding: var(--spacing-4) var(--spacing-6);
+		/* margin: 0 calc(var(--spacing-7) * -1); */
+		border-radius: var(--spacing-6);
 		border: 1px solid var(--border);
+	}
+
+	@media (--screen-xs) {
+		.header__wrapper {
+			grid-template-columns: var(--column) auto var(--column);
+		}
 	}
 
 	@supports (backdrop-filter: blur(4px)) {
@@ -66,17 +77,19 @@
 	}
 
 	.logo {
+		--p: calc(var(--icon-size) / 8);
+
 		display: inline-flex;
 		justify-content: flex-start;
 		align-items: flex-end;
 		font-weight: 600;
 		line-height: 0.71;
 		color: var(--primary);
-		font-size: 0.8rem;
+		font-size: var(--xs-font-size);
 		letter-spacing: -0.5px;
-		width: 24px;
-		height: 24px;
-		padding: 3px;
+		width: var(--icon-size);
+		height: var(--icon-size);
+		padding: var(--p);
 		background: var(--secondary200);
 	}
 
@@ -87,7 +100,17 @@
 	}
 
 	.logo:hover .logo__text {
-		transform: scale(1.2) translateY(-3px);
+		transform: scale(1.15) translateY(calc(var(--p) * -1));
+	}
+
+	.header__nav {
+		display: none;
+	}
+
+	@media (--screen-xs) {
+		.header__nav {
+			display: block;
+		}
 	}
 
 	.header__nav-list {
@@ -105,8 +128,7 @@
 
 	.header__nav-link {
 		color: var(--secondary200);
-		font-size: 0.9rem;
-		transition: color var(--transition-settings);
+		transition: color ease-in-out 0.3s;
 	}
 
 	.header__nav-link:hover {

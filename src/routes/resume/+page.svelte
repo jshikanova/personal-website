@@ -4,7 +4,7 @@
 </script>
 
 <div class="resume">
-	<div class="grid-container">
+	<div class="container">
 		<h1>Resume</h1>
 		<section class="resume__section">
 			<div class="resume__header">
@@ -81,11 +81,12 @@
 		<section class="resume__section">
 			<h2>Publications</h2>
 			<ul>
-				{#each publications as { title, url, publishedAt }}
-					<li>
+				{#each publications as { title, url }}
+					<li class="publications__item">
 						<h3 class="resume__subtitle">
-							<a class="link" href={url}>
+							<a class="link resume__link" href={url}>
 								{title}
+								<ExternalLinkIcon size="12" />
 							</a>
 						</h3>
 						<!-- <p>{publishedAt}</p> -->
@@ -120,7 +121,7 @@
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							<Icon size="16" />
+							<Icon class="resume__contact-icon" />
 							{title}
 						</a>
 					</li>
@@ -132,9 +133,12 @@
 </div>
 
 <style>
+	.container {
+		row-gap: var(--spacing-8);
+	}
 	.resume__header {
 		display: grid;
-		gap: 32px;
+		row-gap: var(--spacing-7);
 		justify-items: center;
 	}
 
@@ -143,23 +147,27 @@
 	}
 
 	.resume__image {
+		--size: var(--spacing-15);
+
+		width: var(--size);
+		height: var(--size);
 		border-radius: 50%;
 	}
 
 	.resume__name {
-		font-size: 2.2rem;
+		font-size: var(--xl-font-size);
 		font-weight: bold;
 		line-height: 0.9;
 	}
 
 	.resume__job-title {
-		font-size: 1.4rem;
+		font-size: var(--lg-font-size);
 		color: var(--accent100);
 	}
 
 	.resume__section {
 		display: grid;
-		gap: 32px;
+		row-gap: var(--spacing-7);
 	}
 
 	.resume__title-wrapper {
@@ -167,24 +175,28 @@
 		align-items: center;
 		justify-content: space-between;
 		flex-wrap: wrap;
-		gap: 32px;
+		row-gap: var(--spacing-7);
 	}
 
-	.resume__date {
+	/* .resume__date {
 		font-size: 1rem;
-	}
+	} */
 
 	.resume__subtitle {
-		margin-bottom: 8px;
+		margin-bottom: var(--spacing-3);
+	}
+
+	.publications__item {
+		padding-bottom: var(--spacing-4);
 	}
 
 	.resume__link {
-		gap: 4px;
+		gap: var(--spacing-2);
 	}
 
 	.resume__contact {
 		display: flex;
-		gap: 24px;
+		gap: var(--spacing-6);
 		list-style: none;
 		padding-left: 0;
 	}
@@ -196,6 +208,13 @@
 	.resume__contact-link {
 		display: flex;
 		align-items: center;
-		gap: 4px;
+		gap: var(--spacing-3);
+	}
+
+	:global(.resume__contact-icon) {
+		--size: var(--spacing-5);
+
+		width: var(--size);
+		height: var(--size);
 	}
 </style>
