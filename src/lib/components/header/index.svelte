@@ -51,9 +51,9 @@
 
 	.header__wrapper {
 		--column: minmax(80px, auto);
+
 		font-size: var(--sm-font-size);
 		display: grid;
-
 		grid-template-columns: repeat(2, var(--column));
 		justify-content: space-between;
 		align-items: center;
