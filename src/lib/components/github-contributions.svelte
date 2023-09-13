@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import type { ContributionsResponse } from '../../routes/proxy+page.server';
 
 	export let contributions: ContributionsResponse['data']['user']['contributionsCollection']['contributionCalendar'];
@@ -102,19 +103,29 @@
 	.contributions__wrapper {
 		--weeks: 53;
 		--gap: 0.25rem;
-		--size: clamp(0.875rem, calc(100cqi / 53 - var(--gap)), 2rem);
+		--size: clamp(0.875rem, calc(100vw / 53 - var(--gap)), 2rem);
+		--size: 13px;
 
 		display: grid;
 		gap: var(--spacing-4);
 		font-size: var(--sm-font-size);
 	}
 
-	.contributions__header {
-		display: grid;
+	@supports (container-type: inline-size) {
+		.contributions__wrapper {
+			--size: clamp(0.875rem, calc(100cqi / 53 - var(--gap)), 2rem);
+		}
+	}
+
+	.contributions__header,
+	.contributions__footer {
+		display: flex;
 		grid-auto-flow: column;
-		gap: var(--spacing-6);
+		column-gap: var(--spacing-6);
+		row-gap: var(--spacing-2);
 		justify-content: space-between;
 		align-items: center;
+		flex-wrap: wrap;
 	}
 
 	.contributions__subtitle {
@@ -147,13 +158,6 @@
 
 	:global([data-scheme='dark']) .contributions__day {
 		background: rgba(240, 240, 240, 0.1);
-	}
-
-	.contributions__footer {
-		display: grid;
-		grid-auto-flow: column;
-		justify-content: space-between;
-		align-items: center;
 	}
 
 	.contributions__colors {
