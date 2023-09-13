@@ -202,9 +202,11 @@
 
 	.resume__contact {
 		display: flex;
-		gap: var(--spacing-6);
+		column-gap: var(--spacing-6);
+		row-gap: var(--spacing-2);
 		list-style: none;
 		padding-left: 0;
+		flex-wrap: wrap;
 	}
 
 	.resume__contact-item {
