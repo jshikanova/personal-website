@@ -1,6 +1,9 @@
 <footer class="footer">
 	<div class="container">
 		<div class="footer__wrapper">
+			<nav class="footer__nav">
+				<a class="link" href="/resume">Resume</a>
+			</nav>
 			<div>
 				<slot />
 			</div>
@@ -40,8 +43,20 @@
 	.footer__wrapper {
 		display: flex;
 		flex-direction: column;
-		align-items: center;
+
 		gap: var(--spacing-6);
 		font-size: var(--xs-font-size);
+	}
+
+	@media (--screen-xs) {
+		.footer__wrapper {
+			align-items: center;
+		}
+	}
+
+	@media (--screen-xs) {
+		.footer__nav {
+			display: none;
+		}
 	}
 </style>
