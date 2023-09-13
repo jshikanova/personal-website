@@ -35,7 +35,6 @@
 	.footer {
 		padding: var(--spacing-7) 0 var(--spacing-9) 0;
 		grid-column: 1 / -1;
-		font-size: var(--xs-font-size);
 	}
 
 	.footer__wrapper {
@@ -43,5 +42,6 @@
 		flex-direction: column;
 		align-items: center;
 		gap: var(--spacing-6);
+		font-size: var(--xs-font-size);
 	}
 </style>

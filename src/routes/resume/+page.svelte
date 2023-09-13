@@ -155,13 +155,13 @@
 	}
 
 	.resume__name {
-		font-size: var(--lg-font-size);
+		font-size: var(--xl-font-size);
 		font-weight: bold;
 		line-height: 0.9;
 	}
 
 	.resume__job-title {
-		font-size: var(--md-font-size);
+		font-size: var(--lg-font-size);
 		color: var(--accent100);
 	}
 

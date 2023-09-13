@@ -53,6 +53,7 @@
 		display: flex;
 		gap: var(--spacing-7);
 		align-items: center;
+		flex-wrap: wrap;
 	}
 
 	.hero__image {
@@ -64,18 +65,18 @@
 
 	.hero__title {
 		color: var(--accent100);
-		font-size: var(--lg-font-size);
+		font-size: var(--xl-font-size);
 		margin-bottom: 8px;
 	}
 
 	.hero__subtitle {
 		color: var(--secondary100);
 		font-weight: 400;
-		font-size: var(--md-font-size);
+		font-size: var(--lg-font-size);
 	}
 
 	.hero__intro {
-		max-width: calc(var(--sm-font-size) * 28);
+		max-width: calc(var(--md-font-size) * 28);
 	}
 
 	:global(.mail-icon) {

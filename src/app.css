@@ -1,6 +1,6 @@
 /* 
-  Custom CSS reset by Josh W. Comeau
-  source: https://www.joshwcomeau.com/css/custom-css-reset/
+  * Custom CSS reset by Josh W. Comeau
+  * source: https://www.joshwcomeau.com/css/custom-css-reset/
 */
 
 *,
@@ -50,11 +50,11 @@ h6 {
 }
 
 /* 
-  Custom CSS reset end
+  * Custom CSS reset end
 */
 
 /* 
-  Fonts
+  * Fonts
 */
 
 @font-face {
@@ -104,6 +104,10 @@ h6 {
 	font-style: normal;
 	font-display: auto;
 }
+
+/* 
+  * Fonts end
+*/
 
 :root {
 	--default-font: Golos Text, sans-serif;
@@ -198,7 +202,7 @@ h6 {
 }
 
 /* 
-  Custom scrollbar
+  * Custom scrollbar
 */
 
 ::-webkit-scrollbar {
@@ -223,11 +227,11 @@ h6 {
 }
 
 /* 
-  Custom scrollbar end
+  * Custom scrollbar end
 */
 
 /* 
-  Theme transition
+  * Theme transition
 */
 
 ::view-transition-old(root),
@@ -253,7 +257,7 @@ h6 {
 }
 
 /* 
-  Theme transition end
+  * Theme transition end
 */
 
 html {
@@ -263,17 +267,12 @@ html {
 body {
 	font-family: var(--default-font);
 	color: var(--secondary200);
-	font-size: var(--sm-font-size, 1rem);
+	font-size: var(--md-font-size, 1.333rem);
 	background: var(--primary);
 }
 
 a {
 	text-decoration: none;
-}
-
-main {
-	padding: 32px 0;
-	margin-top: var(--header-offset-top);
 }
 
 h1,
@@ -286,14 +285,15 @@ h6 {
 }
 
 h1 {
-	font-size: var(--xl-font-size);
+	font-size: var(--xxl-font-size);
 }
 
 h2 {
-	font-size: var(--lg-font-size);
+	font-size: var(--xl-font-size);
 }
+
 h3 {
-	font-size: var(--md-font-size);
+	font-size: var(--lg-font-size);
 }
 
 ul {
@@ -325,6 +325,7 @@ img {
 	display: grid;
 	column-gap: var(--column-gap);
 	grid-template-columns: 1fr var(--content) 1fr;
+	font-size: var(--md-font-size, 1.333rem);
 }
 
 .container > * {
@@ -334,7 +335,7 @@ img {
 
 .button {
 	display: inline-flex;
-	gap: 8px;
+	gap: var(--spacing-3);
 	align-items: center;
 	justify-content: center;
 	align-self: flex-start;
@@ -342,9 +343,12 @@ img {
 	background: var(--accent200);
 	color: var(--primary);
 	font-weight: 600;
-	padding: var(--spacing-3) var(--spacing-6);
-	border-radius: 8px;
-	transition: 0.2s ease-in-out;
+	padding: var(--spacing-3) var(--spacing-5);
+	border-radius: var(--spacing-3);
+	transition:
+		background 0.2s ease-in-out,
+		transform 0.2s ease-in-out,
+		box-shadow 0.2s ease-in-out;
 }
 
 [data-scheme='dark'] .button {
@@ -371,8 +375,8 @@ img {
 }
 
 /* 
-  Hover underline animation by 30 seconds of code
-  source: https://www.30secondsofcode.org/css/s/hover-underline-animation 
+  * Hover underline animation by 30 seconds of code
+  * source: https://www.30secondsofcode.org/css/s/hover-underline-animation 
 */
 .link {
 	position: relative;

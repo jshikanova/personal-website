@@ -37,5 +37,7 @@
 		flex-direction: column;
 		justify-content: center;
 		row-gap: var(--row-gap);
+		padding: var(--spacing-12) 0 var(--spacing-8);
+		margin-top: var(--spacing-5);
 	}
 </style>

@@ -97,6 +97,7 @@
 
 		display: grid;
 		gap: var(--spacing-4);
+		font-size: var(--sm-font-size);
 	}
 
 	.contributions__header {

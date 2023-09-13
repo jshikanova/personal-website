@@ -50,13 +50,14 @@
 	}
 
 	.header__wrapper {
+		font-size: var(--sm-font-size);
 		display: grid;
 		grid-template-columns: minmax(80px, auto) auto minmax(80px, auto);
 		justify-content: space-between;
 		align-items: center;
-		padding: var(--spacing-5) var(--spacing-7);
+		padding: var(--spacing-4) var(--spacing-6);
 		/* margin: 0 calc(var(--spacing-7) * -1); */
-		border-radius: var(--spacing-7);
+		border-radius: var(--spacing-6);
 		border: 1px solid var(--border);
 	}
 
