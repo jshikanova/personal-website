@@ -39,6 +39,10 @@ select {
 	font: inherit;
 }
 
+button {
+	padding: 0;
+}
+
 p,
 h1,
 h2,
@@ -297,7 +301,7 @@ h3 {
 }
 
 ul {
-	padding-inline-start: var(--spacing-8);
+	padding-inline-start: var(--spacing-7);
 }
 
 li {

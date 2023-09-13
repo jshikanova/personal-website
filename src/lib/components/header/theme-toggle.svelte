@@ -184,10 +184,12 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
+		padding: 0 var(--spacing-2);
 	}
 
 	:global([data-scheme='dark']) .toggle-button {
 		color: var(--black-coral);
+		color: var(--white);
 	}
 
 	:global([data-theme='dark']) .toggle-button[data-theme='dark'],
