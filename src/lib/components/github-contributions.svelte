@@ -26,6 +26,15 @@
 	} as any;
 
 	// type ColorKeys = keyof typeof colors;
+
+	let contributionsList: HTMLElement;
+
+	onMount(() => {
+		if (contributionsList.scrollWidth > contributionsList.clientWidth) {
+			console.log('here');
+			contributionsList.scrollTo({ left: contributionsList.scrollWidth, behavior: 'smooth' });
+		}
+	});
 </script>
 
 <div class="contributions">
@@ -45,7 +54,7 @@
 					Github
 				</a>
 			</div>
-			<div class="contributions__list contributions__list_scroll">
+			<div bind:this={contributionsList} class="contributions__list contributions__list_scroll">
 				{#each contributions.weeks as week}
 					<div class="contributions__week">
 						{#each week.contributionDays as { contributionCount, color, date }}
