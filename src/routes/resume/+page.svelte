@@ -53,8 +53,7 @@
 					<li>
 						<h3 class="resume__subtitle">
 							<a class="link resume__link" href={url} target="_blank" rel="noopener noreferrer">
-								{title}
-								<ExternalLinkIcon size="12" />
+								{title}<ExternalLinkIcon class="resume__link-icon" size="12" />
 							</a>
 						</h3>
 						<p><b>Stack:</b> {stack}</p>
@@ -85,8 +84,7 @@
 					<li class="publications__item">
 						<h3 class="resume__subtitle">
 							<a class="link resume__link" href={url}>
-								{title}
-								<ExternalLinkIcon size="12" />
+								{title}<ExternalLinkIcon class="resume__link-icon" />
 							</a>
 						</h3>
 						<!-- <p>{publishedAt}</p> -->
@@ -191,7 +189,15 @@
 	}
 
 	.resume__link {
+		display: inline;
 		gap: var(--spacing-2);
+	}
+
+	:global(.resume__link-icon) {
+		width: var(--lg-font-size);
+		height: var(--lg-font-size);
+		padding: var(--spacing-1) var(--spacing-2);
+		display: inline;
 	}
 
 	.resume__contact {
