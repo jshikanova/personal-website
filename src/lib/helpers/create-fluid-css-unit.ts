@@ -2,16 +2,17 @@ export const getPixelsPerRem = (root: HTMLElement) =>
 	Number(getComputedStyle(root).fontSize.slice(0, -2));
 
 export const addCssVariable = (root: HTMLElement, key: string, value: string) => {
-	console.log(`--${key}:`, value);
 	root.style.setProperty(`--${key}`, value);
 };
 
 const breakpoints = {
-	sm: 640,
-	md: 768,
-	lg: 1024,
-	xl: 1280,
-	xxl: 1536
+	xs: 640,
+	sm: 768,
+	md: 1024,
+	lg: 1280,
+	xl: 1440,
+	xxl: 1920,
+	xxxl: 2560
 };
 
 type Breakpoint = keyof typeof breakpoints;
@@ -24,18 +25,19 @@ type CreateFluidCSSUnit = {
 	screen: Screen;
 };
 
-type UnitWithKey = CreateFluidCSSUnit & { key: string };
+type FluidCSSUnits = Record<string, CreateFluidCSSUnit>;
 
-const screen: Screen = { min: 'lg', max: 'xxl' };
+const screen: Screen = { min: 'lg', max: 'xxxl' };
 
 // * Update hardcoded CSS variables if fonts is changed
-export const fonts: UnitWithKey[] = [
-	{ key: 'xl-font-size', unit: { min: 3, max: 6 }, screen },
-	{ key: 'lg-font-size', unit: { min: 2, max: 4 }, screen },
-	{ key: 'md-font-size', unit: { min: 1.25, max: 2.5 }, screen },
-	{ key: 'sm-font-size', unit: { min: 1, max: 2 }, screen },
-	{ key: 'xs-font-size', unit: { min: 0.8, max: 1.6 }, screen }
-];
+export const fonts: FluidCSSUnits = {
+	'xxl-font-size': { unit: { min: 3.5, max: 4.5 }, screen },
+	'xl-font-size': { unit: { min: 2.5, max: 3 }, screen },
+	'lg-font-size': { unit: { min: 1.75, max: 2 }, screen },
+	'md-font-size': { unit: { min: 1.375, max: 1.75 }, screen },
+	'sm-font-size': { unit: { min: 1, max: 1.5 }, screen },
+	'xs-font-size': { unit: { min: 0.75, max: 1 }, screen }
+};
 
 type CreateSpacing = {
 	keyPrefix: string;
@@ -53,18 +55,26 @@ const createSpacing = ({
 	startIndex = 1,
 	startValue = 0,
 	screen
-}: CreateSpacing) =>
-	Array.from({ length }).map((n, i) => ({
-		key: `${keyPrefix}-${startIndex + i}`,
-		unit: {
-			min: startValue + step * i,
-			max: startValue + step * i + step
-		},
-		screen
-	}));
+}: CreateSpacing): FluidCSSUnits => {
+	const units: FluidCSSUnits = {};
+
+	for (let i = 0; i < length; i++) {
+		const key = `${keyPrefix}-${startIndex + i}`;
+
+		units[key] = {
+			unit: {
+				min: startValue + step * i,
+				max: startValue + step * i + step
+			},
+			screen
+		};
+	}
+
+	return units;
+};
 
 // * Update hardcoded CSS variables if spacing is changed
-export const spacing = [
+export const spacing = {
 	...createSpacing({
 		keyPrefix: 'spacing',
 		step: 0.125,
@@ -97,7 +107,7 @@ export const spacing = [
 		startValue: 4,
 		length: 6
 	})
-];
+};
 
 /**
  * Credit to Pedro Rodriguez [@pprg1996](https://github.com/pprg1996)
@@ -116,5 +126,28 @@ export const createFluidCSSUnit = ({
 	const slope = (unit.max - unit.min) / (screen.max - screen.min);
 	const yAxisIntersection = -screen.min * slope + unit.min;
 
-	return `clamp(${unit.min}rem, ${yAxisIntersection}rem + ${slope} * 100vw, ${unit.max}rem)`;
+	return `clamp(${unit.min}rem, ${yAxisIntersection.toFixed(4)}rem + ${slope.toFixed(4)} * 100vw, ${
+		unit.max
+	}rem)`;
+};
+
+export const getHardcodedCSSVariables = ({
+	units,
+	pixelsPerRem
+}: {
+	units: FluidCSSUnits;
+	pixelsPerRem: number;
+}) => {
+	const fluidUnits = Object.entries(units)
+		.reduce<string[]>((acc, [key, value]) => {
+			const fluidUnit = createFluidCSSUnit({ pixelsPerRem, ...value });
+			const comment = `/* ${value.unit.min * pixelsPerRem}px - ${
+				value.unit.max * pixelsPerRem
+			}px */`;
+
+			return [...acc, `--${key}: ${fluidUnit}; ${comment}`];
+		}, [])
+		.join('\n');
+
+	console.log(fluidUnits);
 };
