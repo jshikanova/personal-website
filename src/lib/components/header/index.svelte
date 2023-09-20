@@ -8,9 +8,7 @@
 	<div class="container">
 		<div class="header__wrapper">
 			<a class="logo" href="/" title="JS logo / Go to Home page">
-				<span
-					class="logo__text inline-flex origin-bottom-left transition-transform duration-500"
-				>
+				<span class="logo__text inline-flex origin-bottom-left transition-transform duration-500">
 					JS
 				</span>
 			</a>
@@ -77,7 +75,6 @@
 		width: var(--icon-size);
 		height: var(--icon-size);
 		padding: var(--p);
-		background: var(--secondary200);
 	}
 
 	.logo:hover .logo__text {
