@@ -1,4 +1,10 @@
 /* 
+  Write your global styles here, in PostCSS syntax
+*/
+
+@tailwind base;
+
+/* 
   * Custom CSS reset by Josh W. Comeau
   * source: https://www.joshwcomeau.com/css/custom-css-reset/
 */
@@ -420,3 +426,6 @@ img {
 .link_accent:hover {
 	color: var(--accent100-hover);
 }
+
+@tailwind components;
+@tailwind utilities;
