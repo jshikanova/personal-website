@@ -1,11 +1,5 @@
 <script lang="ts">
-	import {
-		GithubIcon,
-		CodepenIcon,
-		MailIcon,
-		ZapIcon,
-		XIcon
-	} from 'svelte-feather-icons';
+	import { GithubIcon, CodepenIcon, MailIcon, ZapIcon, XIcon } from 'svelte-feather-icons';
 
 	const socialLinks = [
 		{
