@@ -24,6 +24,8 @@ export default {
 			}
 		},
 		colors: {
+			transparent: 'transparent',
+			current: 'currentColor',
 			white: {
 				10: 'hsla(0, 0%, 94%, 0.1)',
 				90: 'hsla(0, 0%, 94%, 0.9)',

@@ -1,5 +1,11 @@
 <script lang="ts">
-	import { GithubIcon, CodepenIcon, MailIcon, ZapIcon, XIcon } from 'svelte-feather-icons';
+	import {
+		GithubIcon,
+		CodepenIcon,
+		MailIcon,
+		ZapIcon,
+		XIcon
+	} from 'svelte-feather-icons';
 
 	const socialLinks = [
 		{
@@ -30,59 +36,23 @@
 	];
 </script>
 
-<ul class="socials">
+<ul class="flex flex-wrap gap-fluid-5 ps-0">
 	{#each socialLinks as { name, Icon, link }}
-		<li class="socials__item">
-			<a class="socials__link" href={link} target="_blank" rel="noopener noreferrer" title={name}>
-				<div class="socials__icon-wrapper">
-					<Icon class="socials__icon" />
+		<li class="pb-0">
+			<a
+				class="group flex items-center gap-fluid-3 font-medium text-black-800 dark:text-linen-100"
+				href={link}
+				target="_blank"
+				rel="noopener noreferrer"
+				title={name}
+			>
+				<div
+					class="shrink-0 rounded-[theme(spacing.fluid-1)] bg-blue-800 p-1 text-white-100 transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:bg-blue-900 dark:bg-lightblue-200 dark:text-black-900 group-hover:dark:bg-lightblue-100"
+				>
+					<Icon class="h-[theme(spacing.fluid-5)] w-[theme(spacing.fluid-5)]" />
 				</div>
 				{name}
 			</a>
 		</li>
 	{/each}
 </ul>
-
-<style>
-	.socials {
-		list-style-type: none;
-		padding-left: 0;
-		display: flex;
-		flex-wrap: wrap;
-		gap: var(--spacing-5);
-	}
-
-	.socials__item {
-		padding-bottom: 0;
-	}
-
-	.socials__link {
-		display: flex;
-		align-items: center;
-		gap: var(--spacing-3);
-		font-weight: 500;
-		color: var(--secondary200);
-	}
-
-	.socials__icon-wrapper {
-		flex-shrink: 0;
-		background: var(--accent200);
-		color: var(--primary);
-		padding: 4px;
-		border-radius: var(--spacing-1);
-		transition: 0.3s ease-in-out;
-	}
-
-	:global(.socials__icon) {
-		--size: var(--spacing-5);
-
-		width: var(--size);
-		height: var(--size);
-	}
-
-	.socials__link:hover :global(.socials__icon-wrapper) {
-		transform: scale(1.05);
-		background: var(--accent200-hover);
-		box-shadow: var(--glow100) var(--accent200);
-	}
-</style>
