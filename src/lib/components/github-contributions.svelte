@@ -6,7 +6,9 @@
 
 	const calcStreak = () => {
 		const contributionsCounter: Array<number> = contributions.weeks
-			.map((week) => week.contributionDays.map(({ contributionCount }) => contributionCount))
+			.map((week) =>
+				week.contributionDays.map(({ contributionCount }) => contributionCount)
+			)
 			.flat()
 			.reverse();
 
@@ -19,11 +21,11 @@
 
 	//  TODO: Remove any
 	const alternativeColors = {
-		'#ebedf0': 'var(--github100)',
-		'#9be9a8': 'var(--github200)',
-		'#40c463': 'var(--github300)',
-		'#30a14e': 'var(--github400)',
-		'#216e39': 'var(--github500)'
+		'#ebedf0': 'var(--github-100)',
+		'#9be9a8': 'var(--github-200)',
+		'#40c463': 'var(--github-300)',
+		'#30a14e': 'var(--github-400)',
+		'#216e39': 'var(--github-500)'
 	} as any;
 
 	// type ColorKeys = keyof typeof colors;
@@ -32,142 +34,107 @@
 
 	onMount(() => {
 		if (contributionsList.scrollWidth > contributionsList.clientWidth) {
-			console.log('here');
-			contributionsList.scrollTo({ left: contributionsList.scrollWidth, behavior: 'smooth' });
+			contributionsList.scrollTo({
+				left: contributionsList.scrollWidth,
+				behavior: 'smooth'
+			});
 		}
 	});
 </script>
 
-<div class="contributions">
-	<div class="container">
-		<div class="contributions__wrapper">
-			<div class="contributions__header">
-				<p class="contributions__subtitle">
-					{contributions.totalContributions} contributions in the last year
-				</p>
-				<a
-					class="contributions__subtitle link"
-					href="https://github.com/jshikanova"
-					target="_blank"
-					rel="noopener noreferrer"
-					title="Github profile"
-				>
-					Github
-				</a>
-			</div>
-			<div bind:this={contributionsList} class="contributions__list contributions__list_scroll">
-				{#each contributions.weeks as week}
-					<div class="contributions__week">
-						{#each week.contributionDays as { contributionCount, color, date }}
-							<div
-								style="background-color: {alternativeColors[color]}"
-								class="contributions__day contributions__day_{contributionCount}"
-								title={`${
-									contributionCount === 1
-										? '1 contribution'
-										: `${contributionCount === 0 ? 'No' : contributionCount} contributions`
-								} on ${new Date(date).toLocaleDateString('en-us', {
-									weekday: 'long',
-									year: 'numeric',
-									month: 'long',
-									day: 'numeric'
-								})}`}
-							/>
-						{/each}
-					</div>
-				{/each}
-			</div>
-			<div class="contributions__footer">
-				<p class="contributions__subtitle">
-					{#if streak > 0}
-						<b>Current streak:</b> {streak} {streak === 1 ? 'day' : 'days'}
-					{:else}
-						Not on streak
-					{/if}
-				</p>
-				<div class="contributions__colors">
-					<span class="contributions__caption">Less</span>
-					{#each Object.values(alternativeColors) as color}
-						<div class="contributions__day" style="background-color: {color}" />
+<div class="container">
+	<div class="contributions__wrapper grid gap-fluid-4 text-sm">
+		<div
+			class="flex flex-col-reverse items-start justify-between gap-x-fluid-6 gap-y-fluid-2 sm:flex-row"
+		>
+			<p class="text-blue-800 dark:text-lightblue-200">
+				{contributions.totalContributions} contributions in the last year
+			</p>
+			<a
+				class="link text-blue-800 dark:text-lightblue-200"
+				href="https://github.com/jshikanova"
+				target="_blank"
+				rel="noopener noreferrer"
+				title="Github profile"
+			>
+				Github
+			</a>
+		</div>
+		<div
+			bind:this={contributionsList}
+			class="grid grid-cols-[repeat(var(--weeks),var(--size))] gap-[var(--gap)] overflow-x-auto"
+		>
+			{#each contributions.weeks as week}
+				<div class="grid grid-rows-[repeat(7,var(--size))] gap-[var(--gap)]">
+					{#each week.contributionDays as { contributionCount, color, date }}
+						<div
+							style="background-color: {alternativeColors[color]}"
+							class="lalala aspect-square rounded-sm"
+							title={`${
+								contributionCount === 1
+									? '1 contribution'
+									: `${
+											contributionCount === 0 ? 'No' : contributionCount
+									  } contributions`
+							} on ${new Date(date).toLocaleDateString('en-us', {
+								weekday: 'long',
+								year: 'numeric',
+								month: 'long',
+								day: 'numeric'
+							})}`}
+						/>
 					{/each}
-					<span class="contributions__caption">More</span>
 				</div>
+			{/each}
+		</div>
+		<div
+			class="flex flex-col items-start justify-between gap-x-fluid-6 gap-y-fluid-2 sm:flex-row"
+		>
+			<p class="text-blue-800 dark:text-lightblue-200">
+				{#if streak > 0}
+					<b>Current streak:</b> {streak} {streak === 1 ? 'day' : 'days'}
+				{:else}
+					Not on streak
+				{/if}
+			</p>
+			<div
+				class="grid grid-cols-[min-content_repeat(5,_var(--size))_min-content] gap-[var(--gap)]"
+			>
+				<span class="leading-none text-black-100 dark:text-linen-200">Less</span
+				>
+				{#each Object.values(alternativeColors) as color}
+					<div
+						class="aspect-square rounded-sm"
+						style="background-color: {color}"
+					/>
+				{/each}
+				<span class="leading-none text-black-100 dark:text-linen-200">More</span
+				>
 			</div>
 		</div>
 	</div>
 </div>
 
-<style>
-	/* .contributions {} */
-
+<style lang="postcss">
 	.contributions__wrapper {
 		--weeks: 53;
 		--gap: 0.25rem;
 		--size: clamp(0.875rem, calc(100vw / 53 - var(--gap)), 2rem);
-		--size: 13px;
 
-		display: grid;
-		gap: var(--spacing-4);
-		font-size: var(--sm-font-size);
+		--github-100: theme(colors.white.90);
+		--github-200: theme(colors.lilac.100);
+		--github-300: theme(colors.lilac.200);
+		--github-400: theme(colors.lilac.300);
+		--github-500: theme(colors.lilac.400);
+	}
+
+	:global([data-scheme='dark']) .contributions__wrapper {
+		--github-100: theme(colors.white.10);
 	}
 
 	@supports (container-type: inline-size) {
 		.contributions__wrapper {
 			--size: clamp(0.875rem, calc(100cqi / 53 - var(--gap)), 2rem);
 		}
-	}
-
-	.contributions__header,
-	.contributions__footer {
-		display: flex;
-		grid-auto-flow: column;
-		column-gap: var(--spacing-6);
-		row-gap: var(--spacing-2);
-		justify-content: space-between;
-		align-items: center;
-		flex-wrap: wrap;
-	}
-
-	.contributions__subtitle {
-		color: var(--accent200);
-	}
-
-	.contributions__list {
-		display: grid;
-		grid-template-columns: repeat(var(--weeks), var(--size));
-		gap: var(--gap);
-		align-items: flex-start;
-		justify-content: center;
-	}
-
-	.contributions__list_scroll {
-		overflow-x: auto;
-	}
-
-	.contributions__week {
-		display: grid;
-		grid-template-rows: repeat(7, var(--size));
-		gap: var(--gap);
-	}
-
-	.contributions__day {
-		aspect-ratio: 1/1;
-		border-radius: 2px;
-		background: rgba(240, 240, 240, 0.9);
-	}
-
-	:global([data-scheme='dark']) .contributions__day {
-		background: rgba(240, 240, 240, 0.1);
-	}
-
-	.contributions__colors {
-		display: grid;
-		grid-template-columns: min-content repeat(5, var(--size)) min-content;
-		gap: var(--gap);
-	}
-
-	.contributions__caption {
-		line-height: 1;
-		color: var(--secondary100);
 	}
 </style>

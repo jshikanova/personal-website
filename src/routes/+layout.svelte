@@ -15,7 +15,9 @@
 <div class="page">
 	<Header activeRoute={$page.url.pathname} />
 
-	<main>
+	<main
+		class="mt-fluid-5 flex flex-col justify-center gap-y-fluid-10 pb-fluid-8 pt-fluid-12"
+	>
 		<slot />
 	</main>
 
@@ -30,14 +32,5 @@
 		display: grid;
 		grid-template-columns: 1fr auto;
 		grid-template-rows: auto 1fr auto;
-	}
-
-	main {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		row-gap: var(--row-gap);
-		padding: var(--spacing-12) 0 var(--spacing-8);
-		margin-top: var(--spacing-5);
 	}
 </style>

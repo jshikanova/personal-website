@@ -1,7 +1,7 @@
-<footer class="footer">
+<footer class="col-span-full pb-fluid-9 pt-fluid-7">
 	<div class="container">
-		<div class="footer__wrapper">
-			<nav class="footer__nav">
+		<div class="flex flex-col gap-fluid-6 text-xs sm:items-center">
+			<nav class="sm:hidden">
 				<a class="link" href="/resume">Resume</a>
 			</nav>
 			<div>
@@ -19,7 +19,8 @@
 					coded
 				</a>
 				with <span aria-label="sparks">✨</span>
-				by Julia Shikanova <span aria-label="Woman Technologist">👩‍💻</span>. Built with
+				by Julia Shikanova <span aria-label="Woman Technologist">👩‍💻</span>.
+				Built with
 				<a
 					class="link link_accent"
 					href="https://kit.svelte.dev/"
@@ -33,30 +34,3 @@
 		</div>
 	</div>
 </footer>
-
-<style>
-	.footer {
-		padding: var(--spacing-7) 0 var(--spacing-9) 0;
-		grid-column: 1 / -1;
-	}
-
-	.footer__wrapper {
-		display: flex;
-		flex-direction: column;
-
-		gap: var(--spacing-6);
-		font-size: var(--xs-font-size);
-	}
-
-	@media (--screen-xs) {
-		.footer__wrapper {
-			align-items: center;
-		}
-	}
-
-	@media (--screen-xs) {
-		.footer__nav {
-			display: none;
-		}
-	}
-</style>
