@@ -40,7 +40,7 @@
 							<h3>{jobTitle}</h3>
 							<p>{at}</p>
 						</div>
-						<p class="text-black-100 text-sm">{date}</p>
+						<p class="text-sm text-black-100 dark:text-linen-200">{date}</p>
 					</li>
 				{/each}
 			</ul>
@@ -112,7 +112,7 @@
 							</h3>
 							<p>{educationalInstitution}</p>
 						</div>
-						<p class="text-black-100 text-sm">{date}</p>
+						<p class="text-sm text-black-100 dark:text-linen-200">{date}</p>
 					</li>
 				{/each}
 			</ul>
