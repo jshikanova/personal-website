@@ -4,25 +4,25 @@
 </script>
 
 <div class="resume">
-	<div class="container">
+	<div class="container gap-y-fluid-8">
 		<h1>Resume</h1>
-		<section class="resume__section">
-			<div class="resume__header">
+		<section>
+			<div class="grid justify-items-center gap-y-fluid-7">
 				<img
-					class="resume__image"
+					class="h-fluid-15 w-fluid-15 rounded-full"
 					src="/images/Julia Shikanova.jpeg"
 					alt="Julia Shikanova"
 					width="120"
 					height="120"
 				/>
-				<div class="resume__header-text">
-					<p class="resume__name">Julia Shikanova</p>
-					<p class="resume__job-title">Frontend developer</p>
+				<div class="text-center">
+					<p class="text-xl font-bold leading-[0.9]">Julia Shikanova</p>
+					<p class="text-lg text-orange-100">Frontend developer</p>
 				</div>
 			</div>
 		</section>
 		<hr />
-		<section class="resume__section">
+		<section>
 			<h2>Summary</h2>
 			<p>
 				Developer with 3 years of experience in React and Typescript. Eager and motivated to learn
@@ -31,29 +31,33 @@
 			</p>
 		</section>
 		<hr />
-		<section class="resume__section">
+		<section>
 			<h2>Experience</h2>
 			<ul>
 				{#each experience as { jobTitle, date, at }}
-					<li>
-						<div class="resume__title-wrapper">
-							<h3 class="resume__subtitle">{jobTitle}</h3>
-							<p class="resume__date">{date}</p>
+					<li class="flex flex-col justify-between gap-x-fluid-5 md:flex-row">
+						<div>
+							<h3>{jobTitle}</h3>
+							<p>{at}</p>
 						</div>
-						<p>{at}</p>
+						<p class="text-black-100 text-sm">{date}</p>
 					</li>
 				{/each}
 			</ul>
 		</section>
 		<hr />
-		<section class="resume__section">
+		<section>
 			<h2>Projects</h2>
 			<ul>
 				{#each projects as { title, url, stack }}
 					<li>
-						<h3 class="resume__subtitle">
-							<a class="link resume__link" href={url} target="_blank" rel="noopener noreferrer">
-								{title}<ExternalLinkIcon class="resume__link-icon" size="12" />
+						<h3>
+							<a class="link inline" href={url} target="_blank" rel="noopener noreferrer">
+								{title}
+								<ExternalLinkIcon
+									class="mb-fluid-4 inline h-fluid-6 w-fluid-6 px-fluid-1"
+									size="12"
+								/>
 							</a>
 						</h3>
 						<p><b>Stack:</b> {stack}</p>
@@ -61,12 +65,12 @@
 			</ul>
 		</section>
 		<hr />
-		<section class="resume__section">
+		<section>
 			<h2>Skills</h2>
 			<ul>
 				{#each Object.entries(skills) as [title, skillGroup]}
 					<li>
-						<h3 class="resume__subtitle">{title}</h3>
+						<h3>{title}</h3>
 						<p>
 							{#each skillGroup as skill, index}
 								{index !== skillGroup.length - 1 ? skill + ', ' : skill}
@@ -77,14 +81,18 @@
 			</ul>
 		</section>
 		<hr />
-		<section class="resume__section">
+		<section>
 			<h2>Publications</h2>
 			<ul>
 				{#each publications as { title, url }}
-					<li class="publications__item">
-						<h3 class="resume__subtitle">
-							<a class="link resume__link" href={url}>
-								{title}<ExternalLinkIcon class="resume__link-icon" />
+					<li class="pb-fluid-4">
+						<h3>
+							<a class="link inline gap-fluid-2" href={url}>
+								{title}
+								<ExternalLinkIcon
+									class="mb-fluid-4 inline h-fluid-6 w-fluid-6 px-fluid-1"
+									size="12"
+								/>
 							</a>
 						</h3>
 						<!-- <p>{publishedAt}</p> -->
@@ -93,33 +101,35 @@
 			</ul>
 		</section>
 		<hr />
-		<section class="resume__section">
+		<section>
 			<h2>Education</h2>
 			<ul>
 				{#each education as { educationalInstitution, date, degree }}
-					<li>
-						<div class="resume__title-wrapper">
-							<h3 class="resume__subtitle">{degree}</h3>
-							<p class="resume__date">{date}</p>
+					<li class="flex flex-col justify-between gap-x-fluid-5 gap-y-2 lg:flex-row">
+						<div>
+							<h3>
+								{degree}
+							</h3>
+							<p>{educationalInstitution}</p>
 						</div>
-						<p>{educationalInstitution}</p>
+						<p class="text-black-100 text-sm">{date}</p>
 					</li>
 				{/each}
 			</ul>
 		</section>
 		<hr />
-		<section class="resume__section">
+		<section>
 			<h2>Contact</h2>
-			<ul class="resume__contact">
+			<ul class="flex !list-none flex-wrap gap-x-fluid-6 gap-y-fluid-2 pl-0">
 				{#each contacts as { title, url, Icon }}
-					<li class="resume__contact-item">
+					<li class="pb-0">
 						<a
-							class="link resume__contact-link"
+							class="link flex items-center gap-fluid-3"
 							href={url}
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							<Icon class="resume__contact-icon" />
+							<Icon class="h-fluid-5 w-fluid-5" />
 							{title}
 						</a>
 					</li>
@@ -131,98 +141,15 @@
 </div>
 
 <style>
-	.container {
-		row-gap: var(--spacing-8);
-	}
-	.resume__header {
-		display: grid;
-		row-gap: var(--spacing-7);
-		justify-items: center;
+	section {
+		@apply grid gap-y-fluid-7;
 	}
 
-	.resume__header-text {
-		text-align: center;
+	h3 {
+		@apply mb-fluid-3;
 	}
 
-	.resume__image {
-		--size: var(--spacing-15);
-
-		width: var(--size);
-		height: var(--size);
-		border-radius: 50%;
-	}
-
-	.resume__name {
-		font-size: var(--xl-font-size);
-		font-weight: bold;
-		line-height: 0.9;
-	}
-
-	.resume__job-title {
-		font-size: var(--lg-font-size);
-		color: var(--accent100);
-	}
-
-	.resume__section {
-		display: grid;
-		row-gap: var(--spacing-7);
-	}
-
-	.resume__title-wrapper {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		flex-wrap: wrap;
-		row-gap: var(--spacing-7);
-	}
-
-	/* .resume__date {
-		font-size: 1rem;
-	} */
-
-	.resume__subtitle {
-		margin-bottom: var(--spacing-3);
-	}
-
-	.publications__item {
-		padding-bottom: var(--spacing-4);
-	}
-
-	.resume__link {
-		display: inline;
-		gap: var(--spacing-2);
-	}
-
-	:global(.resume__link-icon) {
-		width: var(--lg-font-size);
-		height: var(--lg-font-size);
-		padding: var(--spacing-1) var(--spacing-2);
-		display: inline;
-	}
-
-	.resume__contact {
-		display: flex;
-		column-gap: var(--spacing-6);
-		row-gap: var(--spacing-2);
-		list-style: none;
-		padding-left: 0;
-		flex-wrap: wrap;
-	}
-
-	.resume__contact-item {
-		padding-bottom: 0;
-	}
-
-	.resume__contact-link {
-		display: flex;
-		align-items: center;
-		gap: var(--spacing-3);
-	}
-
-	:global(.resume__contact-icon) {
-		--size: var(--spacing-5);
-
-		width: var(--size);
-		height: var(--size);
+	ul {
+		list-style-type: disc;
 	}
 </style>
