@@ -2,26 +2,29 @@
 	import { MailIcon } from 'svelte-feather-icons';
 </script>
 
-<div class="hero">
+<div class="grid items-center">
 	<div class="container">
-		<div class="hero__wrapper">
-			<div class="hero__profile">
+		<div class="flex flex-col gap-fluid-6">
+			<div class="flex flex-wrap items-center gap-fluid-7">
 				<img
-					class="hero__image"
+					class="h-[theme(spacing.fluid-13)] w-[theme(spacing.fluid-13)] rounded-full"
 					src="/images/Julia Shikanova.jpeg"
 					alt="Julia Shikanova"
 					width="96"
 					height="96"
 				/>
 				<div>
-					<h1 class="hero__title">Julia Shikanova</h1>
-					<h2 class="hero__subtitle">Frontend developer</h2>
+					<h1 class="mb-2 text-xl text-orange-100">Julia Shikanova</h1>
+					<h2 class="text-lg font-normal text-black-100 dark:text-linen-200">
+						Frontend developer
+					</h2>
 				</div>
 			</div>
-			<p class="hero__intro">
+			<p class="max-w-[calc(theme(fontSize.md)*28)]">
 				<span>Welcome to my little corner of the Internet!</span>
 				<span>
-					It's dedicated to my ongoing journey to become a better developer and problem solver.</span
+					It's dedicated to my ongoing journey to become a better developer and
+					problem solver.</span
 				>
 			</p>
 			<a
@@ -31,58 +34,10 @@
 				rel="noopener noreferrer"
 			>
 				Contact
-				<MailIcon class="mail-icon" />
+				<MailIcon
+					class="h-[theme(spacing.fluid-5)] w-[theme(spacing.fluid-5)]"
+				/>
 			</a>
 		</div>
 	</div>
 </div>
-
-<style>
-	.hero {
-		display: grid;
-		align-items: center;
-	}
-
-	.hero__wrapper {
-		display: flex;
-		flex-direction: column;
-		gap: var(--spacing-6);
-	}
-
-	.hero__profile {
-		display: flex;
-		gap: var(--spacing-7);
-		align-items: center;
-		flex-wrap: wrap;
-	}
-
-	.hero__image {
-		--size: var(--spacing-13);
-		width: var(--size);
-		height: var(--size);
-		border-radius: 50%;
-	}
-
-	.hero__title {
-		color: var(--accent100);
-		font-size: var(--xl-font-size);
-		margin-bottom: 8px;
-	}
-
-	.hero__subtitle {
-		color: var(--secondary100);
-		font-weight: 400;
-		font-size: var(--lg-font-size);
-	}
-
-	.hero__intro {
-		max-width: calc(var(--md-font-size) * 28);
-	}
-
-	:global(.mail-icon) {
-		--size: var(--spacing-5);
-
-		width: var(--size);
-		height: var(--size);
-	}
-</style>
