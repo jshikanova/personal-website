@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { GithubIcon, CodepenIcon, LinkIcon, MailIcon, ZapIcon } from 'svelte-feather-icons';
+	import { GithubIcon, CodepenIcon, MailIcon, ZapIcon, XIcon } from 'svelte-feather-icons';
 
 	const socialLinks = [
 		{
@@ -18,12 +18,12 @@
 			link: 'https://stackblitz.com/@jshikanova'
 		},
 		{
-			name: 'Mastodon',
-			Icon: LinkIcon,
-			link: 'https://fosstodon.org/@jshikanova'
+			name: 'X / Twitter',
+			Icon: XIcon,
+			link: 'https://x.com/jshikanova'
 		},
 		{
-			name: 'Send Email',
+			name: 'Email',
 			Icon: MailIcon,
 			link: 'mailto:juliashikanova@yandex.ru'
 		}
