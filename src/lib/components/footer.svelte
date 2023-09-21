@@ -18,9 +18,7 @@
 				>
 					coded
 				</a>
-				with <span aria-label="sparks">✨</span>
-				by Julia Shikanova <span aria-label="Woman Technologist">👩‍💻</span>.
-				Built with
+				with a little bit of <span aria-label="sparkles" title="sparkles">✨</span>. Built with
 				<a
 					class="link link_accent"
 					href="https://kit.svelte.dev/"
