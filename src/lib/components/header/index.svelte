@@ -45,7 +45,7 @@
 					<li class="inline-flex pb-0">
 						<a
 							class={clsx(
-								'text-black-900 hover:text-orange-100 dark:text-linen-100',
+								'text-black-900 hover:text-orange-100 dark:text-linen-100 dark:hover:text-orange-100',
 								'transition-colors duration-200 ease-in-out',
 								activeRoute === '/resume' &&
 									'pointer-events-none cursor-default text-orange-100 dark:text-orange-100'
@@ -58,7 +58,7 @@
 					<li>
 						<a
 							class={clsx(
-								'text-black-900 hover:text-orange-100 dark:text-linen-100',
+								'text-black-900 hover:text-orange-100 dark:text-linen-100 dark:hover:text-orange-100',
 								'transition-colors duration-200 ease-in-out'
 							)}
 							href="mailto:juliashikanova@yandex.ru"
