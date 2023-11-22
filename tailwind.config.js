@@ -1,4 +1,24 @@
 /** @type {import('tailwindcss').Config} */
+
+const spacing = {
+	'fluid-1': '/* 2px - 4px */ clamp(0.125rem, 0rem + 0.0016 * 100vw, 0.25rem)',
+	'fluid-2': '/* 4px - 8px */ clamp(0.25rem, 0rem + 0.0031 * 100vw, 0.5rem)',
+	'fluid-3': '/* 8px - 12px */ clamp(0.5rem, 0.25rem + 0.0031 * 100vw, 0.75rem)',
+	'fluid-4': '/* 12px - 16px */ clamp(0.75rem, 0.5rem + 0.0031 * 100vw, 1rem)',
+	'fluid-5': '/* 16px - 24px */ clamp(1rem, 0.5rem + 0.0063 * 100vw, 1.5rem)',
+	'fluid-6': '/* 24px - 32px */ clamp(1.5rem, 1rem + 0.0063 * 100vw, 2rem)',
+	'fluid-7': '/* 32px - 40px */ clamp(2rem, 1.5rem + 0.0063 * 100vw, 2.5rem)',
+	'fluid-8': '/* 40px - 48px */ clamp(2.5rem, 2rem + 0.0063 * 100vw, 3rem)',
+	'fluid-9': '/* 48px - 56px */ clamp(3rem, 2.5rem + 0.0063 * 100vw, 3.5rem)',
+	'fluid-10': '/* 56px - 64px */ clamp(3.5rem, 3rem + 0.0063 * 100vw, 4rem)',
+	'fluid-11': '/* 64px - 80px */ clamp(4rem, 3rem + 0.0125 * 100vw, 5rem)',
+	'fluid-12': '/* 80px - 96px */ clamp(5rem, 4rem + 0.0125 * 100vw, 6rem)',
+	'fluid-13': '/* 96px - 112px */ clamp(6rem, 5rem + 0.0125 * 100vw, 7rem)',
+	'fluid-14': '/* 112px - 128px */ clamp(7rem, 6rem + 0.0125 * 100vw, 8rem)',
+	'fluid-15': '/* 128px - 144px */ clamp(8rem, 7rem + 0.0125 * 100vw, 9rem)',
+	'fluid-16': '/* 144px - 160px */ clamp(9rem, 8rem + 0.0125 * 100vw, 10rem)'
+};
+
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	corePlugins: {
@@ -76,40 +96,8 @@ export default {
 			DEFAULT: ['Golos Text', 'sans-serif']
 		},
 		extend: {
-			spacing: {
-				'fluid-1':
-					'/* 2px - 4px */ clamp(0.125rem, 0rem + 0.0016 * 100vw, 0.25rem)',
-				'fluid-2':
-					'/* 4px - 8px */ clamp(0.25rem, 0rem + 0.0031 * 100vw, 0.5rem)',
-				'fluid-3':
-					'/* 8px - 12px */ clamp(0.5rem, 0.25rem + 0.0031 * 100vw, 0.75rem)',
-				'fluid-4':
-					'/* 12px - 16px */ clamp(0.75rem, 0.5rem + 0.0031 * 100vw, 1rem)',
-				'fluid-5':
-					'/* 16px - 24px */ clamp(1rem, 0.5rem + 0.0063 * 100vw, 1.5rem)',
-				'fluid-6':
-					'/* 24px - 32px */ clamp(1.5rem, 1rem + 0.0063 * 100vw, 2rem)',
-				'fluid-7':
-					'/* 32px - 40px */ clamp(2rem, 1.5rem + 0.0063 * 100vw, 2.5rem)',
-				'fluid-8':
-					'/* 40px - 48px */ clamp(2.5rem, 2rem + 0.0063 * 100vw, 3rem)',
-				'fluid-9':
-					'/* 48px - 56px */ clamp(3rem, 2.5rem + 0.0063 * 100vw, 3.5rem)',
-				'fluid-10':
-					'/* 56px - 64px */ clamp(3.5rem, 3rem + 0.0063 * 100vw, 4rem)',
-				'fluid-11':
-					'/* 64px - 80px */ clamp(4rem, 3rem + 0.0125 * 100vw, 5rem)',
-				'fluid-12':
-					'/* 80px - 96px */ clamp(5rem, 4rem + 0.0125 * 100vw, 6rem)',
-				'fluid-13':
-					'/* 96px - 112px */ clamp(6rem, 5rem + 0.0125 * 100vw, 7rem)',
-				'fluid-14':
-					'/* 112px - 128px */ clamp(7rem, 6rem + 0.0125 * 100vw, 8rem)',
-				'fluid-15':
-					'/* 128px - 144px */ clamp(8rem, 7rem + 0.0125 * 100vw, 9rem)',
-				'fluid-16':
-					'/* 144px - 160px */ clamp(9rem, 8rem + 0.0125 * 100vw, 10rem)'
-			}
+			spacing,
+			borderRadius: spacing
 		}
 	},
 	plugins: []
