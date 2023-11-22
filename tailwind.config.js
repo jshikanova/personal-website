@@ -95,9 +95,9 @@ export default {
 		fontFamily: {
 			DEFAULT: ['Golos Text', 'sans-serif']
 		},
-		borderRadius: spacing,
 		extend: {
-			spacing
+			spacing,
+			borderRadius: spacing
 		}
 	},
 	plugins: []

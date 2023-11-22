@@ -6,9 +6,7 @@
 
 	const calcStreak = () => {
 		const contributionsCounter: Array<number> = contributions.weeks
-			.map((week) =>
-				week.contributionDays.map(({ contributionCount }) => contributionCount)
-			)
+			.map((week) => week.contributionDays.map(({ contributionCount }) => contributionCount))
 			.flat()
 			.reverse();
 
@@ -69,13 +67,11 @@
 					{#each week.contributionDays as { contributionCount, color, date }}
 						<div
 							style="background-color: {alternativeColors[color]}"
-							class="lalala aspect-square rounded-sm"
+							class="rounded-sm aspect-square"
 							title={`${
 								contributionCount === 1
 									? '1 contribution'
-									: `${
-											contributionCount === 0 ? 'No' : contributionCount
-									  } contributions`
+									: `${contributionCount === 0 ? 'No' : contributionCount} contributions`
 							} on ${new Date(date).toLocaleDateString('en-us', {
 								weekday: 'long',
 								year: 'numeric',
@@ -87,9 +83,7 @@
 				</div>
 			{/each}
 		</div>
-		<div
-			class="flex flex-col items-start justify-between gap-x-fluid-6 gap-y-fluid-2 sm:flex-row"
-		>
+		<div class="flex flex-col items-start justify-between gap-x-fluid-6 gap-y-fluid-2 sm:flex-row">
 			<p class="text-blue-800 dark:text-lightblue-200">
 				{#if streak > 0}
 					<b>Current streak:</b> {streak} {streak === 1 ? 'day' : 'days'}
@@ -97,19 +91,12 @@
 					Not on streak
 				{/if}
 			</p>
-			<div
-				class="grid grid-cols-[min-content_repeat(5,_var(--size))_min-content] gap-[var(--gap)]"
-			>
-				<span class="leading-none text-black-100 dark:text-linen-200">Less</span
-				>
+			<div class="grid grid-cols-[min-content_repeat(5,_var(--size))_min-content] gap-[var(--gap)]">
+				<span class="leading-none text-black-100 dark:text-linen-200">Less</span>
 				{#each Object.values(alternativeColors) as color}
-					<div
-						class="aspect-square rounded-sm"
-						style="background-color: {color}"
-					/>
+					<div class="rounded-sm aspect-square" style="background-color: {color}" />
 				{/each}
-				<span class="leading-none text-black-100 dark:text-linen-200">More</span
-				>
+				<span class="leading-none text-black-100 dark:text-linen-200">More</span>
 			</div>
 		</div>
 	</div>
