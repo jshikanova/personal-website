@@ -12,7 +12,6 @@
 	<div class="container">
 		<div
 			class={clsx(
-				'header__wrapper',
 				'grid items-center justify-between',
 				'grid-cols-[repeat(2,var(--column))] [--column:minmax(80px,auto)] sm:grid-cols-[var(--column)_auto_var(--column)]',
 				'rounded-fluid-6 border px-fluid-6 py-fluid-4 text-sm dark:border-black-60',

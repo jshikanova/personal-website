@@ -4,10 +4,7 @@
 
 	type Theme = 'system' | 'dark' | 'light';
 	type Scheme = Exclude<Theme, 'system'>;
-	type ToggleButton = {
-		theme: Theme;
-		Icon: App.Icon;
-	};
+	type ToggleButton = { theme: Theme; Icon: App.Icon };
 
 	const toggleButtons: ToggleButton[] = [
 		{ theme: 'dark', Icon: MoonIcon },
@@ -15,8 +12,7 @@
 		{ theme: 'system', Icon: MonitorIcon }
 	];
 
-	const getTheme = () =>
-		browser ? (localStorage?.getItem('theme') as Theme) : 'system';
+	const getTheme = () => (browser ? (localStorage?.getItem('theme') as Theme) : 'system');
 
 	let theme = getTheme();
 
@@ -25,9 +21,7 @@
 			return theme;
 		}
 
-		return window.matchMedia('(prefers-color-scheme: dark)').matches
-			? 'dark'
-			: 'light';
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 	};
 
 	const setTheme = (theme: Theme) => {
@@ -69,15 +63,9 @@
 			const x = e?.clientX || innerWidth;
 			const y = e?.clientY || 0;
 
-			const endRadius = Math.hypot(
-				Math.max(x, innerWidth - x),
-				Math.max(y, innerHeight - y)
-			);
+			const endRadius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
 
-			const clipPath = [
-				`circle(0px at ${x}px ${y}px)`,
-				`circle(${endRadius}px at ${x}px ${y}px)`
-			];
+			const clipPath = [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`];
 			document.documentElement.animate(
 				{
 					clipPath: scheme === 'dark' ? [...clipPath].reverse() : clipPath
@@ -86,9 +74,7 @@
 					duration: 800,
 					easing: 'cubic-bezier(0.83, 0, 0.17, 1)',
 					pseudoElement:
-						scheme === 'dark'
-							? '::view-transition-old(root)'
-							: '::view-transition-new(root)'
+						scheme === 'dark' ? '::view-transition-old(root)' : '::view-transition-new(root)'
 				}
 			);
 		});
@@ -128,7 +114,7 @@
 	</script>
 </svelte:head>
 
-<div class="toggle-button-wrapper">
+<div class="toggle-button-wrapper relative flex">
 	{#each toggleButtons as { theme, Icon }}
 		<button
 			class="toggle-button"
@@ -143,8 +129,6 @@
 
 <style lang="postcss">
 	.toggle-button-wrapper {
-		@apply relative flex;
-
 		--gap: 6px;
 
 		view-transition-name: toggle-button;
@@ -164,27 +148,46 @@
 	}
 
 	.toggle-button-wrapper::before {
-		@apply absolute left-0 top-0 rounded-[4px];
-		@apply transition-transform duration-500 ease-in-out;
-		@apply bg-blue-800 dark:bg-lightblue-200;
+		background-color: theme(backgroundColor.blue.800);
 
 		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		border-radius: 4px;
 		width: var(--icon-size);
 		height: var(--icon-size);
 		z-index: 5;
+		transition: transform ease-in-out 0.5s;
 		will-change: translate;
 		transform: translateX(calc(var(--index) * (var(--icon-size) + var(--gap))));
 	}
 
-	.toggle-button {
-		@apply relative z-10 inline-flex cursor-pointer items-center justify-center px-fluid-2;
-		@apply bg-transparent text-black-100 dark:text-white-100;
-		@apply rounded-[4px] border dark:border-black-60;
-		@apply hover:border-black-60 hover:dark:border-black-100;
-		@apply transition-colors duration-200 ease-in-out;
+	:global([data-scheme='dark']) .toggle-button-wrapper::before {
+		background-color: theme(backgroundColor.lightblue.200);
+	}
 
+	.toggle-button {
+		position: relative;
+		z-index: theme(zIndex.10);
+		display: inline-flex;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding-inline: theme(spacing.fluid-2);
+		background-color: theme(backgroundColor.transparent);
+		border-radius: 4px;
+		border: 1px solid theme(borderColor.DEFAULT);
+		color: theme(textColor.black.100);
+		transition: colors ease-in-out 0.2s;
 		width: var(--icon-size);
 		height: var(--icon-size);
+	}
+
+	:global([data-scheme='dark']) .toggle-button {
+		color: theme(textColor.white.100);
+		border-color: theme(borderColor.black.60);
 	}
 
 	:global([data-theme='dark']) .toggle-button[data-theme='dark'],
@@ -195,13 +198,11 @@
 	}
 
 	:global([data-theme='dark']) .toggle-button[data-theme='dark'],
-	:global([data-theme='system'][data-scheme='dark'])
-		.toggle-button[data-theme='system'] {
-		@apply text-black-800;
+	:global([data-theme='system'][data-scheme='dark']) .toggle-button[data-theme='system'] {
+		color: theme(textColor.black.800);
 	}
 	:global([data-theme='light']) .toggle-button[data-theme='light'],
-	:global([data-theme='system'][data-scheme='light'])
-		.toggle-button[data-theme='system'] {
-		@apply text-white-100;
+	:global([data-theme='system'][data-scheme='light']) .toggle-button[data-theme='system'] {
+		color: theme(textColor.white.100);
 	}
 </style>
