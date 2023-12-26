@@ -15,9 +15,7 @@
 <div class="page">
 	<Header activeRoute={$page.url.pathname} />
 
-	<main
-		class="mt-fluid-5 flex flex-col justify-center gap-y-fluid-10 pb-fluid-8 pt-fluid-12"
-	>
+	<main class="mt-fluid-5 flex flex-col justify-center gap-y-fluid-10 pb-fluid-8 pt-fluid-12">
 		<slot />
 	</main>
 
@@ -26,7 +24,7 @@
 	</Footer>
 </div>
 
-<style>
+<style lang="postcss">
 	.page {
 		min-height: 100vh;
 		display: grid;

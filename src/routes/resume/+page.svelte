@@ -37,7 +37,7 @@
 				{#each experience as { jobTitle, date, at }}
 					<li class="flex flex-col justify-between gap-x-fluid-5 md:flex-row">
 						<div>
-							<h3>{jobTitle}</h3>
+							<h3 class="mb-fluid-3">{jobTitle}</h3>
 							<p>{at}</p>
 						</div>
 						<p class="text-sm text-black-100 dark:text-linen-200">{date}</p>
@@ -51,7 +51,7 @@
 			<ul>
 				{#each projects as { title, url, stack }}
 					<li>
-						<h3>
+						<h3 class="mb-fluid-3">
 							<a class="link inline" href={url} target="_blank" rel="noopener noreferrer">
 								{title}
 								<ExternalLinkIcon
@@ -70,7 +70,7 @@
 			<ul>
 				{#each Object.entries(skills) as [title, skillGroup]}
 					<li>
-						<h3>{title}</h3>
+						<h3 class="mb-fluid-3">{title}</h3>
 						<p>
 							{#each skillGroup as skill, index}
 								{index !== skillGroup.length - 1 ? skill + ', ' : skill}
@@ -86,7 +86,7 @@
 			<ul>
 				{#each publications as { title, url }}
 					<li class="pb-fluid-4">
-						<h3>
+						<h3 class="mb-fluid-3">
 							<a class="link inline gap-fluid-2" href={url}>
 								{title}
 								<ExternalLinkIcon
@@ -107,7 +107,7 @@
 				{#each education as { educationalInstitution, date, degree }}
 					<li class="flex flex-col justify-between gap-x-fluid-5 gap-y-2 lg:flex-row">
 						<div>
-							<h3>
+							<h3 class="mb-fluid-3">
 								{degree}
 							</h3>
 							<p>{educationalInstitution}</p>
@@ -140,13 +140,10 @@
 	</div>
 </div>
 
-<style>
+<style lang="postcss">
 	section {
-		@apply grid gap-y-fluid-7;
-	}
-
-	h3 {
-		@apply mb-fluid-3;
+		display: grid;
+		row-gap: theme(spacing.fluid-7);
 	}
 
 	ul {
