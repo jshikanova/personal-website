@@ -38,12 +38,14 @@
 			<h2>Experience</h2>
 			<ul>
 				{#each experience as { jobTitle, date, at }}
-					<li class="flex flex-col justify-between gap-x-fluid-5 md:flex-row">
-						<div>
-							<h3 class="mb-fluid-3">{jobTitle}</h3>
-							<p>{at}</p>
+					<li>
+						<div class="flex flex-col justify-between gap-x-fluid-5 md:flex-row">
+							<div>
+								<h3 class="mb-fluid-3">{jobTitle}</h3>
+								<p>{at}</p>
+							</div>
+							<p class="text-sm text-black-100 dark:text-linen-200">{date}</p>
 						</div>
-						<p class="text-sm text-black-100 dark:text-linen-200">{date}</p>
 					</li>
 				{/each}
 			</ul>
@@ -108,14 +110,16 @@
 			<h2>Education</h2>
 			<ul>
 				{#each education as { educationalInstitution, date, degree }}
-					<li class="flex flex-col justify-between gap-x-fluid-5 gap-y-2 lg:flex-row">
-						<div>
-							<h3 class="mb-fluid-3">
-								{degree}
-							</h3>
-							<p>{educationalInstitution}</p>
+					<li>
+						<div class="flex list-disc flex-col justify-between gap-x-fluid-5 gap-y-2 lg:flex-row">
+							<div>
+								<h3 class="mb-fluid-3">
+									{degree}
+								</h3>
+								<p>{educationalInstitution}</p>
+							</div>
+							<p class="text-sm text-black-100 dark:text-linen-200">{date}</p>
 						</div>
-						<p class="text-sm text-black-100 dark:text-linen-200">{date}</p>
 					</li>
 				{/each}
 			</ul>
