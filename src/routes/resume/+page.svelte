@@ -146,7 +146,7 @@
 <style lang="postcss">
 	section {
 		display: grid;
-		row-gap: theme(spacing.fluid-7);
+		row-gap: theme('spacing.fluid-7');
 	}
 
 	ul {

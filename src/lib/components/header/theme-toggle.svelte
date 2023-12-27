@@ -148,7 +148,7 @@
 	}
 
 	.toggle-button-wrapper::before {
-		background-color: theme(backgroundColor.blue.800);
+		background-color: theme('backgroundColor.blue.800');
 
 		content: '';
 		position: absolute;
@@ -164,7 +164,7 @@
 	}
 
 	:global([data-scheme='dark']) .toggle-button-wrapper::before {
-		background-color: theme(backgroundColor.lightblue.200);
+		background-color: theme('backgroundColor.lightblue.200');
 	}
 
 	.toggle-button {
@@ -175,19 +175,19 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		padding-inline: theme(spacing.fluid-2);
-		background-color: theme(backgroundColor.transparent);
+		padding-inline: theme('spacing.fluid-2');
+		background-color: theme('backgroundColor.transparent');
 		border-radius: 4px;
-		border: 1px solid theme(borderColor.DEFAULT);
-		color: theme(textColor.black.100);
+		border: 1px solid theme('borderColor.DEFAULT');
+		color: theme('textColor.black.100');
 		transition: colors ease-in-out 0.2s;
 		width: var(--icon-size);
 		height: var(--icon-size);
 	}
 
 	:global([data-scheme='dark']) .toggle-button {
-		color: theme(textColor.white.100);
-		border-color: theme(borderColor.black.60);
+		color: theme('textColor.white.100');
+		border-color: theme('borderColor.black.60');
 	}
 
 	:global([data-theme='dark']) .toggle-button[data-theme='dark'],
@@ -199,10 +199,10 @@
 
 	:global([data-theme='dark']) .toggle-button[data-theme='dark'],
 	:global([data-theme='system'][data-scheme='dark']) .toggle-button[data-theme='system'] {
-		color: theme(textColor.black.800);
+		color: theme('textColor.black.800');
 	}
 	:global([data-theme='light']) .toggle-button[data-theme='light'],
 	:global([data-theme='system'][data-scheme='light']) .toggle-button[data-theme='system'] {
-		color: theme(textColor.white.100);
+		color: theme('textColor.white.100');
 	}
 </style>
