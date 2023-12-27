@@ -236,36 +236,6 @@
 
 @tailwind components;
 @layer components {
-	.button {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		align-self: flex-start;
-		flex-shrink: 0;
-		gap: theme('spacing.fluid-3');
-		background-color: theme('backgroundColor.blue.800');
-		transition: all ease-in-out 0.2s;
-		font-weight: theme('fontWeight.semibold');
-		color: theme('textColor.white.100');
-		border-radius: theme('spacing.fluid-3');
-		padding-inline: theme('spacing.fluid-5');
-		padding-block: theme('spacing.fluid-3');
-	}
-
-	[data-scheme='dark'] .button {
-		background-color: theme('backgroundColor.lightblue.200');
-		color: theme('textColor.black.900');
-	}
-
-	.button:hover {
-		transform: scale((theme('scale.105')));
-		background-color: theme('backgroundColor.blue.900');
-	}
-
-	[data-scheme='dark'] .button:hover {
-		background-color: theme('backgroundColor.lightblue.100');
-	}
-
 	/* 
   * Hover underline animation by 30 seconds of code
   * source: https://www.30secondsofcode.org/css/s/hover-underline-animation 

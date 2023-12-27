@@ -1,6 +1,7 @@
 <script>
 	import { MailIcon } from 'svelte-feather-icons';
 	import Container from './container.svelte';
+	import Button from './button.svelte';
 </script>
 
 <div class="grid items-center">
@@ -25,15 +26,15 @@
 					It's dedicated to my ongoing journey to become a better developer and problem solver.</span
 				>
 			</p>
-			<a
-				class="button"
+			<Button
+				tagName="a"
 				href="mailto:juliashikanova@yandex.ru"
 				target="_blank"
 				rel="noopener noreferrer"
 			>
 				Contact
 				<MailIcon class="h-[theme(spacing.fluid-5)] w-[theme(spacing.fluid-5)]" />
-			</a>
+			</Button>
 		</div>
 	</Container>
 </div>
