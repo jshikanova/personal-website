@@ -12,7 +12,7 @@
 		<section>
 			<div class="grid justify-items-center gap-y-fluid-7">
 				<img
-					class="h-fluid-15 w-fluid-15 rounded-full"
+					class="size-fluid-15 rounded-full"
 					src="/images/Julia Shikanova.jpeg"
 					alt="Julia Shikanova"
 					width="120"
