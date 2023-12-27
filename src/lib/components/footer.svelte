@@ -1,5 +1,9 @@
+<script lang="ts">
+	import Container from './container.svelte';
+</script>
+
 <footer class="col-span-full pb-fluid-9 pt-fluid-7">
-	<div class="container">
+	<Container>
 		<div class="flex flex-col gap-fluid-6 text-xs sm:items-center">
 			<nav class="sm:hidden">
 				<a class="link" href="/resume">Resume</a>
@@ -30,5 +34,5 @@
 				</a>
 			</div>
 		</div>
-	</div>
+	</Container>
 </footer>

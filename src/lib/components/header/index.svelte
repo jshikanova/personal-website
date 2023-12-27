@@ -2,6 +2,7 @@
 	import clsx from 'clsx';
 
 	import ThemeToggle from './theme-toggle.svelte';
+	import Container from '../container.svelte';
 
 	export let activeRoute: string;
 </script>
@@ -9,7 +10,7 @@
 <header
 	class="header sticky top-fluid-5 z-10 col-span-full overflow-hidden [--icon-size:theme(spacing.fluid-6)]"
 >
-	<div class="container">
+	<Container>
 		<div
 			class={clsx(
 				'grid items-center justify-between',
@@ -71,5 +72,5 @@
 			</nav>
 			<ThemeToggle />
 		</div>
-	</div>
+	</Container>
 </header>

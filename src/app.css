@@ -216,7 +216,7 @@
 	}
 
 	li {
-		padding-inline-start: theme('spacing.fluid-8');
+		padding-bottom: theme('spacing.fluid-8');
 	}
 
 	li:last-child {
@@ -236,21 +236,6 @@
 
 @tailwind components;
 @layer components {
-	.container {
-		--column-gap: theme(spacing.fluid-6);
-		--content: min(calc(100% - var(--column-gap) * 2), 72ch);
-
-		display: grid;
-		column-gap: var(--column-gap);
-		grid-template-columns: 1fr min(calc(100% - var(--column-gap) * 2), 72ch) 1fr;
-		font-size: theme('fontSize.md');
-	}
-
-	.container > * {
-		grid-column: 2;
-		container: content / inline-size;
-	}
-
 	.button {
 		display: inline-flex;
 		align-items: center;

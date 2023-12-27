@@ -1,10 +1,13 @@
 <script lang="ts">
 	import { ExternalLinkIcon } from 'svelte-feather-icons';
+
+	import { Container } from '$lib/components';
+
 	import { contacts, education, experience, projects, publications, skills } from './content';
 </script>
 
 <div class="resume">
-	<div class="container gap-y-fluid-8">
+	<Container class="gap-y-fluid-8">
 		<h1>Resume</h1>
 		<section>
 			<div class="grid justify-items-center gap-y-fluid-7">
@@ -137,7 +140,7 @@
 			</ul>
 		</section>
 		<hr />
-	</div>
+	</Container>
 </div>
 
 <style lang="postcss">
