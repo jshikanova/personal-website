@@ -180,9 +180,19 @@
 		border-radius: 4px;
 		border: 1px solid theme('borderColor.DEFAULT');
 		color: theme('textColor.black.100');
-		transition: colors ease-in-out 0.2s;
+		transition:
+			colors,
+			border-color ease-in-out 0.2s;
 		width: var(--icon-size);
 		height: var(--icon-size);
+	}
+
+	.toggle-button:hover {
+		border-color: theme('borderColor.black.60');
+	}
+
+	:global([data-theme='dark']) .toggle-button:hover {
+		border-color: theme('borderColor.black.100');
 	}
 
 	:global([data-scheme='dark']) .toggle-button {
