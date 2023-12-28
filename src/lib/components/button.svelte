@@ -2,24 +2,7 @@
 	import clsx from 'clsx';
 	import { onMount } from 'svelte';
 
-	import type { SvelteHTMLElements } from 'svelte/elements';
-
-	type Anchor = {
-		tagName: 'a';
-		href: string;
-	} & Omit<SvelteHTMLElements['a'], 'href'>;
-
-	type Button = {
-		tagName: 'button';
-	} & SvelteHTMLElements['button'];
-
-	type Input = {
-		tagName: 'input';
-		type: Extract<SvelteHTMLElements['input']['type'], 'button' | 'submit'>;
-		value: string;
-	} & Omit<SvelteHTMLElements['input'], 'type'>;
-
-	type $$Props = Anchor | Button | Input;
+	type $$Props = App.AnchorButton | App.Button | App.Input;
 
 	export let tagName: $$Props['tagName'] = 'button';
 

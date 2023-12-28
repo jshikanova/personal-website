@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { ExternalLinkIcon } from 'svelte-feather-icons';
 
-	import { Container } from '$lib/components';
+	import { Container, Link } from '$lib/components';
 
 	import { contacts, education, experience, projects, publications, skills } from './content';
 </script>
@@ -57,13 +57,13 @@
 				{#each projects as { title, url, stack }}
 					<li>
 						<h3 class="mb-fluid-3">
-							<a class="link inline" href={url} target="_blank" rel="noopener noreferrer">
+							<Link class="inline" href={url} isOuter={true}>
 								{title}
 								<ExternalLinkIcon
 									class="mb-fluid-4 inline h-fluid-6 w-fluid-6 px-fluid-1"
 									size="12"
 								/>
-							</a>
+							</Link>
 						</h3>
 						<p><b>Stack:</b> {stack}</p>
 					</li>{/each}
@@ -92,13 +92,13 @@
 				{#each publications as { title, url }}
 					<li class="pb-fluid-4">
 						<h3 class="mb-fluid-3">
-							<a class="link inline gap-fluid-2" href={url}>
+							<Link class="inline gap-fluid-2" href={url} isOuter={true}>
 								{title}
 								<ExternalLinkIcon
 									class="mb-fluid-4 inline h-fluid-6 w-fluid-6 px-fluid-1"
 									size="12"
 								/>
-							</a>
+							</Link>
 						</h3>
 						<!-- <p>{publishedAt}</p> -->
 					</li>
@@ -130,15 +130,10 @@
 			<ul class="flex !list-none flex-wrap gap-x-fluid-6 gap-y-fluid-2 pl-0">
 				{#each contacts as { title, url, Icon }}
 					<li class="pb-0">
-						<a
-							class="link flex items-center gap-fluid-3"
-							href={url}
-							target="_blank"
-							rel="noopener noreferrer"
-						>
+						<Link class="flex items-center gap-fluid-3" href={url} isOuter={true}>
 							<Icon class="h-fluid-5 w-fluid-5" />
 							{title}
-						</a>
+						</Link>
 					</li>
 				{/each}
 			</ul>

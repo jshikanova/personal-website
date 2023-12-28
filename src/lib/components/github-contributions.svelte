@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import type { ContributionsResponse } from '../../routes/proxy+page.server';
+
 	import Container from './container.svelte';
+	import Link from './link.svelte';
 
 	export let contributions: ContributionsResponse['data']['user']['contributionsCollection']['contributionCalendar'];
 
@@ -49,15 +51,15 @@
 			<p class="text-blue-800 dark:text-lightblue-200">
 				{contributions.totalContributions} contributions in the last year
 			</p>
-			<a
-				class="link text-blue-800 dark:text-lightblue-200"
+			<Link
+				class="text-blue-800 dark:text-lightblue-200"
 				href="https://github.com/jshikanova"
 				target="_blank"
 				rel="noopener noreferrer"
 				title="Github profile"
 			>
 				Github
-			</a>
+			</Link>
 		</div>
 		<div
 			bind:this={contributionsList}
