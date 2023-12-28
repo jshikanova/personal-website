@@ -1,15 +1,18 @@
 <script lang="ts">
 	import { ExternalLinkIcon } from 'svelte-feather-icons';
+
+	import { Container, Link } from '$lib/components';
+
 	import { contacts, education, experience, projects, publications, skills } from './content';
 </script>
 
 <div class="resume">
-	<div class="container gap-y-fluid-8">
+	<Container class="gap-y-fluid-8">
 		<h1>Resume</h1>
 		<section>
 			<div class="grid justify-items-center gap-y-fluid-7">
 				<img
-					class="h-fluid-15 w-fluid-15 rounded-full"
+					class="size-fluid-15 rounded-full"
 					src="/images/Julia Shikanova.jpeg"
 					alt="Julia Shikanova"
 					width="120"
@@ -35,12 +38,14 @@
 			<h2>Experience</h2>
 			<ul>
 				{#each experience as { jobTitle, date, at }}
-					<li class="flex flex-col justify-between gap-x-fluid-5 md:flex-row">
-						<div>
-							<h3>{jobTitle}</h3>
-							<p>{at}</p>
+					<li>
+						<div class="flex flex-col justify-between gap-x-fluid-5 md:flex-row">
+							<div>
+								<h3 class="mb-fluid-3">{jobTitle}</h3>
+								<p>{at}</p>
+							</div>
+							<p class="text-sm text-black-100 dark:text-linen-200">{date}</p>
 						</div>
-						<p class="text-sm text-black-100 dark:text-linen-200">{date}</p>
 					</li>
 				{/each}
 			</ul>
@@ -51,14 +56,14 @@
 			<ul>
 				{#each projects as { title, url, stack }}
 					<li>
-						<h3>
-							<a class="link inline" href={url} target="_blank" rel="noopener noreferrer">
+						<h3 class="mb-fluid-3">
+							<Link class="inline" href={url} isOuter={true}>
 								{title}
 								<ExternalLinkIcon
 									class="mb-fluid-4 inline h-fluid-6 w-fluid-6 px-fluid-1"
 									size="12"
 								/>
-							</a>
+							</Link>
 						</h3>
 						<p><b>Stack:</b> {stack}</p>
 					</li>{/each}
@@ -70,7 +75,7 @@
 			<ul>
 				{#each Object.entries(skills) as [title, skillGroup]}
 					<li>
-						<h3>{title}</h3>
+						<h3 class="mb-fluid-3">{title}</h3>
 						<p>
 							{#each skillGroup as skill, index}
 								{index !== skillGroup.length - 1 ? skill + ', ' : skill}
@@ -86,14 +91,14 @@
 			<ul>
 				{#each publications as { title, url }}
 					<li class="pb-fluid-4">
-						<h3>
-							<a class="link inline gap-fluid-2" href={url}>
+						<h3 class="mb-fluid-3">
+							<Link class="inline gap-fluid-2" href={url} isOuter={true}>
 								{title}
 								<ExternalLinkIcon
 									class="mb-fluid-4 inline h-fluid-6 w-fluid-6 px-fluid-1"
 									size="12"
 								/>
-							</a>
+							</Link>
 						</h3>
 						<!-- <p>{publishedAt}</p> -->
 					</li>
@@ -105,14 +110,16 @@
 			<h2>Education</h2>
 			<ul>
 				{#each education as { educationalInstitution, date, degree }}
-					<li class="flex flex-col justify-between gap-x-fluid-5 gap-y-2 lg:flex-row">
-						<div>
-							<h3>
-								{degree}
-							</h3>
-							<p>{educationalInstitution}</p>
+					<li>
+						<div class="flex list-disc flex-col justify-between gap-x-fluid-5 gap-y-2 lg:flex-row">
+							<div>
+								<h3 class="mb-fluid-3">
+									{degree}
+								</h3>
+								<p>{educationalInstitution}</p>
+							</div>
+							<p class="text-sm text-black-100 dark:text-linen-200">{date}</p>
 						</div>
-						<p class="text-sm text-black-100 dark:text-linen-200">{date}</p>
 					</li>
 				{/each}
 			</ul>
@@ -123,30 +130,22 @@
 			<ul class="flex !list-none flex-wrap gap-x-fluid-6 gap-y-fluid-2 pl-0">
 				{#each contacts as { title, url, Icon }}
 					<li class="pb-0">
-						<a
-							class="link flex items-center gap-fluid-3"
-							href={url}
-							target="_blank"
-							rel="noopener noreferrer"
-						>
+						<Link class="flex items-center gap-fluid-3" href={url} isOuter={true}>
 							<Icon class="h-fluid-5 w-fluid-5" />
 							{title}
-						</a>
+						</Link>
 					</li>
 				{/each}
 			</ul>
 		</section>
 		<hr />
-	</div>
+	</Container>
 </div>
 
-<style>
+<style lang="postcss">
 	section {
-		@apply grid gap-y-fluid-7;
-	}
-
-	h3 {
-		@apply mb-fluid-3;
+		display: grid;
+		row-gap: theme('spacing.fluid-7');
 	}
 
 	ul {

@@ -2,6 +2,9 @@
 	import { onMount } from 'svelte';
 	import type { ContributionsResponse } from '../../routes/proxy+page.server';
 
+	import Container from './container.svelte';
+	import Link from './link.svelte';
+
 	export let contributions: ContributionsResponse['data']['user']['contributionsCollection']['contributionCalendar'];
 
 	const calcStreak = () => {
@@ -40,7 +43,7 @@
 	});
 </script>
 
-<div class="container">
+<Container>
 	<div class="contributions__wrapper grid gap-fluid-4 text-sm">
 		<div
 			class="flex flex-col-reverse items-start justify-between gap-x-fluid-6 gap-y-fluid-2 sm:flex-row"
@@ -48,15 +51,15 @@
 			<p class="text-blue-800 dark:text-lightblue-200">
 				{contributions.totalContributions} contributions in the last year
 			</p>
-			<a
-				class="link text-blue-800 dark:text-lightblue-200"
+			<Link
+				class="text-blue-800 dark:text-lightblue-200"
 				href="https://github.com/jshikanova"
 				target="_blank"
 				rel="noopener noreferrer"
 				title="Github profile"
 			>
 				Github
-			</a>
+			</Link>
 		</div>
 		<div
 			bind:this={contributionsList}
@@ -67,7 +70,7 @@
 					{#each week.contributionDays as { contributionCount, color, date }}
 						<div
 							style="background-color: {alternativeColors[color]}"
-							class="rounded-sm aspect-square"
+							class="aspect-square rounded-sm"
 							title={`${
 								contributionCount === 1
 									? '1 contribution'
@@ -94,13 +97,13 @@
 			<div class="grid grid-cols-[min-content_repeat(5,_var(--size))_min-content] gap-[var(--gap)]">
 				<span class="leading-none text-black-100 dark:text-linen-200">Less</span>
 				{#each Object.values(alternativeColors) as color}
-					<div class="rounded-sm aspect-square" style="background-color: {color}" />
+					<div class="aspect-square rounded-sm" style="background-color: {color}" />
 				{/each}
 				<span class="leading-none text-black-100 dark:text-linen-200">More</span>
 			</div>
 		</div>
 	</div>
-</div>
+</Container>
 
 <style lang="postcss">
 	.contributions__wrapper {

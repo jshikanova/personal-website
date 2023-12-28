@@ -73,12 +73,22 @@
 
 	html {
 		height: 100%;
+		scrollbar-gutter: stable;
 	}
 
 	body {
 		line-height: 1.5;
 		-webkit-font-smoothing: antialiased;
 		min-height: 100%;
+		background-color: theme('backgroundColor.white.100');
+		font-family: theme('fontFamily.DEFAULT');
+		font-size: theme('fontSize.md');
+		color: theme('textColor.black.800');
+	}
+
+	[data-scheme='dark'] body {
+		background-color: theme('backgroundColor.black.900');
+		color: theme('textColor.linen.100');
 	}
 
 	img,
@@ -175,16 +185,8 @@
   * Theme transition end
 */
 
-	html {
-		scrollbar-gutter: stable;
-	}
-
-	body {
-		@apply bg-white-100 font text-md text-black-800 dark:bg-black-900 dark:text-linen-100;
-	}
-
 	a {
-		@apply no-underline;
+		text-decoration: none;
 	}
 
 	h1,
@@ -193,39 +195,37 @@
 	h4,
 	h5,
 	h6 {
-		@apply font-bold;
-
+		font-weight: theme('fontWeight.bold');
 		line-height: 1;
 	}
 
 	h1 {
-		@apply text-xxl;
+		font-size: theme('fontSize.xxl');
 	}
 
 	h2 {
-		@apply text-xl;
+		font-size: theme('fontSize.xl');
 	}
 
 	h3 {
-		@apply text-lg;
+		font-size: theme('fontSize.lg');
 	}
 
 	ul {
-		@apply ps-fluid-7;
+		padding-inline-start: theme('spacing.fluid-7');
 	}
 
 	li {
-		@apply pb-fluid-8;
+		padding-bottom: theme('spacing.fluid-8');
 	}
 
 	li:last-child {
-		@apply pb-0;
+		padding-bottom: 0;
 	}
 
 	hr {
-		@apply border border-t border-dashed dark:border-linen-20;
-
 		width: 100%;
+		border-top: 1px dashed theme('borderColor.linen.20');
 	}
 
 	img {
@@ -235,85 +235,5 @@
 }
 
 @tailwind components;
-@layer components {
-	.container {
-		@apply grid text-md;
-
-		--column-gap: theme(spacing.fluid-6);
-		--content: min(calc(100% - var(--column-gap) * 2), 72ch);
-
-		column-gap: var(--column-gap);
-		grid-template-columns: 1fr min(calc(100% - var(--column-gap) * 2), 72ch) 1fr;
-	}
-
-	.container > * {
-		grid-column: 2;
-		container: content / inline-size;
-	}
-
-	.button {
-		@apply gap-fluid-3 bg-blue-800 dark:bg-lightblue-200;
-		@apply hover:scale-105 hover:bg-blue-900 dark:hover:bg-lightblue-100;
-		/* @apply hover:shadow-100 dark:hover:shadow-lightblue-200 hover:shadow-blue-800; */
-		@apply transition-all duration-200 ease-in-out;
-		@apply font-semibold text-white-100 dark:text-black-900;
-		@apply rounded-[theme(spacing.fluid-3)] px-fluid-5 py-fluid-3;
-
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		align-self: flex-start;
-		flex-shrink: 0;
-	}
-
-	/* .icon-button {
-		@apply text-black-800 dark:text-linen-100;
-    @apply hover:bg-orange-100;
-    @apply transition-colors duration-200 ease-in-out;
-
-		background: none;
-		border: none;
-		padding: 0;
-		cursor: pointer;
-	} */
-
-	/* 
-  * Hover underline animation by 30 seconds of code
-  * source: https://www.30secondsofcode.org/css/s/hover-underline-animation 
-*/
-	.link {
-		@apply text-blue-800 dark:text-lightblue-200;
-		@apply hover:text-blue-900 dark:hover:text-lightblue-100;
-		@apply transition-colors duration-300 ease-in-out;
-
-		position: relative;
-		display: inline-flex;
-		align-items: center;
-		line-height: 1.2;
-	}
-
-	.link::after {
-		@apply transition-transform duration-200 ease-out;
-
-		content: '';
-		position: absolute;
-		width: 100%;
-		transform: scaleX(0);
-		height: 2px;
-		bottom: -2px;
-		left: 0;
-		background-color: currentColor;
-		transform-origin: bottom right;
-	}
-
-	.link:hover::after {
-		transform: scaleX(1);
-		transform-origin: bottom left;
-	}
-
-	.link_accent {
-		@apply text-orange-100 hover:text-orange-200 dark:text-orange-100 dark:hover:text-orange-50;
-	}
-}
 
 @tailwind utilities;

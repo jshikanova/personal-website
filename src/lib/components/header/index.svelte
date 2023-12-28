@@ -2,6 +2,7 @@
 	import clsx from 'clsx';
 
 	import ThemeToggle from './theme-toggle.svelte';
+	import Container from '../container.svelte';
 
 	export let activeRoute: string;
 </script>
@@ -9,10 +10,9 @@
 <header
 	class="header sticky top-fluid-5 z-10 col-span-full overflow-hidden [--icon-size:theme(spacing.fluid-6)]"
 >
-	<div class="container">
+	<Container>
 		<div
 			class={clsx(
-				'header__wrapper',
 				'grid items-center justify-between',
 				'grid-cols-[repeat(2,var(--column))] [--column:minmax(80px,auto)] sm:grid-cols-[var(--column)_auto_var(--column)]',
 				'rounded-fluid-6 border px-fluid-6 py-fluid-4 text-sm dark:border-black-60',
@@ -72,5 +72,5 @@
 			</nav>
 			<ThemeToggle />
 		</div>
-	</div>
+	</Container>
 </header>
