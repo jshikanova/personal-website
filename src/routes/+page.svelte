@@ -2,11 +2,14 @@
 	import clsx from 'clsx';
 	import { LinkIcon, MailIcon, TwitterIcon } from 'svelte-feather-icons';
 
-	import { Container, GithubContributions } from '$lib/components';
+	import { Container, Clock, GithubContributions } from '$lib/components';
 
 	export let data;
 
 	const { user: githubData } = data;
+
+	const localTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+	const myTimeZone = 'Asia/Almaty';
 </script>
 
 <Container>
@@ -14,7 +17,7 @@
 		<div
 			class={clsx(
 				'rounded-fluid-5 border bg-white-200 p-fluid-6 dark:bg-black-800',
-				'col-span-6 col-start-1'
+				'col-span-full'
 			)}
 		>
 			<div class="flex flex-col gap-fluid-5">
@@ -39,15 +42,6 @@
 		<div
 			class={clsx(
 				'rounded-fluid-5 border bg-white-200 p-fluid-6 dark:bg-black-800',
-				'col-span-6 row-span-2'
-			)}
-		>
-			<!--  -->
-		</div>
-
-		<div
-			class={clsx(
-				'rounded-fluid-5 border bg-white-200 p-fluid-6 dark:bg-black-800',
 				'col-span-4',
 				'flex items-center gap-4 font-semibold'
 			)}
@@ -67,12 +61,12 @@
 			class={clsx(
 				'rounded-fluid-5 border bg-white-200 p-fluid-6 dark:bg-black-800',
 				'col-span-2',
-				'relative flex items-center justify-center font-semibold text-orange-100',
+				'relative flex items-center justify-center font-semibold text-blue-800 dark:text-lightblue-100',
 				'transition-transform duration-300 hover:scale-105'
 			)}
 		>
 			Resume
-			<LinkIcon class="absolute right-4 top-4 size-3" />
+			<LinkIcon class="absolute right-3 top-3 size-3" />
 		</a>
 
 		<div
@@ -82,8 +76,10 @@
 				'flex items-center gap-4'
 			)}
 		>
-			<span class="relative text-xl leading-[0]" aria-label="sparkles" title="Flag of Kazakhstan"
-				>🇰🇿</span
+			<span
+				class="relative text-xl leading-[0]"
+				aria-label="Smiling Face with Open Hands"
+				title="Flag of Kazakhstan">🇰🇿</span
 			>
 			<p>
 				Based in Kazakhstan,
@@ -91,18 +87,31 @@
 					Pavlodar
 				</span>
 			</p>
-			<!-- <p>UTC+6</p> -->
 		</div>
 
 		<div
 			class={clsx('rounded-fluid-5 border bg-white-200 p-fluid-6 dark:bg-black-800', 'col-span-3')}
 		>
-			UTC+6
-			<!-- Timezone -->
+			<Clock timeZone={myTimeZone} />
 		</div>
 
 		<div
 			class={clsx('rounded-fluid-5 border bg-white-200 p-fluid-6 dark:bg-black-800', 'col-span-3')}
+		>
+			{#if localTimeZone !== myTimeZone}
+				<Clock timeZone={localTimeZone} />
+			{:else}
+				<p class="text-center">
+					Hey, neighbor! We are sharing a timeZone
+					<span aria-label="Smiling Face with Open Hands" title="Smiling Face with Open Hands">
+						🤗
+					</span>
+				</p>
+			{/if}
+		</div>
+
+		<div
+			class={clsx('rounded-fluid-5 border bg-white-200 p-fluid-6 dark:bg-black-800', 'col-span-6')}
 		>
 			Weather
 		</div>
@@ -123,13 +132,13 @@
 			rel="noopener noreferrer"
 			class={clsx(
 				'rounded-fluid-5 border bg-white-200 p-fluid-6 dark:bg-black-800',
-				'col-span-2 col-start-9',
+				'col-span-4 col-start-9',
 				'relative flex items-center justify-center font-semibold text-[#1DA1F2]',
 				'transition-transform duration-300 hover:scale-105'
 			)}
 		>
 			Twitter
-			<TwitterIcon class="absolute right-4 top-4 size-3" />
+			<TwitterIcon class="absolute right-3 top-3 size-3" />
 		</a>
 
 		<a
@@ -138,20 +147,14 @@
 			rel="noopener noreferrer"
 			class={clsx(
 				'rounded-fluid-5 border bg-white-200 p-fluid-6 dark:bg-black-800',
-				'col-span-2',
+				'col-span-4',
 				'relative flex items-center justify-center font-semibold',
 				'transition-transform duration-300 hover:scale-105'
 			)}
 		>
 			Contact
-			<MailIcon class="absolute right-4 top-4 size-3" />
+			<MailIcon class="absolute right-3 top-3 size-3" />
 		</a>
-
-		<div
-			class={clsx('rounded-fluid-5 border bg-white-200 p-fluid-6 dark:bg-black-800', 'col-span-4')}
-		>
-			<!--  -->
-		</div>
 
 		{#if githubData}
 			<div

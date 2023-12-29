@@ -94,7 +94,8 @@ export default {
 			xs: '/* 12px - 16px */ clamp(0.75rem, 0.5rem + 0.0031 * 100vw, 1rem)'
 		},
 		fontFamily: {
-			DEFAULT: ['Golos Text', 'sans-serif']
+			DEFAULT: ['Golos Text', 'sans-serif'],
+			monospace: ['Courier New', 'monospace']
 		},
 		extend: {
 			spacing,
