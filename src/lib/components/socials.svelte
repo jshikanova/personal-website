@@ -43,7 +43,7 @@
 				<div
 					class="shrink-0 rounded-[theme(spacing.fluid-1)] bg-blue-800 p-1 text-white-100 transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:bg-blue-900 dark:bg-lightblue-200 dark:text-black-900 group-hover:dark:bg-lightblue-100"
 				>
-					<Icon class="h-[theme(spacing.fluid-5)] w-[theme(spacing.fluid-5)]" />
+					<Icon class="size-[theme(spacing.fluid-5)]" />
 				</div>
 				{name}
 			</a>

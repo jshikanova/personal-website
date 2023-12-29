@@ -50,7 +50,8 @@ export default {
 				10: 'hsla(0, 0%, 94%, 0.1)',
 				90: 'hsla(0, 0%, 94%, 0.9)',
 				100: 'hsl(0, 0%, 100%)',
-				200: 'hsl(0, 0%, 92%)' // platinum
+				200: 'hsl(200, 9%, 96%)',
+				300: 'hsl(0, 0%, 92%)' // platinum
 			},
 			linen: {
 				100: 'hsl(30, 36%, 90%)', // linen
@@ -97,7 +98,21 @@ export default {
 		},
 		extend: {
 			spacing,
-			borderRadius: spacing
+			borderRadius: spacing,
+			keyframes: {
+				ping: {
+					'75%, 100%': { transform: 'scale(3)', opacity: 0 }
+				}
+			},
+			animation: {
+				ping: 'ping 2s ease-in-out infinite'
+			}
+		}
+	},
+	variants: {
+		extend: {
+			// ...
+			saturate: ['hover', 'focus']
 		}
 	},
 	plugins: []
