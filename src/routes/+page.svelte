@@ -7,9 +7,6 @@
 	export let data;
 
 	const { user: githubData } = data;
-
-	const localTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-	const myTimeZone = 'Asia/Almaty';
 </script>
 
 <Container>
@@ -68,6 +65,12 @@
 			Resume
 			<LinkIcon class="absolute right-3 top-3 size-3" />
 		</a>
+
+		<div
+			class={clsx('rounded-fluid-5 border bg-white-200 p-fluid-6 dark:bg-black-800', 'col-span-4')}
+		>
+			<Clock />
+		</div>
 
 		<div
 			class={clsx(
