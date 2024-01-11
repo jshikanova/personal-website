@@ -80,7 +80,7 @@
 		line-height: 1.5;
 		-webkit-font-smoothing: antialiased;
 		min-height: 100%;
-		background-color: theme('backgroundColor.white.100');
+		background-color: theme('backgroundColor.white.200');
 		font-family: theme('fontFamily.DEFAULT');
 		font-size: theme('fontSize.md');
 		color: theme('textColor.black.800');

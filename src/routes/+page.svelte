@@ -1,6 +1,6 @@
 <script lang="ts">
 	import clsx from 'clsx';
-	import { LinkIcon, MailIcon, TwitterIcon } from 'svelte-feather-icons';
+	import { CodepenIcon, LinkIcon, MailIcon, TwitterIcon } from 'svelte-feather-icons';
 
 	import { Container, Clock, GithubContributions } from '$lib/components';
 
@@ -9,26 +9,33 @@
 	const { user: githubData } = data;
 </script>
 
+<!-- <div class="h-fluid-16 max-w-fluid-16 bg-orange-100"></div> -->
+<!-- <h1 class="text-xxl">Title</h1> -->
 <Container>
-	<div class="grid grid-cols-12 gap-fluid-4">
+	<!-- class="grid grid-cols-[repeat(12,_minmax(16px,_1fr))] gap-fluid-4 md:grid-cols-[repeat(12,_minmax(80px,_1fr))] lg:grid-cols-[repeat(12,_minmax(69px,_1fr))]" -->
+	<div
+		class={clsx(
+			'grid gap-fluid-4',
+			'grid-cols-[repeat(12,_minmax(16px,_1fr))] lg:grid-cols-[repeat(12,_minmax(69px,_1fr))]'
+		)}
+	>
 		<div
-			class={clsx(
-				'rounded-fluid-5 border bg-white-200 p-fluid-6 dark:bg-black-800',
-				'col-span-full'
-			)}
+			class={clsx('rounded-fluid-5 border bg-white-100 p-fluid-6 dark:bg-black-800', 'col-span-8')}
 		>
-			<div class="flex flex-col gap-fluid-5">
-				<div class="flex flex-wrap items-center gap-fluid-5">
-					<img
-						class="size-[theme(spacing.fluid-12)] rounded-fluid-4"
+			<div class="flex flex-col">
+				<div class="flex flex-col flex-wrap items-center gap-fluid-6 sm:flex-row">
+					<!-- <img
+						class="size-fluid-14 rounded-fluid-4"
 						src="/images/Julia Shikanova.jpeg"
 						alt="Julia Shikanova"
 						width="88"
 						height="88"
-					/>
+					/> -->
 					<div>
-						<h1 class="mb-2 text-xl text-orange-100">Julia Shikanova</h1>
-						<h2 class="text-md font-normal text-black-100 dark:text-linen-200">
+						<h1 class="mb-2 text-center text-xxl text-orange-100 sm:text-left">Julia Shikanova</h1>
+						<h2
+							class="text-center text-lg font-normal text-black-100 dark:text-linen-200 sm:text-left"
+						>
 							Frontend developer
 						</h2>
 					</div>
@@ -38,7 +45,37 @@
 
 		<div
 			class={clsx(
-				'rounded-fluid-5 border bg-white-200 p-fluid-6 dark:bg-black-800',
+				'rounded-fluid-5 border bg-white-100 p-fluid-6 dark:bg-black-800',
+				'col-span-4 row-span-2',
+				'overflow-hidden'
+			)}
+		>
+			<img
+				class={clsx(
+					'aspect-square rounded-fluid-3 object-cover object-bottom',
+					'transform-[object-view-box] duration-300 ease-in-out',
+					'[object-view-box:inset(0%_18%_18%_18%)] hover:[object-view-box:inset(0%_0%_0%_0%)]'
+				)}
+				src="/images/Julia Shikanova (2).jpeg"
+				alt="Julia Shikanova"
+				width="311"
+				height="311"
+			/>
+		</div>
+
+		<div
+			class={clsx('rounded-fluid-5 border bg-white-100 p-fluid-6 dark:bg-black-800', 'col-span-8')}
+		>
+			<div class="max-w-[calc(theme(fontSize.md)*28)]">
+				<p class="mb-3">Welcome to my little corner of the Internet!</p>
+
+				<p>Join me on my journey to becoming a better developer and problem solver.</p>
+			</div>
+		</div>
+
+		<div
+			class={clsx(
+				'rounded-fluid-5 border bg-white-100 p-fluid-6 dark:bg-black-800',
 				'col-span-4',
 				'flex items-center gap-4 font-semibold'
 			)}
@@ -56,7 +93,7 @@
 		<a
 			href="/resume"
 			class={clsx(
-				'rounded-fluid-5 border bg-white-200 p-fluid-6 dark:bg-black-800',
+				'rounded-fluid-5 border bg-white-100 p-fluid-6 dark:bg-black-800',
 				'col-span-2',
 				'relative flex items-center justify-center font-semibold text-blue-800 dark:text-lightblue-100',
 				'transition-transform duration-300 hover:scale-105'
@@ -66,103 +103,85 @@
 			<LinkIcon class="absolute right-3 top-3 size-3" />
 		</a>
 
-		<div
-			class={clsx('rounded-fluid-5 border bg-white-200 p-fluid-6 dark:bg-black-800', 'col-span-4')}
-		>
-			<Clock />
-		</div>
-
-		<div
-			class={clsx(
-				'rounded-fluid-5 border bg-white-200 p-fluid-6 dark:bg-black-800',
-				'col-span-6',
-				'flex items-center gap-4'
-			)}
-		>
-			<span
-				class="relative text-xl leading-[0]"
-				aria-label="Smiling Face with Open Hands"
-				title="Flag of Kazakhstan">🇰🇿</span
-			>
-			<p>
-				Based in Kazakhstan,
-				<span class="text-black-800 text-opacity-60 dark:text-linen-100 dark:text-opacity-60">
-					Pavlodar
-				</span>
-			</p>
-		</div>
-
-		<div
-			class={clsx('rounded-fluid-5 border bg-white-200 p-fluid-6 dark:bg-black-800', 'col-span-3')}
-		>
-			<Clock timeZone={myTimeZone} />
-		</div>
-
-		<div
-			class={clsx('rounded-fluid-5 border bg-white-200 p-fluid-6 dark:bg-black-800', 'col-span-3')}
-		>
-			{#if localTimeZone !== myTimeZone}
-				<Clock timeZone={localTimeZone} />
-			{:else}
-				<p class="text-center">
-					Hey, neighbor! We are sharing a timeZone
-					<span aria-label="Smiling Face with Open Hands" title="Smiling Face with Open Hands">
-						🤗
-					</span>
-				</p>
-			{/if}
-		</div>
-
-		<div
-			class={clsx('rounded-fluid-5 border bg-white-200 p-fluid-6 dark:bg-black-800', 'col-span-6')}
-		>
-			Weather
-		</div>
-
-		<div
-			class={clsx(
-				'rounded-fluid-5 border bg-white-200 p-fluid-6 dark:bg-black-800',
-				'col-span-8 row-span-2'
-			)}
-		>
-			<p class="mb-3">Welcome to my little corner of the Internet!</p>
-			<p>Join me on my journey to becoming a better developer and problem solver.</p>
-		</div>
-
 		<a
 			href="mailto:juliashikanova@yandex.ru"
 			target="_blank"
 			rel="noopener noreferrer"
 			class={clsx(
-				'rounded-fluid-5 border bg-white-200 p-fluid-6 dark:bg-black-800',
-				'col-span-4 col-start-9',
-				'relative flex items-center justify-center font-semibold text-[#1DA1F2]',
-				'transition-transform duration-300 hover:scale-105'
-			)}
-		>
-			Twitter
-			<TwitterIcon class="absolute right-3 top-3 size-3" />
-		</a>
-
-		<a
-			href="mailto:juliashikanova@yandex.ru"
-			target="_blank"
-			rel="noopener noreferrer"
-			class={clsx(
-				'rounded-fluid-5 border bg-white-200 p-fluid-6 dark:bg-black-800',
-				'col-span-4',
+				'rounded-fluid-5 border bg-white-100 p-fluid-6 dark:bg-black-800',
+				'col-span-2',
 				'relative flex items-center justify-center font-semibold',
 				'transition-transform duration-300 hover:scale-105'
 			)}
 		>
 			Contact
-			<MailIcon class="absolute right-3 top-3 size-3" />
+			<MailIcon class="absolute right-3 top-3 size-4" />
 		</a>
+
+		<a
+			href="mailto:juliashikanova@yandex.ru"
+			target="_blank"
+			rel="noopener noreferrer"
+			class={clsx(
+				'rounded-fluid-5 border bg-white-100 p-fluid-6 dark:bg-black-800',
+				'col-span-2',
+				'relative flex items-center justify-center font-semibold text-[#1DA1F2]',
+				'transition-transform duration-300 hover:scale-105'
+			)}
+		>
+			Twitter
+			<TwitterIcon class="absolute right-3 top-3 size-4" />
+		</a>
+
+		<a
+			href="https://codepen.io/jshikanova"
+			target="_blank"
+			rel="noopener noreferrer"
+			class={clsx(
+				'rounded-fluid-5 border bg-white-100 p-fluid-6 dark:bg-black-800',
+				'col-span-2',
+				'relative flex items-center justify-center font-semibold',
+				'transition-transform duration-300 hover:scale-105'
+			)}
+		>
+			Codepen
+			<CodepenIcon class="absolute right-3 top-3 size-4" />
+		</a>
+
+		<div
+			class={clsx(
+				'rounded-fluid-5 border bg-white-100 p-fluid-6 dark:bg-black-800',
+				'col-span-7',
+				'flex items-center gap-12'
+			)}
+		>
+			<div class="flex items-center gap-4">
+				<span
+					class="relative text-xl leading-[0]"
+					aria-label="Smiling Face with Open Hands"
+					title="Flag of Kazakhstan"
+				>
+					🇰🇿
+				</span>
+				<p>
+					Based in Kazakhstan,
+					<span class="text-black-800 text-opacity-60 dark:text-linen-100 dark:text-opacity-60">
+						Pavlodar
+					</span>
+				</p>
+			</div>
+		</div>
+
+		<div
+			class={clsx('rounded-fluid-5 border bg-white-100 p-fluid-6 dark:bg-black-800', 'col-span-5')}
+		>
+			<Clock />
+		</div>
 
 		{#if githubData}
 			<div
 				class={clsx(
-					'rounded-fluid-5 border bg-white-200 p-fluid-6 dark:bg-black-800',
+					'rounded-fluid-5 border bg-white-100 p-fluid-6 dark:bg-black-800',
 					'col-span-full'
 				)}
 			>

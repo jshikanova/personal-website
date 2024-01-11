@@ -109,7 +109,7 @@
 		--size: clamp(0.875rem, calc(100vw / 53 - var(--gap)), 2rem);
 
 		--padding: theme(spacing.fluid-6) * 2;
-		--github-100: theme(colors.white.100);
+		--github-100: theme(colors.white.300);
 		--github-200: theme(colors.lilac.100);
 		--github-300: theme(colors.lilac.200);
 		--github-400: theme(colors.lilac.300);
@@ -122,7 +122,7 @@
 
 	@supports (container-type: inline-size) {
 		.contributions__wrapper {
-			--size: clamp(0.875rem, calc(100cqi / 53 - var(--gap) - var(--padding)), 2rem);
+			--size: clamp(0.875rem, calc((100cqi - var(--padding)) / 53 - var(--gap)), 2rem);
 		}
 	}
 </style>

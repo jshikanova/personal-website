@@ -27,13 +27,13 @@ type CreateFluidCSSUnit = {
 
 type FluidCSSUnits = Record<string, CreateFluidCSSUnit>;
 
-const screen: Screen = { min: 'lg', max: 'xxxl' };
+const screen: Screen = { min: 'xs', max: 'xxxl' };
 
 // * Update hardcoded CSS variables if fonts is changed
 export const fonts: FluidCSSUnits = {
-	'xxl-font-size': { unit: { min: 3.5, max: 4.5 }, screen },
-	'xl-font-size': { unit: { min: 2.5, max: 3 }, screen },
-	'lg-font-size': { unit: { min: 1.75, max: 2 }, screen },
+	'xxl-font-size': { unit: { min: 4, max: 6 }, screen },
+	'xl-font-size': { unit: { min: 2, max: 3 }, screen },
+	'lg-font-size': { unit: { min: 1.5, max: 2 }, screen },
 	'md-font-size': { unit: { min: 1.375, max: 1.75 }, screen },
 	'sm-font-size': { unit: { min: 1, max: 1.5 }, screen },
 	'xs-font-size': { unit: { min: 0.75, max: 1 }, screen }
@@ -107,6 +107,14 @@ export const spacing = {
 		startValue: 4,
 		length: 6
 	})
+	// ...createSpacing({
+	// 	keyPrefix: 'spacing',
+	// 	step: 2.5,
+	// 	screen,
+	// 	startIndex: 17,
+	// 	startValue: 10,
+	// 	length: 1
+	// })
 };
 
 /**
@@ -126,9 +134,7 @@ export const createFluidCSSUnit = ({
 	const slope = (unit.max - unit.min) / (screen.max - screen.min);
 	const yAxisIntersection = -screen.min * slope + unit.min;
 
-	return `clamp(${unit.min}rem, ${yAxisIntersection.toFixed(4)}rem + ${slope.toFixed(4)} * 100vw, ${
-		unit.max
-	}rem)`;
+	return `clamp(${unit.min}rem, ${yAxisIntersection}rem + ${slope} * 100vw, ${unit.max}rem)`;
 };
 
 export const getHardcodedCSSVariables = ({
@@ -145,7 +151,7 @@ export const getHardcodedCSSVariables = ({
 				value.unit.max * pixelsPerRem
 			}px */`;
 
-			return [...acc, `--${key}: ${fluidUnit}; ${comment}`];
+			return [...acc, `--${key}: ${comment} ${fluidUnit}`];
 		}, [])
 		.join('\n');
 

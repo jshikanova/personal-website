@@ -4,6 +4,7 @@
 	type Time = {
 		hours: string;
 		minutes: string;
+		seconds: string;
 	};
 
 	const myTimeZone = 'Asia/Almaty';
@@ -30,7 +31,7 @@
 
 	const timeDiff = getTimeZonesDiff(myTimeZone, localTimeZone);
 
-	let time: Time = { hours: '00', minutes: '00' };
+	let time: Time = { hours: '00', minutes: '00', seconds: '00' };
 
 	const setTime = () => {
 		const date = new Date();
@@ -49,18 +50,24 @@
 
 		time.hours = formattedHours;
 		time.minutes = minutes;
+		time.seconds = seconds;
 
+		// setTimeout(setTime, 1000);
 		setTimeout(setTime, (60 - +seconds) * 1000);
 	};
 
 	setTime();
 </script>
 
-<div class="flex h-full flex-wrap items-center justify-center gap-x-4">
+<div class="flex h-full flex-wrap items-center gap-x-4">
 	<div class="flex items-center gap-2">
 		<ClockIcon class="flex-shrink-0" size="20" />
-		<p class="font-monospace font-extrabold" title={myTimeZone && formatTimeZoneTitle(myTimeZone)}>
+		<p
+			class="font-monospace font-extrabold leading-[0]"
+			title={myTimeZone && formatTimeZoneTitle(myTimeZone)}
+		>
 			{time.hours}<span class="animate-pulse">:</span>{time.minutes}
+			<!-- :</span>{time.seconds} -->
 		</p>
 	</div>
 
