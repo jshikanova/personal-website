@@ -13,17 +13,20 @@
 				<slot />
 			</div>
 			<div>
-				Designed and
-
 				<Link
 					href="https://github.com/jshikanova/personal-website"
 					title="Github repository"
 					isOuter
 				>
-					coded
+					Crafted
 				</Link>
-				with a little bit of <span aria-label="sparkles" title="sparkles">✨</span>. Built with
-				<Link href="https://kit.svelte.dev/" title="Svelte Kit" variant="accent">SvelteKit</Link>
+				with care and a touch of <span aria-label="sparkles" title="sparkles">✨</span> using <Link
+					href="https://kit.svelte.dev/"
+					title="Svelte Kit"
+					variant="accent"
+				>
+					SvelteKit
+				</Link>
 			</div>
 		</div>
 	</Container>
