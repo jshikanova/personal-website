@@ -2,7 +2,7 @@
 
 ## Roadmap:
 
-- [ ] Dashboard? (bento style page with widgets: Local time and weather, location, etc)
+- [x] Dashboard? (bento style page with widgets: Local time and weather, location, etc)
 - [ ] Update to Svelte 5
 - [ ] Setup page
 - [x] Refactor styles to use Tailwind best practices
