@@ -16,7 +16,8 @@
 				'grid items-center justify-between',
 				'grid-cols-[repeat(2,var(--column))] [--column:minmax(80px,auto)] sm:grid-cols-[var(--column)_auto_var(--column)]',
 				'rounded-fluid-6 border px-fluid-6 py-fluid-4 text-sm dark:border-black-60',
-				'supports-[backdrop-filter:blur(4px)]:bg-transparent supports-[backdrop-filter:blur(4px)]:backdrop-blur-sm'
+				// 'supports-[backdrop-filter:blur(4px)]:transparent supports-[backdrop-filter:blur(4px)]:backdrop-blur-sm',
+				'bg-white-100 dark:bg-black-800'
 			)}
 		>
 			<a
