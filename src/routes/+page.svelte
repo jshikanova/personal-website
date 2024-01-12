@@ -128,7 +128,7 @@
 		</a>
 
 		<a
-			href="mailto:juliashikanova@yandex.ru"
+			href="https://x.com/jshikanova"
 			target="_blank"
 			rel="noopener noreferrer"
 			class={clsx(
