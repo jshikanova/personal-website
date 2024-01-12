@@ -97,7 +97,7 @@ export default {
 		},
 		fontFamily: {
 			DEFAULT: ['Golos Text', 'sans-serif'],
-			monospace: ['Courier New', 'monospace']
+			monospace: ['Space Mono', 'Courier New', 'monospace']
 		},
 		extend: {
 			spacing,

@@ -9,10 +9,7 @@
 	const { user: githubData } = data;
 </script>
 
-<!-- <div class="h-fluid-16 max-w-fluid-16 bg-orange-100"></div> -->
-<!-- <h1 class="text-xxl">Title</h1> -->
 <Container>
-	<!-- class="grid grid-cols-[repeat(12,_minmax(16px,_1fr))] gap-fluid-4 md:grid-cols-[repeat(12,_minmax(80px,_1fr))] lg:grid-cols-[repeat(12,_minmax(69px,_1fr))]" -->
 	<div
 		class={clsx(
 			'grid gap-fluid-4',
@@ -20,19 +17,24 @@
 		)}
 	>
 		<div
-			class={clsx('rounded-fluid-5 border bg-white-100 p-fluid-6 dark:bg-black-800', 'col-span-8')}
+			class={clsx(
+				'rounded-fluid-5 border bg-white-100 p-fluid-5 dark:bg-black-800 lg:p-fluid-6',
+				'col-span-full lg:col-span-8'
+			)}
 		>
 			<div class="flex flex-col">
-				<div class="flex flex-col flex-wrap items-center gap-fluid-6 sm:flex-row">
-					<!-- <img
-						class="size-fluid-14 rounded-fluid-4"
+				<div class="flex flex-col flex-wrap items-center gap-fluid-5 sm:flex-row">
+					<img
+						class="size-fluid-14 rounded-fluid-4 lg:hidden"
 						src="/images/Julia Shikanova.jpeg"
 						alt="Julia Shikanova"
 						width="88"
 						height="88"
-					/> -->
+					/>
 					<div>
-						<h1 class="mb-2 text-center text-xxl text-orange-100 sm:text-left">Julia Shikanova</h1>
+						<h1 class="mb-2 text-center text-xl text-orange-100 sm:text-left sm:text-xxl">
+							Julia Shikanova
+						</h1>
 						<h2
 							class="text-center text-lg font-normal text-black-100 dark:text-linen-200 sm:text-left"
 						>
@@ -45,8 +47,8 @@
 
 		<div
 			class={clsx(
-				'rounded-fluid-5 border bg-white-100 p-fluid-6 dark:bg-black-800',
-				'col-span-4 row-span-2',
+				'rounded-fluid-5 border bg-white-100 p-fluid-5 dark:bg-black-800 lg:p-fluid-6',
+				'hidden lg:col-span-4 lg:row-span-2 lg:block',
 				'overflow-hidden'
 			)}
 		>
@@ -58,16 +60,23 @@
 				)}
 				src="/images/Julia Shikanova (2).jpeg"
 				alt="Julia Shikanova"
-				width="311"
-				height="311"
+				width="333"
+				height="333"
 			/>
+			<p></p>
 		</div>
 
 		<div
-			class={clsx('rounded-fluid-5 border bg-white-100 p-fluid-6 dark:bg-black-800', 'col-span-8')}
+			class={clsx(
+				'rounded-fluid-5 border bg-white-100 p-fluid-5 dark:bg-black-800 lg:p-fluid-6',
+				'col-span-full lg:col-span-8'
+			)}
 		>
 			<div class="max-w-[calc(theme(fontSize.md)*28)]">
-				<p class="mb-3">Welcome to my little corner of the Internet!</p>
+				<p class="mb-3">
+					Welcome to my little corner of the Internet!
+					<span aria-label="Waving Hand" title="Waving Hand">👋</span>
+				</p>
 
 				<p>Join me on my journey to becoming a better developer and problem solver.</p>
 			</div>
@@ -75,8 +84,8 @@
 
 		<div
 			class={clsx(
-				'rounded-fluid-5 border bg-white-100 p-fluid-6 dark:bg-black-800',
-				'col-span-4',
+				'rounded-fluid-5 border bg-white-100 p-fluid-5 dark:bg-black-800 lg:p-fluid-6',
+				'col-span-full sm:col-span-6 lg:col-span-4',
 				'flex items-center gap-4 font-semibold'
 			)}
 		>
@@ -93,8 +102,8 @@
 		<a
 			href="/resume"
 			class={clsx(
-				'rounded-fluid-5 border bg-white-100 p-fluid-6 dark:bg-black-800',
-				'col-span-2',
+				'rounded-fluid-5 border bg-white-100 p-fluid-5 dark:bg-black-800 lg:p-fluid-6',
+				'col-span-6 lg:col-span-2',
 				'relative flex items-center justify-center font-semibold text-blue-800 dark:text-lightblue-100',
 				'transition-transform duration-300 hover:scale-105'
 			)}
@@ -108,8 +117,8 @@
 			target="_blank"
 			rel="noopener noreferrer"
 			class={clsx(
-				'rounded-fluid-5 border bg-white-100 p-fluid-6 dark:bg-black-800',
-				'col-span-2',
+				'rounded-fluid-5 border bg-white-100 p-fluid-5 dark:bg-black-800 lg:p-fluid-6',
+				'col-span-6 sm:col-span-4 lg:col-span-2',
 				'relative flex items-center justify-center font-semibold',
 				'transition-transform duration-300 hover:scale-105'
 			)}
@@ -123,8 +132,8 @@
 			target="_blank"
 			rel="noopener noreferrer"
 			class={clsx(
-				'rounded-fluid-5 border bg-white-100 p-fluid-6 dark:bg-black-800',
-				'col-span-2',
+				'rounded-fluid-5 border bg-white-100 p-fluid-5 dark:bg-black-800 lg:p-fluid-6',
+				'col-span-6 sm:col-span-4 lg:col-span-2',
 				'relative flex items-center justify-center font-semibold text-[#1DA1F2]',
 				'transition-transform duration-300 hover:scale-105'
 			)}
@@ -138,8 +147,8 @@
 			target="_blank"
 			rel="noopener noreferrer"
 			class={clsx(
-				'rounded-fluid-5 border bg-white-100 p-fluid-6 dark:bg-black-800',
-				'col-span-2',
+				'rounded-fluid-5 border bg-white-100 p-fluid-5 dark:bg-black-800 lg:p-fluid-6',
+				'col-span-6 sm:col-span-4 lg:col-span-2',
 				'relative flex items-center justify-center font-semibold',
 				'transition-transform duration-300 hover:scale-105'
 			)}
@@ -150,8 +159,8 @@
 
 		<div
 			class={clsx(
-				'rounded-fluid-5 border bg-white-100 p-fluid-6 dark:bg-black-800',
-				'col-span-7',
+				'rounded-fluid-5 border bg-white-100 p-fluid-5 dark:bg-black-800 lg:p-fluid-6',
+				'col-span-full sm:col-span-7',
 				'flex items-center gap-12'
 			)}
 		>
@@ -163,7 +172,7 @@
 				>
 					🇰🇿
 				</span>
-				<p>
+				<p class="leading-none">
 					Based in Kazakhstan,
 					<span class="text-black-800 text-opacity-60 dark:text-linen-100 dark:text-opacity-60">
 						Pavlodar
@@ -173,7 +182,10 @@
 		</div>
 
 		<div
-			class={clsx('rounded-fluid-5 border bg-white-100 p-fluid-6 dark:bg-black-800', 'col-span-5')}
+			class={clsx(
+				'rounded-fluid-5 border bg-white-100 p-fluid-5 dark:bg-black-800 lg:p-fluid-6',
+				'col-span-full sm:col-span-5'
+			)}
 		>
 			<Clock />
 		</div>
@@ -181,7 +193,7 @@
 		{#if githubData}
 			<div
 				class={clsx(
-					'rounded-fluid-5 border bg-white-100 p-fluid-6 dark:bg-black-800',
+					'rounded-fluid-5 border bg-white-100 p-fluid-5 dark:bg-black-800 lg:p-fluid-6',
 					'col-span-full'
 				)}
 			>

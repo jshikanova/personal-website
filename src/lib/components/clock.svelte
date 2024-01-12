@@ -61,11 +61,8 @@
 
 <div class="flex h-full flex-wrap items-center gap-x-4">
 	<div class="flex items-center gap-2">
-		<ClockIcon class="flex-shrink-0" size="20" />
-		<p
-			class="font-monospace font-extrabold leading-[0]"
-			title={myTimeZone && formatTimeZoneTitle(myTimeZone)}
-		>
+		<ClockIcon size="24" />
+		<p class="font-monospace font-extrabold" title={myTimeZone && formatTimeZoneTitle(myTimeZone)}>
 			{time.hours}<span class="animate-pulse">:</span>{time.minutes}
 			<!-- :</span>{time.seconds} -->
 		</p>
