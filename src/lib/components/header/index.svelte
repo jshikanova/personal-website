@@ -1,6 +1,8 @@
 <script lang="ts">
 	import clsx from 'clsx';
 
+	import { NAVIGATION_LINKS } from '$lib/helpers';
+
 	import ThemeToggle from './theme-toggle.svelte';
 	import Container from '../container.svelte';
 
@@ -43,32 +45,21 @@
 			</a>
 			<nav class="hidden sm:block">
 				<ul class="flex flex-wrap gap-8 ps-0">
-					<li class="inline-flex pb-0">
-						<a
-							class={clsx(
-								'text-black-900 hover:text-orange-100 dark:text-linen-100 dark:hover:text-orange-100',
-								'transition-colors duration-200 ease-in-out',
-								activeRoute === '/resume' &&
-									'pointer-events-none cursor-default text-orange-100 dark:text-orange-100'
-							)}
-							href="/resume"
-						>
-							Resume
-						</a>
-					</li>
-					<li>
-						<a
-							class={clsx(
-								'text-black-900 hover:text-orange-100 dark:text-linen-100 dark:hover:text-orange-100',
-								'transition-colors duration-200 ease-in-out'
-							)}
-							href="mailto:juliashikanova@yandex.ru"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							Get in touch
-						</a>
-					</li>
+					{#each NAVIGATION_LINKS as navLink}
+						<li class="inline-flex pb-0">
+							<a
+								class={clsx(
+									'text-black-900 hover:text-orange-100 dark:text-linen-100 dark:hover:text-orange-100',
+									'transition-colors duration-200 ease-in-out',
+									activeRoute === navLink.url &&
+										'pointer-events-none cursor-default text-orange-100 dark:text-orange-100'
+								)}
+								href={navLink.url}
+							>
+								{navLink.title}
+							</a>
+						</li>
+					{/each}
 				</ul>
 			</nav>
 			<ThemeToggle />

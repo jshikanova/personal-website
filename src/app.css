@@ -63,6 +63,7 @@
 */
 
 @tailwind base;
+
 @layer base {
 	/* 
   * Custom CSS reset by Josh W. Comeau
@@ -117,17 +118,6 @@
 
 	button {
 		padding: 0;
-	}
-
-	p,
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		overflow-wrap: break-word;
-		text-wrap: pretty;
 	}
 
 	/* 
@@ -205,7 +195,19 @@
 	h5,
 	h6 {
 		font-weight: theme('fontWeight.bold');
-		line-height: 1;
+		line-height: 1.4;
+	}
+
+	p,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	li {
+		overflow-wrap: break-word;
+		text-wrap: pretty;
 	}
 
 	h1 {
@@ -220,7 +222,8 @@
 		font-size: theme('fontSize.lg');
 	}
 
-	ul {
+	ul,
+	ol {
 		padding-inline-start: theme('spacing.fluid-7');
 	}
 
@@ -234,13 +237,196 @@
 
 	hr {
 		width: 100%;
-		border-top: 1px dashed theme('borderColor.linen.20');
+		border-top: 1px dashed theme('borderColor.black.60');
+	}
+
+	[data-scheme='dark'] hr {
+		border-color: theme('borderColor.linen.20');
 	}
 
 	img {
 		max-width: 100%;
 		display: block;
 	}
+
+	/* * Post */
+
+	.post-content {
+
+		p,
+		div,
+		ul,
+		ol,
+		dl,
+		dt,
+		dd,
+		address,
+		fieldset,
+		figure,
+		figcaption,
+		hr,
+		table,
+		section,
+		details,
+		summary {
+			padding-block-end: theme('spacing.fluid-8');
+		}
+
+		:is(h1, h2, h3, h4, h5, h6) {
+			/* padding-block-start: theme('spacing.fluid-6'); */
+			padding-block-end: theme('spacing.fluid-8');
+		}
+
+		code,
+		pre {
+			font-family: theme('fontFamily.monospace');
+			font-variant-ligatures: none;
+			color: var(--shiki-color-text);
+			font-size: theme('fontSize.sm');
+		}
+
+		pre {
+			--shiki-color-text: #c9d1d9;
+			--shiki-color-background: #0d1117;
+			--shiki-token-constant: #79c0ff;
+			--shiki-token-string: #a5d6ff;
+			--shiki-token-comment: #8b949e;
+			--shiki-token-keyword: #ff7b72;
+			--shiki-token-parameter: #c9d1d9;
+			--shiki-token-function: #d2a8ff;
+			--shiki-token-string-expression: #a5d6ff;
+			--shiki-token-punctuation: #c9d1d9;
+			--shiki-token-link: #79ffb5;
+
+			background: var(--shiki-color-background);
+			border-radius: theme('borderRadius.lg');
+			padding: theme('spacing.fluid-6');
+			margin: 0;
+			margin-inline: theme('spacing.fluid-8');
+		}
+
+		pre,
+		pre * {
+			overflow-x: auto;
+			white-space: pre-wrap;
+		}
+
+		p code {
+			background: theme('backgroundColor.linen.200');
+			color: theme('textColor.black.800');
+			font-weight: bold;
+			padding-inline: theme('spacing.2');
+			border-radius: theme('borderRadius.md');
+		}
+
+		[data-scheme='dark'] p code {
+			background: theme('backgroundColor.lightblue.200');
+		}
+
+		blockquote {
+			--offset: theme('spacing.fluid-4');
+
+			position: relative;
+			padding-inline-start: theme('spacing.fluid-7');
+			padding-block: var(--offset);
+
+			:before {
+				content: '';
+				position: absolute;
+				top: var(--offset);
+				left: 0;
+				border-left: 4px dotted theme('borderColor.DEFAULT');
+				height: calc(100% - var(--offset) * 2);
+			}
+
+			p:not(:last-child) {
+				padding-block-end: theme('spacing.fluid-4');
+			}
+
+			p:last-child {
+				padding-block-end: 0;
+			}
+		}
+
+		pre,
+		>blockquote,
+		table {
+			margin-bottom: theme('spacing.fluid-8');
+		}
+
+		*:has(+ :is(ul, ol)) {
+			padding-block-end: theme('spacing.fluid-4');
+		}
+
+		ul,
+		ol {
+			padding-inline-start: theme('spacing.fluid-8');
+		}
+
+		ul.contains-task-list li {
+			position: relative;
+			display: flex;
+			align-items: center;
+		}
+
+		ul.contains-task-list input[type="checkbox"] {
+			position: absolute;
+			left: -25px;
+		}
+
+		ul:not(.contains-task-list) {
+			list-style-type: disc;
+		}
+
+		ul ul {
+			list-style-type: circle;
+			padding-bottom: 0;
+		}
+
+		ul ul ul {
+			list-style-type: square;
+		}
+
+		ol {
+			list-style-type: decimal;
+		}
+
+		li:not(:last-child) {
+			padding-block-end: theme('spacing.fluid-4');
+		}
+
+		li p {
+			padding-block-end: 0;
+		}
+
+		table {
+			width: calc(100% - theme('spacing.fluid-6') * 2);
+			margin-inline: theme('spacing.fluid-6');
+		}
+
+		:is(table, th, td) {
+			border: 1px solid theme('borderColor.black.20');
+		}
+
+		td,
+		th {
+			padding-inline: theme('spacing.2');
+			padding-block: theme('spacing.3');
+		}
+	}
+
+	[data-scheme='dark'] .post-content {
+		p code {
+			background: theme('backgroundColor.black.100');
+			color: theme('textColor.white.100');
+		}
+
+		:is(table, th, td) {
+			border-color: theme('borderColor.linen.20');
+		}
+	}
+
+	/* * Post end */
 }
 
 @tailwind components;
