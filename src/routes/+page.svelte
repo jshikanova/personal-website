@@ -26,7 +26,7 @@
 				<div class="flex flex-col flex-wrap items-center gap-fluid-5 sm:flex-row">
 					<img
 						class="size-fluid-14 rounded-fluid-4 lg:hidden"
-						src="/images/Julia Shikanova.jpeg"
+						src="/images/Julia_Shikanova.jpeg"
 						alt="Julia Shikanova"
 						width="88"
 						height="88"
@@ -58,7 +58,7 @@
 					'transform-[object-view-box] duration-300 ease-in-out',
 					'[object-view-box:inset(0%_18%_18%_18%)] hover:[object-view-box:inset(0%_0%_0%_0%)]'
 				)}
-				src="/images/Julia Shikanova (2).jpeg"
+				src="/images/Julia_Shikanova_2.jpeg"
 				alt="Julia Shikanova"
 				width="333"
 				height="333"

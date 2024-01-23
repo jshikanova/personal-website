@@ -25,6 +25,19 @@ declare global {
 			value: string;
 		} & Omit<SvelteHTMLElements['input'], 'type'>;
 
+		type PostType = 'article' | 'note' | 'essay';
+		// type PostCategories = 'sveltekit' | 'svelte';
+
+		interface Post {
+			title: string;
+			slug: string;
+			description: string;
+			date: string;
+			type: PostType;
+			// categories: Categories[];
+			published: boolean;
+		}
+
 		// interface Error {}
 		// interface Locals {}
 		// interface PageData {}
